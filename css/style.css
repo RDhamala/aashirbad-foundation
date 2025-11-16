@@ -174,8 +174,8 @@ textarea:focus-visible {
 
 .hero {
     position: relative;
-    padding: 6rem 0 5rem;
-    min-height: 70vh;
+    padding: 5rem 0 4rem;
+    min-height: 60vh;
     color: #fff;
     text-align: left;
     background: url('../images/stories/hero-placeholder.jpg') center/cover no-repeat;
@@ -191,7 +191,7 @@ textarea:focus-visible {
 
 .hero-panel {
     position: relative;
-    max-width: 640px;
+    max-width: 720px;
     z-index: 1;
     background: rgba(4, 9, 24, 0.35);
     padding: 2rem;
