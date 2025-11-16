@@ -3,13 +3,13 @@
    Organized for readability and long-term maintenance
    ========================================================= */
 :root {
-    --color-primary: #2e8b57;
-    --color-primary-dark: #1f5e3b;
-    --color-secondary: #16324f;
-    --color-accent: #f4a259;
-    --color-bg: #f6f8f9;
-    --color-text: #1f2a37;
-    --color-muted: #5c6675;
+    --color-primary: #0b3d91;
+    --color-primary-dark: #072a64;
+    --color-secondary: #101826;
+    --color-accent: #64c5ff;
+    --color-bg: #f4f6fb;
+    --color-text: #1c1f27;
+    --color-muted: #5a6172;
     --radius-lg: 1.5rem;
     --radius-md: 1rem;
     --radius-sm: 0.65rem;
@@ -267,7 +267,7 @@ textarea:focus-visible {
 }
 
 .story-backstory {
-    background: linear-gradient(180deg, #f0f7f2 0%, #fff 100%);
+    background: linear-gradient(180deg, #e8eefc 0%, #fff 100%);
 }
 
 .story-list {
@@ -281,6 +281,21 @@ textarea:focus-visible {
     margin-top: 0.5rem;
     color: var(--color-muted);
     font-size: 0.9rem;
+}
+
+.cta {
+    background: linear-gradient(120deg, #061733, var(--color-primary));
+    color: #fff;
+    text-align: center;
+}
+
+.cta .btn.ghost {
+    border-color: #fff;
+    color: #fff;
+}
+
+.cta .btn.ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
 /* Navigation */
