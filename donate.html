@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script 
+      src="https://www.paypal.com/sdk/js?client-id=BAARjkPvV49JOofb6cSmKzTnEKuIJyAdZaMAVjR3DexsmHW5Y-9YPk-LZ56PaEg27aMNE3y-3WB2UQbbyE&components=hosted-buttons&enable-funding=venmo&currency=USD">
+    </script>
 </head>
 <body>
     <!-- HEADER:START -->
@@ -50,11 +53,15 @@
     <!-- HEADER:END -->
 
     <main id="main-content">
-        <section class="page-hero">
+        <section class="page-hero hero-donate hero-overlay">
             <div class="container narrow fade-in">
                 <p class="eyebrow">Invest in scholars</p>
-                <h1>Fuel technology scholarships in Nepal.</h1>
-                <p>Your donation is tax deductible. Aashirbad Foundation is a registered 501(c)(3) nonprofit. Every gift keeps tuition current, delivers devices, covers warm clothing and meals, and pairs students from low-income wards with mentors.</p>
+                <h1>Fuel rural STEM scholarships in Nepal.</h1>
+                <p>Your donation is tax deductible. Aashirbad Foundation is a registered 501(c)(3) nonprofit. Every gift keeps tuition current, delivers devices, covers warm clothing and meals, and pairs students from low-income wards with mentors in Nepal and across the diaspora.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#donation-form-title">Give now</a>
+                    <a class="btn btn-outline hero-secondary" href="transparency.html">See financials</a>
+                </div>
             </div>
         </section>
 
@@ -79,6 +86,14 @@
                         <li>$100 equips a student with textbooks and software.</li>
                         <li>$500 launches a new Future Coders cohort.</li>
                     </ul>
+                    <div class="paypal-container">
+                        <div id="paypal-container-3HYY3RQ6M2F3A"></div>
+                        <script>
+                          paypal.HostedButtons({
+                            hostedButtonId: "3HYY3RQ6M2F3A",
+                          }).render("#paypal-container-3HYY3RQ6M2F3A");
+                        </script>
+                    </div>
                 </div>
                 <form class="donate-form fade-in" aria-describedby="donate-note" data-feedback="Thanks for pledging! We’ll follow up via email." novalidate>
                     <label for="donor-name">Full Name</label>
@@ -111,7 +126,7 @@
                         <li><strong>$60</strong> keeps an SEE graduate connected with data + SIM for a month of bridge classes.</li>
                         <li><strong>$300</strong> equips a rural library with a router, solar trunk, and offline curriculum drive.</li>
                         <li><strong>$480</strong> covers one semester of hostel + lab fees for a university STEM scholar.</li>
-                        <li><strong>$1,200</strong> launches a Women in Tech leadership cohort with mini-grants.</li>
+                        <li><strong>$1,200</strong> funds an entire Future Coders lab complete with devices and weekly diaspora mentorship.</li>
                     </ul>
                     <p class="small">Prefer ACH, donor-advised funds, stock, or employer matching? Email <a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a> and we’ll send instructions.</p>
                 </article>

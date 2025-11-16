@@ -8,7 +8,7 @@ A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonpr
 - **CSS3** (custom design system) for responsive layouts, accessibility helpers, gradient sections, and component styling.
 - **Vanilla JavaScript** for lightweight interactivity: mobile navigation, scroll animations, donation amount selectors, and form feedback.
 
-No build tools are required—the project can be served as pure static files. When you update repeatable content (stories/programs), edit the JSON files in `/data` and run:
+No build tools are required. The project can be served as pure static files. When you update repeatable content (stories/programs), edit the JSON files in `/data` and run:
 
 ```bash
 node scripts/build-content.js
