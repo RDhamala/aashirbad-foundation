@@ -350,6 +350,12 @@ textarea:focus-visible {
     font-size: 1.1rem;
 }
 
+.logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
