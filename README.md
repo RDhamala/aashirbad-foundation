@@ -8,20 +8,33 @@ A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonpr
 - **CSS3** (custom design system) for responsive layouts, accessibility helpers, gradient sections, and component styling.
 - **Vanilla JavaScript** for lightweight interactivity: mobile navigation, scroll animations, donation amount selectors, and form feedback.
 
-No build tools are required—the project can be served as pure static files.
+No build tools are required—the project can be served as pure static files. When you update repeatable content (stories/programs), edit the JSON files in `/data` and run:
+
+```bash
+node scripts/build-content.js
+```
+
+The script regenerates the HTML snippets automatically, keeping the site ready for static hosting.
 
 ## Project Structure
 
 ```
 Aashirbad Foundation/
+├── data/
+│   ├── programs.json
+│   └── stories.json
+├── scripts/
+│   └── build-content.js
 ├── css/
 │   └── style.css
 ├── js/
 │   └── script.js
 ├── images/
-│   ├── computer-lab-1.(jpg|webp)
-│   ├── computr-lab-2.(jpg|webp)
-│   ├── shankha-devi-*.jpg
+│   ├── campaigns/
+│   │   └── hero-students.(JPG|webp)
+│   ├── programs/
+│   │   └── stem-lab.(JPG|webp)
+│   ├── stories/ (drop future story photos here)
 │   └── logo.svg, favicon.svg
 ├── index.html
 ├── about.html
@@ -43,7 +56,7 @@ Aashirbad Foundation/
    npx serve .
    ```
    or open `index.html` directly in your browser for a quick preview.
-3. Update HTML/CSS/JS files as needed; no build step is required.
+3. Update HTML/CSS/JS files as needed. When changing stories/programs, edit `/data/*.json` and rerun `node scripts/build-content.js`.
 
 ## Deployment
 
@@ -54,13 +67,14 @@ Because the site is static, it can be deployed easily via GitHub Pages, Cloudfla
 
 Remember to update DNS to map `aashirbafoundation.com` to your hosting provider and enforce HTTPS.
 
-## Conventions & Best Practices
+## Content & Asset Workflow
 
+- **Stories & Programs:** Edit `data/stories.json` or `data/programs.json` to add/remove entries, then run `node scripts/build-content.js`. The script updates `stories.html`, `programs.html`, and the program preview cards on the home page.
+- **Images:** Store new assets inside the relevant folder (`images/stories`, `images/programs`, `images/campaigns`). Include both `.webp` and `.jpg/.png` variants when possible for performance. Use descriptive filenames like `stories-sita-mentor.webp`.
 - Maintain semantic headings and aria attributes to preserve the site’s WCAG-friendly structure.
-- When adding imagery, place files inside `images/` and provide WebP variants when possible for performance.
 - Keep mission statements and trust content consistent across pages (footer, about, story sections).
 - For new interactive behavior, extend `js/script.js` in modular functions following the existing pattern.
 
 ## Contact
 
-Questions or contributions? Reach out via `hello@aashirbad.org` or open an issue/PR in this repository.
+Questions or contributions? Reach out via `info@aashirbadfoundation.org` or open an issue/PR in this repository.

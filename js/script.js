@@ -152,7 +152,8 @@ const App = (() => {
 
                 const feedback = form.querySelector('.form-feedback');
                 if (feedback) {
-                    feedback.textContent = form.getAttribute('data-feedback') || 'Thank you!';
+                    const message = form.getAttribute('data-feedback') || 'Thank you!';
+                    feedback.innerHTML = `${message} <br><small>Email us any time at <a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a>.</small>`;
                 }
                 form.reset();
                 const amountButtons = form.querySelectorAll('.amount');
@@ -193,33 +194,4 @@ const App = (() => {
     return { init };
 })();
 
-const loadPartials = () => {
-    const targets = document.querySelectorAll('[data-include]');
-    if (!targets.length) {
-        return Promise.resolve();
-    }
-
-    const loads = Array.from(targets).map((node) => {
-        const file = node.getAttribute('data-include');
-        return fetch(file)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load ${file}`);
-                }
-                return response.text();
-            })
-            .then((html) => {
-                node.outerHTML = html;
-            })
-            .catch((error) => console.error(error));
-    });
-
-    return Promise.all(loads);
-};
-
-window.addEventListener('DOMContentLoaded', () => {
-    loadPartials().then(App.init).catch((error) => {
-        console.error(error);
-        App.init();
-    });
-});
+window.addEventListener('DOMContentLoaded', App.init);

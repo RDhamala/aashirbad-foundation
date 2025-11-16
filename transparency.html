@@ -21,7 +21,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div data-include="partials/header.html"></div>
+    <!-- HEADER:START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" role="banner">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html" aria-label="Aashirbad Foundation home">
+                <img src="images/logo.svg" alt="Aashirbad Foundation">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav">
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-ghost" href="donate.html">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- HEADER:END -->
 
     <main id="main-content">
         <section class="page-hero">
@@ -42,19 +68,41 @@
                     <article class="document-card fade-in">
                         <h3>2024 Annual Report</h3>
                         <p>Program highlights, financial overview, and stories from scholars.</p>
-                        <a class="btn btn-outline" href="#">Download PDF</a>
+                        <a class="btn btn-outline" href="resources.html#annual-report">View details</a>
                     </article>
                     <article class="document-card fade-in">
                         <h3>IRS Determination Letter</h3>
                         <p>Proof of 501(c)(3) public charity status.</p>
-                        <a class="btn btn-outline" href="#">Download PDF</a>
+                        <a class="btn btn-outline" href="resources.html#irs-letter">View details</a>
                     </article>
                     <article class="document-card fade-in">
                         <h3>Form 990 Summary</h3>
                         <p>Latest federal filing with expense breakdowns and governance details.</p>
-                        <a class="btn btn-outline" href="#">Download PDF</a>
+                        <a class="btn btn-outline" href="resources.html#form-990">View details</a>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <section class="section muted" aria-labelledby="flow-heading">
+            <div class="container split">
+                <article class="mission-card fade-in">
+                    <p class="eyebrow">How funds move</p>
+                    <h2 id="flow-heading">Bridge in three steps.</h2>
+                    <ol>
+                        <li><strong>U.S.-based donors</strong> contribute to Aashirbad Foundation (EIN 93-4943678).</li>
+                        <li><strong>Compliance and review:</strong> board finance committee approves disbursements and converts funds through regulated channels.</li>
+                        <li><strong>Nepali delivery partners</strong>—community schools, Teach For Nepal alumni, Girls in Tech Nepal hubs—deploy scholarships, devices, and labs with quarterly reporting.</li>
+                    </ol>
+                </article>
+                <aside class="info-card fade-in">
+                    <h3>What donors receive</h3>
+                    <ul class="pillars">
+                        <li>Quarterly dashboards showing spending, beneficiaries, and stories.</li>
+                        <li>Annual IRS filings, audited statements, and partner MOUs.</li>
+                        <li>Direct contact with our Fort Worth compliance lead for any verification.</li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
@@ -78,7 +126,50 @@
         </section>
     </main>
 
-    <div data-include="partials/footer.html"></div>
+    <!-- CTA:START -->
+    <section class="section cta" aria-labelledby="cta-title">
+        <div class="container cta-grid fade-in">
+            <div>
+                <h2 id="cta-title">Help aspiring technologists thrive.</h2>
+                <p>Your monthly or one-time gift keeps tuition current, equips classrooms with reliable devices, and matches Nepali students with experienced mentors.</p>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="donate.html">Donate today</a>
+                <a class="btn btn-outline" href="contact.html">Partner with us</a>
+            </div>
+        </div>
+    </section>
+    <!-- CTA:END -->
+
+    <!-- FOOTER:START -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <p class="logo">Aashirbad Foundation</p>
+                <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
+                <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+            </div>
+            <div>
+                <p class="eyebrow">Explore</p>
+                <ul class="footer-links">
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="eyebrow">Contact</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
+                    <li><a href="tel:+12065551234">(206) 555-1234</a></li>
+                    <li>Fort Worth, TX 76177 · Serving Nepal</li>
+                </ul>
+            </div>
+        </div>
+        <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>
+    </footer>
+    <!-- FOOTER:END -->
 
     <script src="js/script.js" defer></script>
 </body>

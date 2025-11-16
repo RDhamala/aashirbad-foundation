@@ -1,0 +1,88 @@
+[
+  {
+    "title": "STEM Bridge Scholarship",
+    "description": "Full scholarships keep students from public and community schools on track at Tribhuvan, Kathmandu University, and CTEVT campuses by covering tuition balances, hostels, lab fees, and a rugged laptop.",
+    "teaser": "Tuition, hostels, labs, and laptops for students transitioning into Nepali universities.",
+    "bullets": [
+      "Career coaching with alumni at Deerwalk, Fusemachines, Khalti, and Vianet",
+      "Emergency stipends for healthcare, visas, or family crises",
+      "Peer accountability circles facilitated by Teach For Nepal alumni"
+    ],
+    "impact": "Impact: 110 scholars have earned STEM degrees since 2018 with 78% staying in Nepal’s tech sector.",
+    "image": {
+      "webp": "images/programs/stem-lab.webp",
+      "fallback": "images/programs/stem-lab.JPG",
+      "alt": "Students learning in a computer lab supported by Aashirbad Foundation",
+      "width": 2048,
+      "height": 1536
+    }
+  },
+  {
+    "title": "Future Coders Fellowship",
+    "description": "Weekend labs in Janakpur, Pokhara, and Surkhet blend Scratch, Python, GIS, and climate data so students can solve hyperlocal problems with mentors from Karkhana Samuha and Girls in Tech Nepal.",
+    "teaser": "Community labs with Nepali mentors, refurbished tablets, and Nepali-language curriculum.",
+    "bullets": [
+      "Monthly hack days co-hosted with public schools and municipal ICT clubs",
+      "Hardware library with tablets, routers, and solar chargers",
+      "Travel meals and SIM top-ups for students commuting from villages"
+    ],
+    "impact": "Impact: 75% of fellows publish their first apps or dashboards before SEE exams.",
+    "image": {
+      "fallback": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80&fm=webp",
+      "alt": "Teacher guiding students",
+      "width": 900,
+      "height": 600
+    }
+  },
+  {
+    "title": "Bridge to University Fund",
+    "description": "One-time grants help scholars from Karnali, Sudurpaschim, and Madhesh provinces cover SEE bridge courses, entrance prep, travel, and the first three months in Kathmandu.",
+    "teaser": "Bridge grants cover travel, prep classes, and the first hostel payment when scholars relocate.",
+    "bullets": [
+      "Partner hostels vetted with local child-protection groups",
+      "Family counseling sessions in Nepali, Maithili, and Tharu",
+      "Microcapital for caregivers to offset lost household income"
+    ],
+    "impact": "Impact: 60 students relocated safely and completed year one without dropping out.",
+    "image": {
+      "fallback": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80&fm=webp",
+      "alt": "Mentor helping a student on laptop",
+      "width": 900,
+      "height": 600
+    }
+  },
+  {
+    "title": "Women in Tech Leadership Labs",
+    "description": "Intensive cohorts held with Women Leaders in Technology, Girls in Tech Nepal, and FNCCI chapters help women scholars design social enterprises serving their home districts.",
+    "teaser": "Leadership intensives plus mini-grants so women technologists can launch community ventures.",
+    "bullets": [
+      "Pitch coaching with mentors from Khalti, eSewa, and CloudFactory",
+      "Connections to Nepal Communitere, Antarprerana, and SAFAL accelerators",
+      "Mini-grants for prototypes tackling health, agri-tech, or local governance challenges"
+    ],
+    "impact": "Impact: 30 alumni have launched community technology initiatives employing 86 women locally.",
+    "image": {
+      "fallback": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80&fm=webp",
+      "alt": "Women collaborating on laptops",
+      "width": 900,
+      "height": 600
+    }
+  },
+  {
+    "title": "Digital Access Fund",
+    "description": "Provides tablets, offline Wikipedia + E-Pustakalaya bundles, and reliable connectivity so rural libraries become digital study spaces aligned with the Digital Nepal Framework.",
+    "teaser": "Devices, offline curriculum, and Wi-Fi cooperatives powering rural STEM classrooms.",
+    "bullets": [
+      "Community Wi-Fi hubs run with Nepal Internet Exchange and local cooperatives",
+      "Tech support hotline staffed by university volunteers in Pokhara and Kathmandu",
+      "Localized Nepali-English STEM curriculum referencing CDC and UNESCO resources"
+    ],
+    "impact": "Impact: 1,200+ devices and 42 mesh Wi-Fi nodes across 25 districts.",
+    "image": {
+      "fallback": "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=80&fm=webp",
+      "alt": "Student learning online using tablet",
+      "width": 900,
+      "height": 600
+    }
+  }
+]

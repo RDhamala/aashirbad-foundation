@@ -1,0 +1,66 @@
+[
+  {
+    "tag": "Bagmati · Scholar",
+    "title": "Sita brings laptops to Dolakha.",
+    "summary": "After finishing her BSc.CSIT at Tribhuvan University, Sita returned to her public school in Dolakha to run weekend laptop clubs powered by solar-charged batteries.",
+    "quote": "Teach For Nepal showed us that community teachers can lead the change. When the landslide cut power, our solar trunk kept everyone's coursework alive.",
+    "metrics": [
+      "First woman coder from her ward",
+      "18 girls enrolled in the Dolakha laptop club"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=80&fm=webp",
+      "alt": "Student smiling outside classroom",
+      "width": 800,
+      "height": 533
+    }
+  },
+  {
+    "tag": "Province 2 · Fellowship",
+    "title": "Bikash codes in Janakpur.",
+    "summary": "Bikash uses refurbished tablets and free fiber from Nepal Telecom to host Scratch and Python sessions for students whose families migrate seasonally for work.",
+    "quote": "Karkhana Samuha helped me design tinkering lessons in Maithili. Now parents stay in the classroom because they see their kids building apps for cooperatives.",
+    "metrics": [
+      "6 municipal schools sharing one hub",
+      "32 project demos published on GitHub"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80&fm=webp",
+      "alt": "Mentor guiding a student",
+      "width": 800,
+      "height": 533
+    }
+  },
+  {
+    "tag": "Gandaki · Women in Tech",
+    "title": "Manju powers a solar classroom.",
+    "summary": "Inspired by organisations like Women Leaders in Technology, Manju built a Nepali-language curriculum and a solar microgrid so girls in Bharatpur can code even during load-shedding.",
+    "quote": "Room to Read helped our library years ago; this grant let us add laptops and LED lights so the lab never shuts down.",
+    "metrics": [
+      "30 leadership labs launched since 2021",
+      "Hybrid design challenges with Siddhartha Bank mentors"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80&fm=webp",
+      "alt": "Young woman using laptop",
+      "width": 800,
+      "height": 533
+    }
+  },
+  {
+    "tag": "Chitwan · Partner school",
+    "title": "Principal Rai scales leadership labs.",
+    "summary": "Principal Rai worked with the Education Cluster, Teach For Nepal alumni, and our team to weave digital leadership labs into the Grade 9 science period.",
+    "quote": "Retention is up 30 percent because students see pathways like Deerwalk, Fusemachines, and Khalti hiring Nepali talent.",
+    "metrics": [
+      "5 districts piloting the model",
+      "Quarterly open classrooms for nearby schools"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80&fm=webp",
+      "alt": "Teacher encouraging students",
+      "width": 800,
+      "height": 533
+    }
+  }
+]

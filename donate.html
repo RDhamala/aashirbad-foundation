@@ -21,14 +21,40 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div data-include="partials/header.html"></div>
+    <!-- HEADER:START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" role="banner">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html" aria-label="Aashirbad Foundation home">
+                <img src="images/logo.svg" alt="Aashirbad Foundation">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav">
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-ghost" href="donate.html">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- HEADER:END -->
 
     <main id="main-content">
         <section class="page-hero">
             <div class="container narrow fade-in">
                 <p class="eyebrow">Invest in scholars</p>
                 <h1>Fuel technology scholarships in Nepal.</h1>
-                <p>Your donation is tax deductible. Aashirbad Foundation is a registered 501(c)(3) nonprofit. Every gift keeps tuition current, delivers devices, and pairs students with mentors.</p>
+                <p>Your donation is tax deductible. Aashirbad Foundation is a registered 501(c)(3) nonprofit. Every gift keeps tuition current, delivers devices, covers warm clothing and meals, and pairs students from low-income wards with mentors.</p>
             </div>
         </section>
 
@@ -54,7 +80,7 @@
                         <li>$500 launches a new Future Coders cohort.</li>
                     </ul>
                 </div>
-                <form class="donate-form fade-in" aria-describedby="donate-note" data-feedback="Thank you for pledging! Our team will send a secure payment link." novalidate>
+                <form class="donate-form fade-in" aria-describedby="donate-note" data-feedback="Thanks for pledging! We’ll follow up via email." novalidate>
                     <label for="donor-name">Full Name</label>
                     <input id="donor-name" name="name" type="text" required>
 
@@ -72,13 +98,79 @@
                     <div class="form-feedback" role="status" aria-live="polite"></div>
                     <button class="btn btn-primary" type="submit">Submit pledge</button>
                     <p id="donate-note" class="small">This form collects pledges only. A secure payment link will be provided by our team.</p>
-                    <p class="small privacy-note">We never share or sell your information, and your details help us confirm your tax-deductible gift.</p>
+                    <p class="small privacy-note">We never share or sell your information, and your details help us confirm your tax-deductible gift. After you submit, we’ll display next steps so you can confirm everything with our team.</p>
                 </form>
+            </div>
+        </section>
+
+        <section class="section muted" aria-labelledby="giving-impact">
+            <div class="container split">
+                <article class="impact-callout fade-in">
+                    <h3 id="giving-impact">What your pledge unlocks</h3>
+                    <ul>
+                        <li><strong>$60</strong> keeps an SEE graduate connected with data + SIM for a month of bridge classes.</li>
+                        <li><strong>$300</strong> equips a rural library with a router, solar trunk, and offline curriculum drive.</li>
+                        <li><strong>$480</strong> covers one semester of hostel + lab fees for a university STEM scholar.</li>
+                        <li><strong>$1,200</strong> launches a Women in Tech leadership cohort with mini-grants.</li>
+                    </ul>
+                    <p class="small">Prefer ACH, donor-advised funds, stock, or employer matching? Email <a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a> and we’ll send instructions.</p>
+                </article>
+                <aside class="info-card fade-in">
+                    <h3>How we report back</h3>
+                    <ul class="pillars">
+                        <li>Quarterly dashboards with hostel receipts, device deployments, and mentorship hours.</li>
+                        <li>Annual 990 + audit summaries ready for company matching programs.</li>
+                        <li>Invites to remote demo days showcasing scholar projects.</li>
+                    </ul>
+                </aside>
             </div>
         </section>
     </main>
 
-    <div data-include="partials/footer.html"></div>
+    <!-- CTA:START -->
+    <section class="section cta" aria-labelledby="cta-title">
+        <div class="container cta-grid fade-in">
+            <div>
+                <h2 id="cta-title">Help aspiring technologists thrive.</h2>
+                <p>Your monthly or one-time gift keeps tuition current, equips classrooms with reliable devices, and matches Nepali students with experienced mentors.</p>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="donate.html">Donate today</a>
+                <a class="btn btn-outline" href="contact.html">Partner with us</a>
+            </div>
+        </div>
+    </section>
+    <!-- CTA:END -->
+
+    <!-- FOOTER:START -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <p class="logo">Aashirbad Foundation</p>
+                <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
+                <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+            </div>
+            <div>
+                <p class="eyebrow">Explore</p>
+                <ul class="footer-links">
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="eyebrow">Contact</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
+                    <li><a href="tel:+12065551234">(206) 555-1234</a></li>
+                    <li>Fort Worth, TX 76177 · Serving Nepal</li>
+                </ul>
+            </div>
+        </div>
+        <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>
+    </footer>
+    <!-- FOOTER:END -->
 
     <script src="js/script.js" defer></script>
 </body>

@@ -21,7 +21,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div data-include="partials/header.html"></div>
+    <!-- HEADER:START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" role="banner">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html" aria-label="Aashirbad Foundation home">
+                <img src="images/logo.svg" alt="Aashirbad Foundation">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav">
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-ghost" href="donate.html">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- HEADER:END -->
 
     <main id="main-content">
         <section class="page-hero">
@@ -37,6 +63,7 @@
                 <header class="section-heading">
                     <p class="eyebrow">2024 snapshot</p>
                     <h2 id="metrics-heading">Key outcomes across Nepal.</h2>
+                    <p>Donations from the United States are tracked in real time so we can show exactly how many scholars receive hostel stipends, how many Wi-Fi nodes reach mountain classrooms, and how many women-led labs stay open during winter load-shedding.</p>
                 </header>
                 <div class="impact-grid">
                     <article class="impact-card fade-in">
@@ -64,7 +91,7 @@
                 <article class="fade-in">
                     <p class="eyebrow">Evidence-based</p>
                     <h2 id="stories-impact">Tracking what matters.</h2>
-                    <p>We collect data on enrollment, graduation, employment, and community projects. The information flows into dashboards shared with donors each quarter.</p>
+                    <p>We collect data on enrollment, graduation, employment, and community projects—plus basic well-being indicators such as device uptime, winter clothing distribution, and hostel safety. The information flows into dashboards shared with donors each quarter and mirrors indicators used by Teach For Nepal, Karkhana Samuha, and the Government’s Digital Nepal Framework.</p>
                     <ul class="checklist">
                         <li>Scholar surveys measuring confidence and belonging</li>
                         <li>Internship placement rates in Nepal and abroad</li>
@@ -74,9 +101,9 @@
                 <aside class="mission-card fade-in">
                     <h3>Downloadable resources</h3>
                     <ul class="pillars">
-                        <li><a href="#" aria-label="Download latest impact report">2024 Impact Report (PDF)</a></li>
-                        <li><a href="#" aria-label="Download monitoring framework">Monitoring &amp; Evaluation Framework</a></li>
-                        <li><a href="#" aria-label="Download annual plan">2025 Strategic Plan</a></li>
+                        <li><a href="resources.html#impact-report">2024 Impact Report</a></li>
+                        <li><a href="resources.html#monitoring-framework">Monitoring &amp; Evaluation Framework</a></li>
+                        <li><a href="resources.html#strategic-plan">2025 Strategic Plan</a></li>
                     </ul>
                 </aside>
             </div>
@@ -89,14 +116,80 @@
                     <h2 id="map-heading">From Kathmandu to rural provinces.</h2>
                     <p>Programs operate in Kathmandu, Pokhara, Dolakha, Chitwan, and the Terai region with partner schools and community hubs.</p>
                 </header>
-                <div class="map-placeholder" role="img" aria-label="Map of Nepal highlighting partner provinces">
-                    <p>Map placeholder</p>
-                </div>
+                <figure class="map-figure" aria-labelledby="map-caption">
+                    <figcaption id="map-caption" class="sr-only">Kathmandu Valley, Pokhara, Dolakha, Chitwan, and Terai districts highlighted to show where programs operate.</figcaption>
+                    <svg viewBox="0 0 600 220" role="img" aria-hidden="true">
+                        <path class="map-region" d="M20 150 L70 130 L130 140 L200 120 L280 135 L360 120 L440 130 L520 110 L580 125 L560 150 L480 165 L400 170 L320 180 L240 170 L160 175 L90 170 Z" />
+                        <g class="map-point">
+                            <circle cx="340" cy="125" r="6" />
+                            <text x="352" y="120">Kathmandu Valley</text>
+                        </g>
+                        <g class="map-point">
+                            <circle cx="230" cy="140" r="6" />
+                            <text x="242" y="135">Pokhara</text>
+                        </g>
+                        <g class="map-point">
+                            <circle cx="460" cy="150" r="6" />
+                            <text x="472" y="145">Terai hubs</text>
+                        </g>
+                        <g class="map-point">
+                            <circle cx="300" cy="160" r="6" />
+                            <text x="312" y="155">Chitwan</text>
+                        </g>
+                        <g class="map-point">
+                            <circle cx="390" cy="145" r="6" />
+                            <text x="402" y="140">Dolakha</text>
+                        </g>
+                    </svg>
+                </figure>
             </div>
-    </section>
+        </section>
 </main>
 
-<div data-include="partials/footer.html"></div>
+    <!-- CTA:START -->
+    <section class="section cta" aria-labelledby="cta-title">
+        <div class="container cta-grid fade-in">
+            <div>
+                <h2 id="cta-title">Help aspiring technologists thrive.</h2>
+                <p>Your monthly or one-time gift keeps tuition current, equips classrooms with reliable devices, and matches Nepali students with experienced mentors.</p>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="donate.html">Donate today</a>
+                <a class="btn btn-outline" href="contact.html">Partner with us</a>
+            </div>
+        </div>
+    </section>
+    <!-- CTA:END -->
+
+    <!-- FOOTER:START -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <p class="logo">Aashirbad Foundation</p>
+                <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
+                <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+            </div>
+            <div>
+                <p class="eyebrow">Explore</p>
+                <ul class="footer-links">
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="eyebrow">Contact</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
+                    <li><a href="tel:+12065551234">(206) 555-1234</a></li>
+                    <li>Fort Worth, TX 76177 · Serving Nepal</li>
+                </ul>
+            </div>
+        </div>
+        <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>
+    </footer>
+    <!-- FOOTER:END -->
 
     <script src="js/script.js" defer></script>
 </body>

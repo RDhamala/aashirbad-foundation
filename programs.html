@@ -21,90 +21,118 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div data-include="partials/header.html"></div>
+    <!-- HEADER:START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" role="banner">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html" aria-label="Aashirbad Foundation home">
+                <img src="images/logo.svg" alt="Aashirbad Foundation">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav">
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-ghost" href="donate.html">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- HEADER:END -->
 
     <main id="main-content">
         <section class="page-hero">
             <div class="container narrow fade-in">
                 <p class="eyebrow">Scholarship pathways</p>
                 <h1>Programs that meet scholars where they are.</h1>
-                <p>Each initiative mixes financial aid, mentoring, and digital access so students can move from secondary school to college to career without interruption.</p>
+                <p>Many of our scholars still share a single winter coat, study on mud floors, or live in wards with no broadband. Each initiative combines U.S.-backed funding with Nepali partners so students move from community schools to universities, connect to mentors, and access the tools required to contribute to Nepal’s tech economy.</p>
             </div>
         </section>
 
         <section class="section" aria-labelledby="program-list">
             <div class="container">
                 <h2 id="program-list" class="sr-only">Programs</h2>
+                <!-- PROGRAMS:START -->
                 <div class="program-grid">
                     <article class="program-card fade-in">
                         <picture>
-                            <source srcset="images/computr-lab-2.webp" type="image/webp">
-                            <img src="images/computr-lab-2.JPG" alt="Students learning in a computer lab supported by Aashirbad Foundation" loading="lazy" width="2048" height="1536">
+                            <source srcset="images/programs/stem-lab.webp" type="image/webp">
+                            <img src="images/programs/stem-lab.JPG" alt="Students learning in a computer lab supported by Aashirbad Foundation" loading="lazy" width="2048" height="1536">
                         </picture>
                         <div class="program-body">
-                            <h3>STEM Scholarship Track</h3>
-                            <p>Full scholarships keep university students in computer science, engineering, and data science on track by covering tuition, housing, lab fees, and a laptop stipend.</p>
+                            <h3>STEM Bridge Scholarship</h3>
+                            <p>Full scholarships keep students from public and community schools on track at Tribhuvan, Kathmandu University, and CTEVT campuses by covering tuition balances, hostels, lab fees, and a rugged laptop.</p>
                             <ul>
-                                <li>Career coaching and internship placements</li>
-                                <li>Emergency microgrants for health or housing</li>
-                                <li>Peer cohorts for accountability</li>
+                                <li>Career coaching with alumni at Deerwalk, Fusemachines, Khalti, and Vianet</li>
+                                <li>Emergency stipends for healthcare, visas, or family crises</li>
+                                <li>Peer accountability circles facilitated by Teach For Nepal alumni</li>
                             </ul>
-                            <p class="impact">Impact: 110 scholars have graduated with STEM degrees since 2018.</p>
+                            <p class="impact">Impact: 110 scholars have earned STEM degrees since 2018 with 78% staying in Nepal’s tech sector.</p>
                         </div>
                     </article>
                     <article class="program-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Teacher guiding students" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Teacher guiding students" loading="lazy" width="900" height="600">
                         <div class="program-body">
                             <h3>Future Coders Fellowship</h3>
-                            <p>High school students join weekend coding labs, receive laptops, and collaborate with mentors who work in Nepal's growing technology sector.</p>
+                            <p>Weekend labs in Janakpur, Pokhara, and Surkhet blend Scratch, Python, GIS, and climate data so students can solve hyperlocal problems with mentors from Karkhana Samuha and Girls in Tech Nepal.</p>
                             <ul>
-                                <li>Monthly hack days hosted with partner schools</li>
-                                <li>Hardware library with tablets and robotics kits</li>
-                                <li>Stipends for transportation and meals</li>
+                                <li>Monthly hack days co-hosted with public schools and municipal ICT clubs</li>
+                                <li>Hardware library with tablets, routers, and solar chargers</li>
+                                <li>Travel meals and SIM top-ups for students commuting from villages</li>
                             </ul>
-                            <p class="impact">Impact: 75% of fellows build their first apps or websites before graduation.</p>
+                            <p class="impact">Impact: 75% of fellows publish their first apps or dashboards before SEE exams.</p>
                         </div>
                     </article>
                     <article class="program-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Mentor helping a student on laptop" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Mentor helping a student on laptop" loading="lazy" width="900" height="600">
                         <div class="program-body">
                             <h3>Bridge to University Fund</h3>
-                            <p>Bridge grants help rural students pay for entrance exams, travel to Kathmandu, safe housing, and other living costs that appear during their first year.</p>
+                            <p>One-time grants help scholars from Karnali, Sudurpaschim, and Madhesh provinces cover SEE bridge courses, entrance prep, travel, and the first three months in Kathmandu.</p>
                             <ul>
-                                <li>Travel escorts and safe dormitory partners</li>
-                                <li>Transition counseling for families</li>
-                                <li>Small business grants for caregivers</li>
+                                <li>Partner hostels vetted with local child-protection groups</li>
+                                <li>Family counseling sessions in Nepali, Maithili, and Tharu</li>
+                                <li>Microcapital for caregivers to offset lost household income</li>
                             </ul>
-                            <p class="impact">Impact: 60 students relocated safely and completed their first year with support.</p>
+                            <p class="impact">Impact: 60 students relocated safely and completed year one without dropping out.</p>
                         </div>
                     </article>
                     <article class="program-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Women collaborating on laptops" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Women collaborating on laptops" loading="lazy" width="900" height="600">
                         <div class="program-body">
                             <h3>Women in Tech Leadership Labs</h3>
-                            <p>Weekend leadership intensives, mentorship circles, and small seed funds help women scholars launch tech for good ventures in their hometowns.</p>
+                            <p>Intensive cohorts held with Women Leaders in Technology, Girls in Tech Nepal, and FNCCI chapters help women scholars design social enterprises serving their home districts.</p>
                             <ul>
-                                <li>Pitch coaching and impact storytelling</li>
-                                <li>Connections to angel mentors and accelerators</li>
-                                <li>Mini-grants for prototypes serving local needs</li>
+                                <li>Pitch coaching with mentors from Khalti, eSewa, and CloudFactory</li>
+                                <li>Connections to Nepal Communitere, Antarprerana, and SAFAL accelerators</li>
+                                <li>Mini-grants for prototypes tackling health, agri-tech, or local governance challenges</li>
                             </ul>
-                            <p class="impact">Impact: 30 alumni have launched community technology initiatives.</p>
+                            <p class="impact">Impact: 30 alumni have launched community technology initiatives employing 86 women locally.</p>
                         </div>
                     </article>
                     <article class="program-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Student learning online using tablet" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=80&fm=webp" alt="Student learning online using tablet" loading="lazy" width="900" height="600">
                         <div class="program-body">
                             <h3>Digital Access Fund</h3>
-                            <p>Provides tablets, reliable connectivity stipends, and localized curriculum so students in remote villages can learn online.</p>
+                            <p>Provides tablets, offline Wikipedia + E-Pustakalaya bundles, and reliable connectivity so rural libraries become digital study spaces aligned with the Digital Nepal Framework.</p>
                             <ul>
-                                <li>Community Wi-Fi hubs and solar charging kits</li>
-                                <li>Tech support hotline staffed by volunteers</li>
-                                <li>Localized Nepali-English STEM curriculum</li>
+                                <li>Community Wi-Fi hubs run with Nepal Internet Exchange and local cooperatives</li>
+                                <li>Tech support hotline staffed by university volunteers in Pokhara and Kathmandu</li>
+                                <li>Localized Nepali-English STEM curriculum referencing CDC and UNESCO resources</li>
                             </ul>
-                            <p class="impact">Impact: 1,200+ devices distributed across 25 districts.</p>
+                            <p class="impact">Impact: 1,200+ devices and 42 mesh Wi-Fi nodes across 25 districts.</p>
                         </div>
                     </article>
                 </div>
+                <!-- PROGRAMS:END -->
             </div>
         </section>
 
@@ -122,7 +150,35 @@
         </section>
     </main>
 
-    <div data-include="partials/footer.html"></div>
+    <!-- FOOTER:START -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <p class="logo">Aashirbad Foundation</p>
+                <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
+                <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+            </div>
+            <div>
+                <p class="eyebrow">Explore</p>
+                <ul class="footer-links">
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="eyebrow">Contact</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
+                    <li><a href="tel:+12065551234">(206) 555-1234</a></li>
+                    <li>Fort Worth, TX 76177 · Serving Nepal</li>
+                </ul>
+            </div>
+        </div>
+        <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>
+    </footer>
+    <!-- FOOTER:END -->
 
     <script src="js/script.js" defer></script>
 </body>
