@@ -129,7 +129,7 @@ const App = (() => {
             });
 
             form.addEventListener('submit', (event) => {
-                event.preventDefault();
+                const isExternal = form.hasAttribute('data-external');
                 const invalid = requiredFields.some((field) => {
                     if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
                         if (!field.value.trim()) {
@@ -143,6 +143,7 @@ const App = (() => {
                     return false;
                 });
                 if (invalid) {
+                    event.preventDefault();
                     const feedback = form.querySelector('.form-feedback');
                     if (feedback) {
                         feedback.textContent = 'Please complete the required fields.';
@@ -150,6 +151,11 @@ const App = (() => {
                     return;
                 }
 
+                if (isExternal) {
+                    return;
+                }
+
+                event.preventDefault();
                 const feedback = form.querySelector('.form-feedback');
                 if (feedback) {
                     const message = form.getAttribute('data-feedback') || 'Thank you!';

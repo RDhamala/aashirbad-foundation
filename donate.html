@@ -95,7 +95,7 @@
                         </script>
                     </div>
                 </div>
-                <form class="donate-form fade-in" aria-describedby="donate-note" data-feedback="Thanks for pledging! We’ll follow up via email." novalidate>
+                <form class="donate-form fade-in" aria-describedby="donate-note" data-feedback="Thanks for pledging! We’ll follow up via email." data-external="true" method="POST" action="https://formspree.io/f/myzlllkn">
                     <label for="donor-name">Full Name</label>
                     <input id="donor-name" name="name" type="text" required>
 
@@ -110,6 +110,7 @@
                     <label for="donor-message">Message (optional)</label>
                     <textarea id="donor-message" name="message" rows="4" placeholder="Share a note for our scholars"></textarea>
 
+                    <input type="hidden" name="_redirect" value="https://aashirbafoundation.org/thank-you.html">
                     <div class="form-feedback" role="status" aria-live="polite"></div>
                     <button class="btn btn-primary" type="submit">Submit pledge</button>
                     <p id="donate-note" class="small">This form collects pledges only. A secure payment link will be provided by our team.</p>

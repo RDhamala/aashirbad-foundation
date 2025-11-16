@@ -64,7 +64,7 @@
 
         <section class="section" aria-labelledby="contact-form-title">
             <div class="container contact-grid">
-                <form class="contact-form fade-in" aria-labelledby="contact-form-title" data-feedback="Thanks for reaching out! We'll respond shortly." novalidate>
+                <form class="contact-form fade-in" aria-labelledby="contact-form-title" data-feedback="Thanks for reaching out! We'll respond shortly." data-external="true" method="POST" action="https://formspree.io/f/mblqqqdl">
                     <h2 id="contact-form-title">Send us a message</h2>
                     <label for="contact-name">Full Name</label>
                     <input id="contact-name" name="name" type="text" required>
@@ -74,6 +74,7 @@
 
                     <label for="contact-message">Message</label>
                     <textarea id="contact-message" name="message" rows="5" placeholder="How can we collaborate?" required></textarea>
+                    <input type="hidden" name="_redirect" value="https://aashirbafoundation.org/thank-you.html">
 
                     <div class="form-feedback" role="status" aria-live="polite"></div>
                     <button class="btn btn-primary" type="submit">Send message</button>
