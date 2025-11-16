@@ -178,7 +178,7 @@ textarea:focus-visible {
     min-height: 60vh;
     color: #fff;
     text-align: left;
-    background: url('../images/stories/hero-placeholder.jpg') center/cover no-repeat;
+    background: url('../images/stories/hero-placeholder.JPG') center/cover no-repeat;
     overflow: hidden;
 }
 
