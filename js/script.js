@@ -32,6 +32,25 @@ const App = (() => {
                 toggle.setAttribute('aria-expanded', 'false');
             }
         });
+
+        setActiveNav();
+    };
+
+    const setActiveNav = () => {
+        const navLinks = document.querySelectorAll('#primary-navigation a');
+        if (!navLinks.length) return;
+        const current = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            const isHome = href === 'index.html' && (current === '' || current === 'index.html');
+            if (href === current || isHome) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            }
+        });
     };
 
     const initFadeIn = () => {
@@ -174,4 +193,33 @@ const App = (() => {
     return { init };
 })();
 
-window.addEventListener('DOMContentLoaded', App.init);
+const loadPartials = () => {
+    const targets = document.querySelectorAll('[data-include]');
+    if (!targets.length) {
+        return Promise.resolve();
+    }
+
+    const loads = Array.from(targets).map((node) => {
+        const file = node.getAttribute('data-include');
+        return fetch(file)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${file}`);
+                }
+                return response.text();
+            })
+            .then((html) => {
+                node.outerHTML = html;
+            })
+            .catch((error) => console.error(error));
+    });
+
+    return Promise.all(loads);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    loadPartials().then(App.init).catch((error) => {
+        console.error(error);
+        App.init();
+    });
+});
