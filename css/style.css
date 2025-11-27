@@ -62,6 +62,7 @@ h3 {
 p {
     margin: 0 0 1rem;
     color: var(--color-text);
+    line-height: 1.68;
 }
 
 a {
@@ -163,20 +164,20 @@ textarea:focus-visible {
 
 .hero-about {
     background-image:
-        linear-gradient(120deg, rgba(6, 12, 31, 0.85), rgba(10, 26, 59, 0.55)),
-        url('images/campaigns/hero-students.JPG');
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+        url('images/campaigns/hero-students.webp');
 }
 
 .hero-programs {
     background-image:
-        linear-gradient(120deg, rgba(5, 9, 24, 0.85), rgba(10, 81, 135, 0.5)),
-        url('images/programs/lab-library.JPG');
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+        url('images/programs/lab-library.webp');
 }
 
 .hero-impact {
     background-image:
-        linear-gradient(120deg, rgba(3, 6, 20, 0.85), rgba(7, 53, 115, 0.6)),
-        url('https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1400&q=80');
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+        url('images/campaigns/hero-students.webp');
 }
 
 .hero-stories {
@@ -199,8 +200,8 @@ textarea:focus-visible {
 
 .hero-resources {
     background-image:
-        linear-gradient(120deg, rgba(7, 11, 26, 0.85), rgba(55, 95, 140, 0.55)),
-        url('images/campaigns/hero-students.JPG');
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+        url('images/campaigns/hero-students.webp');
 }
 
 .hero-transparency {
@@ -269,6 +270,8 @@ textarea:focus-visible {
     display: grid;
     gap: 1rem;
     align-items: start;
+    max-width: 620px;
+    justify-self: end;
 }
 
 .hero-badge {
@@ -721,6 +724,10 @@ textarea:focus-visible {
     font-size: 1.1rem;
 }
 
+.icon-circle svg {
+    stroke: #0a1a3b;
+}
+
 .impact-strip {
     background: #f7f9fc;
     color: var(--color-text);
@@ -854,32 +861,32 @@ textarea:focus-visible {
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
     align-items: start;
-    padding: 0.95rem;
+    padding: 1.05rem;
     background: #fff;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 8px 24px rgba(10, 26, 59, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .snapshot-card h3 {
-    margin: 0 0 0.2rem;
+    margin: 0 0 0.35rem;
+    font-weight: 700;
 }
 
-.programs-snapshot .band-header {
-    margin-bottom: 0.6rem;
-}
-
-.programs-snapshot {
-    padding-top: 2.4rem;
-    padding-bottom: 3.6rem;
+.snapshot-card:hover {
+    box-shadow: 0 14px 32px rgba(10, 26, 59, 0.14);
+    transform: translateY(-1px);
 }
 
 .snapshot-photo {
     width: 100%;
-    height: 140px;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.5rem;
+    border-radius: 12px;
+    margin-bottom: 0.6rem;
+    filter: saturate(1.02) brightness(0.98);
+    border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .impact-overview {
@@ -920,10 +927,10 @@ textarea:focus-visible {
     position: relative;
     color: #f7fbff;
     background:
-        linear-gradient(135deg, rgba(5, 11, 24, 0.7), rgba(10, 26, 59, 0.25)),
-        url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=70')
-            center/cover no-repeat;
+        linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.55) 100%),
+        url('../images/campaigns/hero-students.webp') center/cover no-repeat;
     overflow: hidden;
+    padding: 8rem 0 7rem;
 }
 
 .origin-story .band-header h2,
@@ -940,19 +947,24 @@ textarea:focus-visible {
 }
 
 .origin-content {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    align-items: center;
+    max-width: 960px;
+    line-height: 1.7;
 }
 
-.founder-photo {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(247, 251, 255, 0.6);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+.origin-wrapper {
+    max-width: 768px;
+    padding-inline: clamp(1.75rem, 6.5vw, 3.75rem);
+    text-align: left;
+}
+
+.origin-eyebrow {
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+}
+
+.origin-title {
+    font-size: clamp(2.3rem, 1.4vw + 1.6rem, 2.8rem);
+    font-weight: 700;
 }
 
 .testimonial {
@@ -2113,12 +2125,7 @@ textarea {
     }
 
     .origin-content {
-        grid-template-columns: 1fr;
         text-align: left;
-    }
-
-    .founder-photo {
-        margin-bottom: 0.5rem;
     }
 }
 
