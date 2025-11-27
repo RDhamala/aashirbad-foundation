@@ -1,34 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Aashirbad Foundation</title>
-    <meta name="description" content="Contact Aashirbad Foundation to partner, volunteer, or learn more about scholarships in Nepal.">
-    <link rel="canonical" href="https://aashirbafoundation.com/contact.html">
-    <meta property="og:title" content="Contact Aashirbad Foundation">
-    <meta property="og:description" content="Let's collaborate on technology scholarships and digital access in Nepal.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aashirbafoundation.com/contact.html">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#0b3d91">
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="apple-touch-icon" href="images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- HEADER:START -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact | Aashirbad Foundation</title>
+        <meta
+            name="description"
+            content="Contact Aashirbad Foundation to partner, volunteer, or learn more about scholarships in Nepal."
+        />
+        <link rel="canonical" href="https://aashirbafoundation.com/contact.html" />
+        <meta property="og:title" content="Contact Aashirbad Foundation" />
+        <meta
+            property="og:description"
+            content="Let's collaborate on technology scholarships and digital access in Nepal."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://aashirbafoundation.com/contact.html" />
+        <meta
+            property="og:image"
+            content="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#0a1a3b" />
+        <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <!-- HEADER:START -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header" role="banner">
         <div class="container nav-wrapper">
             <a class="logo" href="index.html" aria-label="Aashirbad Foundation home">
-                <img src="images/logo.svg" alt="Aashirbad Foundation">
+                <img src="images/logo.svg" alt="Aashirbad Foundation logo" width="164" height="48" />
             </a>
-            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+            <button
+                class="nav-toggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-controls="primary-navigation"
+                aria-expanded="false"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -38,90 +56,139 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <li><a href="impact.html">Impact</a></li>
-                    <li><a href="stories.html">Stories</a></li>
-                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="donate.html">Donate</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a class="btn btn-ghost" href="donate.html">Donate</a></li>
+                    <li class="nav-donate">
+                        <a class="btn btn-primary" href="donate.html">Donate Now</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
     <!-- HEADER:END -->
 
-    <main id="main-content">
-        <section class="page-hero hero-contact hero-overlay">
-            <div class="container narrow fade-in">
-                <p class="eyebrow">Connect with us</p>
-                <h1>Based in the United States, supporting communities in Nepal.</h1>
-                <p>Contact our team to collaborate on rural STEM scholarships, diaspora mentorship, corporate partnerships, or digital inclusion projects.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#contact-form-title">Send a message</a>
-                    <a class="btn btn-outline hero-secondary" href="mailto:info@aashirbadfoundation.org">Email our team</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="contact-form-title">
-            <div class="container contact-grid">
-                <form class="contact-form fade-in" aria-labelledby="contact-form-title" data-feedback="Thanks for reaching out! We'll respond shortly." data-external="true" method="POST" action="https://formspree.io/f/mblqqqdl">
-                    <h2 id="contact-form-title">Send us a message</h2>
-                    <label for="contact-name">Full Name</label>
-                    <input id="contact-name" name="name" type="text" required>
-
-                    <label for="contact-email">Email</label>
-                    <input id="contact-email" name="email" type="email" required>
-
-                    <label for="contact-message">Message</label>
-                    <textarea id="contact-message" name="message" rows="5" placeholder="How can we collaborate?" required></textarea>
-                    <input type="hidden" name="_redirect" value="https://www.aashirbadfoundation.org/thank-you.html">
-
-                    <div class="form-feedback" role="status" aria-live="polite"></div>
-                    <button class="btn btn-primary" type="submit">Send message</button>
-                    <p class="small privacy-note">We keep partnership inquiries confidential and respond within two business days. After you submit, we’ll share the best email address in case you’d like to follow up manually.</p>
-                </form>
-                <div class="contact-details fade-in">
-                    <div class="info-card">
-                        <h3>Our location</h3>
-                        <p>Headquartered in Fort Worth, TX and supporting scholars throughout Nepal.</p>
-                        <p>Email: <a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></p>
-                        <p>Phone: <a href="tel:+12065551234">(206) 555-1234</a></p>
-                        <p>Mail: 1501 Grassy View Dr, Fort Worth, TX 76177</p>
+        <main id="main-content">
+            <section class="page-hero hero-contact hero-overlay">
+                <div class="container narrow fade-in">
+                    <p class="eyebrow">Get in Touch</p>
+                    <h1>We’d love to hear from you.</h1>
+                    <p>
+                        Whether you’re a student, a potential partner, or just someone who wants to
+                        learn more about our work, we’d love to hear from you. Please feel free to
+                        get in touch with us using the form below or by email or phone.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#contact-form-title">Contact Us</a>
+                        <a
+                            class="btn btn-outline hero-secondary"
+                            href="mailto:info@aashirbadfoundation.org"
+                            >Email Us</a
+                        >
                     </div>
-                    <figure class="mini-map" aria-labelledby="mini-map-caption">
-                        <figcaption id="mini-map-caption" class="sr-only">Illustration connecting Fort Worth, Texas to Kathmandu, Nepal</figcaption>
-                        <svg viewBox="0 0 520 260" role="img" aria-hidden="true">
-                            <rect width="520" height="260" rx="24" ry="24"></rect>
-                            <g class="mini-map__path">
-                                <path d="M120 150 C220 200 320 60 420 110" />
-                                <circle cx="120" cy="150" r="6"></circle>
-                                <circle cx="420" cy="110" r="6"></circle>
-                            </g>
-                            <text x="120" y="185" class="mini-map__label">Fort Worth, TX</text>
-                            <text x="420" y="85" class="mini-map__label">Kathmandu</text>
-                        </svg>
-                        <div class="mini-map__items">
-                            <article>
-                                <h4>United States HQ</h4>
-                                <p>Fort Worth team manages fundraising, partnerships, compliance, and keeps the story of rural Nepali students visible inside American tech companies.</p>
-                            </article>
-                            <article>
-                                <h4>Nepal programs</h4>
-                                <p>Coordinators in Kathmandu, Pokhara, Dolakha, Karnali, and the Terai region deliver devices, winter kits, and mentorship to students who otherwise share a single computer per village.</p>
-                            </article>
-                        </div>
-                    </figure>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <!-- CTA:START -->
+            <section class="section" aria-labelledby="contact-form-title">
+                <div class="container contact-grid">
+                    <form
+                        class="contact-form fade-in"
+                        aria-labelledby="contact-form-title"
+                        data-feedback="Thanks for reaching out! We'll be in touch soon."
+                        data-external="true"
+                        method="POST"
+                        action="https://formspree.io/f/mblqqqdl"
+                    >
+                        <h2 id="contact-form-title">Let’s start a conversation.</h2>
+                        <label for="contact-name">Full Name</label>
+                        <input id="contact-name" name="name" type="text" required />
+
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" required />
+
+                        <label for="contact-message">Message</label>
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            rows="5"
+                            placeholder="How can we collaborate?"
+                            required
+                        ></textarea>
+                        <input
+                            type="hidden"
+                            name="_redirect"
+                            value="https://www.aashirbadfoundation.org/thank-you.html"
+                        />
+
+                        <div class="form-feedback" role="status" aria-live="polite"></div>
+                        <button class="btn btn-primary" type="submit">Send Message</button>
+                        <p class="small privacy-note">
+                            We respect your privacy and will never share your information. We’ll get
+                            back to you as soon as we can.
+                        </p>
+                    </form>
+                    <div class="contact-details fade-in">
+                        <div class="info-card">
+                            <h3>Get in touch</h3>
+                            <p>
+                                Headquartered in Fort Worth, TX and supporting scholars throughout
+                                Nepal.
+                            </p>
+                            <p>
+                                Email:
+                                <a href="mailto:info@aashirbadfoundation.org"
+                                    >info@aashirbadfoundation.org</a
+                                >
+                            </p>
+                            <p>Phone: <a href="tel:+12065551234">(206) 555-1234</a></p>
+                            <p>Mail: 1501 Grassy View Dr, Fort Worth, TX 76177</p>
+                        </div>
+                        <figure class="mini-map" aria-labelledby="mini-map-caption">
+                            <figcaption id="mini-map-caption" class="sr-only">
+                                Illustration connecting Fort Worth, Texas to Kathmandu, Nepal
+                            </figcaption>
+                            <svg viewBox="0 0 520 260" role="img" aria-hidden="true">
+                                <rect width="520" height="260" rx="24" ry="24"></rect>
+                                <g class="mini-map__path">
+                                    <path d="M120 150 C220 200 320 60 420 110" />
+                                    <circle cx="120" cy="150" r="6"></circle>
+                                    <circle cx="420" cy="110" r="6"></circle>
+                                </g>
+                                <text x="120" y="185" class="mini-map__label">Fort Worth, TX</text>
+                                <text x="420" y="85" class="mini-map__label">Kathmandu</text>
+                            </svg>
+                            <div class="mini-map__items">
+                                <article>
+                                    <h4>Our U.S. Team</h4>
+                                    <p>
+                                        Our team in the United States is responsible for
+                                        fundraising, partnerships, and sharing the stories of our
+                                        students with the world.
+                                    </p>
+                                </article>
+                                <article>
+                                    <h4>Our Nepal Team</h4>
+                                    <p>
+                                        Our team in Nepal works directly with our students and
+                                        communities to provide support, mentorship, and a listening
+                                        ear.
+                                    </p>
+                                </article>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- CTA:START -->
     <section class="section cta" aria-labelledby="cta-title">
         <div class="container cta-grid fade-in">
             <div>
                 <h2 id="cta-title">Help aspiring technologists thrive.</h2>
-                <p>Your monthly or one-time gift keeps tuition current, equips classrooms with reliable devices, and matches Nepali students with experienced mentors.</p>
+                <p>
+                    Your monthly or one-time gift keeps tuition current, equips classrooms with reliable
+                    devices, and matches Nepali students with experienced mentors.
+                </p>
             </div>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="donate.html">Donate today</a>
@@ -131,36 +198,75 @@
     </section>
     <!-- CTA:END -->
 
-    <!-- FOOTER:START -->
+        <!-- FOOTER:START -->
     <footer class="site-footer" role="contentinfo">
         <div class="container footer-grid">
             <div>
                 <p class="logo">Aashirbad Foundation</p>
-                <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
-                <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+                <p>
+                    A registered 501(c)(3) keeping Nepali students in school with scholarships,
+                    mentorship, and devices. EIN: 93-4943678.
+                </p>
+                <div class="footer-cta">
+                    <a class="btn btn-primary" href="donate.html">Donate Now</a>
+                    <a class="btn btn-outline" href="contact.html">Contact us</a>
+                </div>
             </div>
             <div>
                 <p class="eyebrow">Explore</p>
                 <ul class="footer-links">
-                    <li><a href="impact.html">Impact</a></li>
-                    <li><a href="stories.html">Stories</a></li>
-                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
                     <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div>
-                <p class="eyebrow">Contact</p>
-                <ul class="footer-links">
-                    <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
-                    <li><a href="tel:+12065551234">(206) 555-1234</a></li>
-                    <li>Fort Worth, TX 76177 · Serving Nepal</li>
-                </ul>
+                <p class="eyebrow">Stay in touch</p>
+                <form
+                    class="footer-newsletter"
+                    method="POST"
+                    action="https://formspree.io/f/mblqqqdl"
+                    data-feedback="Thanks for subscribing! We'll send updates soon."
+                    data-external="true"
+                >
+                    <label class="sr-only" for="footer-email">Email address</label>
+                    <input
+                        id="footer-email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        required
+                    />
+                    <input type="hidden" name="_subject" value="Newsletter signup" />
+                    <div class="form-feedback" role="status" aria-live="polite"></div>
+                    <button class="btn btn-outline" type="submit">Sign up for news</button>
+                </form>
+                <div class="footer-social" aria-label="Social and sharing links">
+                    <a
+                        class="social-link"
+                        href="https://www.facebook.com/aashirbafoundation"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Visit Facebook"
+                        >Facebook</a
+                    >
+                    <a
+                        class="social-link"
+                        href="https://www.instagram.com/aashirbafoundation"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Visit Instagram"
+                        >Instagram</a
+                    >
+                </div>
             </div>
         </div>
         <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>
     </footer>
     <!-- FOOTER:END -->
 
-    <script src="js/script.js" defer></script>
-</body>
+        <script src="js/script.js" defer></script>
+    </body>
 </html>

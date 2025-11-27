@@ -14,9 +14,12 @@ const stories = readJson('stories.json');
 const programs = readJson('programs.json');
 
 const renderStories = () => {
-    const cards = stories.map((story) => {
-        const metrics = story.metrics.map((item) => `                                <li>${item}</li>`).join('\n');
-        return `                    <article class="story-card fade-in">
+    const cards = stories
+        .map((story) => {
+            const metrics = story.metrics
+                .map((item) => `                                <li>${item}</li>`)
+                .join('\n');
+            return `                    <article class="story-card fade-in">
                         <div class="story-media">
                             <img src="${story.image.src}" alt="${story.image.alt}" loading="lazy" width="${story.image.width}" height="${story.image.height}">
                             <span class="story-tag">${story.tag}</span>
@@ -30,7 +33,8 @@ ${metrics}
                             </ul>
                         </div>
                     </article>`;
-    }).join('\n');
+        })
+        .join('\n');
 
     return `                <div class="stories-grid">
 ${cards}
@@ -48,9 +52,12 @@ const renderProgramImage = (image) => {
 };
 
 const renderPrograms = () => {
-    const cards = programs.map((program) => {
-        const bullets = program.bullets.map((item) => `                                <li>${item}</li>`).join('\n');
-        return `                    <article class="program-card fade-in">
+    const cards = programs
+        .map((program) => {
+            const bullets = program.bullets
+                .map((item) => `                                <li>${item}</li>`)
+                .join('\n');
+            return `                    <article class="program-card fade-in">
 ${renderProgramImage(program.image)}
                         <div class="program-body">
                             <h3>${program.title}</h3>
@@ -61,7 +68,8 @@ ${bullets}
                             <p class="impact">${program.impact}</p>
                         </div>
                     </article>`;
-    }).join('\n');
+        })
+        .join('\n');
 
     return `                <div class="program-grid">
 ${cards}
@@ -69,11 +77,16 @@ ${cards}
 };
 
 const renderProgramPreview = () => {
-    return programs.slice(0, 3).map((program) => `                    <article class="info-card fade-in">
+    return programs
+        .slice(0, 3)
+        .map(
+            (program) => `                    <article class="info-card fade-in">
                         <h3>${program.title}</h3>
                         <p>${program.teaser}</p>
                         <a class="text-link" href="programs.html">View details</a>
-                    </article>`).join('\n');
+                    </article>`
+        )
+        .join('\n');
 };
 
 const replaceBlock = (fileName, marker, content, indent = '') => {
@@ -91,7 +104,11 @@ const replaceBlock = (fileName, marker, content, indent = '') => {
 
 const readPartial = (relativePath) => fs.readFileSync(path.join(root, relativePath), 'utf8').trim();
 
-const indentLines = (content, indent) => content.split('\n').map((line) => `${indent}${line}`).join('\n');
+const indentLines = (content, indent) =>
+    content
+        .split('\n')
+        .map((line) => `${indent}${line}`)
+        .join('\n');
 
 const applyPartials = () => {
     const header = indentLines(readPartial('partials/header.html'), '    ');

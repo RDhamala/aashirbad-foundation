@@ -2,25 +2,64 @@
     <div class="container footer-grid">
         <div>
             <p class="logo">Aashirbad Foundation</p>
-            <p>Aashirbad Foundation is a registered 501(c)(3) nonprofit organization. EIN: 93-4943678.</p>
-            <p class="small">Our mission is to empower aspiring minds by providing transformative scholarships focused on technology and education opportunities in Nepal.</p>
+            <p>
+                A registered 501(c)(3) keeping Nepali students in school with scholarships,
+                mentorship, and devices. EIN: 93-4943678.
+            </p>
+            <div class="footer-cta">
+                <a class="btn btn-primary" href="donate.html">Donate Now</a>
+                <a class="btn btn-outline" href="contact.html">Contact us</a>
+            </div>
         </div>
         <div>
             <p class="eyebrow">Explore</p>
             <ul class="footer-links">
-                <li><a href="impact.html">Impact</a></li>
-                <li><a href="stories.html">Stories</a></li>
-                <li><a href="transparency.html">Transparency</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
                 <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
         <div>
-            <p class="eyebrow">Contact</p>
-            <ul class="footer-links">
-                <li><a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a></li>
-                <li><a href="tel:+12065551234">(206) 555-1234</a></li>
-                <li>Fort Worth, TX 76177 · Serving Nepal</li>
-            </ul>
+            <p class="eyebrow">Stay in touch</p>
+            <form
+                class="footer-newsletter"
+                method="POST"
+                action="https://formspree.io/f/mblqqqdl"
+                data-feedback="Thanks for subscribing! We'll send updates soon."
+                data-external="true"
+            >
+                <label class="sr-only" for="footer-email">Email address</label>
+                <input
+                    id="footer-email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                />
+                <input type="hidden" name="_subject" value="Newsletter signup" />
+                <div class="form-feedback" role="status" aria-live="polite"></div>
+                <button class="btn btn-outline" type="submit">Sign up for news</button>
+            </form>
+            <div class="footer-social" aria-label="Social and sharing links">
+                <a
+                    class="social-link"
+                    href="https://www.facebook.com/aashirbafoundation"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Facebook"
+                    >Facebook</a
+                >
+                <a
+                    class="social-link"
+                    href="https://www.instagram.com/aashirbafoundation"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Instagram"
+                    >Instagram</a
+                >
+            </div>
         </div>
     </div>
     <p class="small">© <span id="year"></span> Aashirbad Foundation. All rights reserved.</p>

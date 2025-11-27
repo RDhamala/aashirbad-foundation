@@ -52,10 +52,10 @@ Aashirbad Foundation/
 
 1. Clone the repo and open the folder locally.
 2. Serve the site with any static file server (recommended for proper relative paths):
-   ```bash
-   npx serve .
-   ```
-   or open `index.html` directly in your browser for a quick preview.
+    ```bash
+    npx serve .
+    ```
+    or open `index.html` directly in your browser for a quick preview.
 3. Update HTML/CSS/JS files as needed. When changing stories/programs, edit `/data/*.json` and rerun `node scripts/build-content.js`.
 
 ## Deployment

@@ -12,6 +12,8 @@ const App = (() => {
         frequencyButtons: '.toggle-group .toggle',
         amountInput: '#donor-amount',
         frequencyInput: '#donation-frequency',
+        purposeButtons: '.donation-choice',
+        purposeInput: '#donation-purpose',
         forms: 'form[data-feedback]'
     };
 
@@ -56,14 +58,17 @@ const App = (() => {
     const initFadeIn = () => {
         const fadeEls = document.querySelectorAll(selectors.fadeElements);
         if (!fadeEls.length) return;
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+        const observer = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
         fadeEls.forEach((el) => observer.observe(el));
     };
 
@@ -84,7 +89,42 @@ const App = (() => {
         const amountInput = document.querySelector(selectors.amountInput);
         const frequencyButtons = document.querySelectorAll(selectors.frequencyButtons);
         const frequencyInput = document.querySelector(selectors.frequencyInput);
+        const purposeButtons = document.querySelectorAll(selectors.purposeButtons);
+        const purposeInput = document.querySelector(selectors.purposeInput);
         if (!amountInput) return;
+
+        purposeButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                purposeButtons.forEach((btn) => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+                if (purposeInput) {
+                    purposeInput.value = button.getAttribute('data-purpose') || button.textContent.trim();
+                }
+                const suggestedAmount = button.getAttribute('data-amount');
+                if (suggestedAmount && amountInput) {
+                    amountInput.value = suggestedAmount;
+                    amountButtons.forEach((btn) => {
+                        const isMatch = btn.getAttribute('data-amount') === suggestedAmount;
+                        btn.classList.toggle('active', isMatch);
+                        btn.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+                    });
+                }
+                const suggestedFrequency = button.getAttribute('data-frequency');
+                if (suggestedFrequency && frequencyButtons.length && frequencyInput) {
+                    frequencyButtons.forEach((freqBtn) => {
+                        const isActive =
+                            freqBtn.getAttribute('data-frequency') === suggestedFrequency;
+                        freqBtn.classList.toggle('active', isActive);
+                        freqBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                    });
+                    frequencyInput.value = suggestedFrequency;
+                }
+            });
+        });
 
         amountButtons.forEach((button) => {
             button.addEventListener('click', () => {
@@ -121,7 +161,11 @@ const App = (() => {
             const requiredFields = Array.from(form.querySelectorAll('[required]'));
             requiredFields.forEach((field) => {
                 field.addEventListener('input', () => {
-                    if ((field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) && field.value.trim()) {
+                    if (
+                        (field instanceof HTMLInputElement ||
+                            field instanceof HTMLTextAreaElement) &&
+                        field.value.trim()
+                    ) {
                         field.classList.remove('invalid');
                         field.removeAttribute('aria-invalid');
                     }
