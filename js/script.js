@@ -14,7 +14,8 @@ const App = (() => {
         frequencyInput: '#donation-frequency',
         purposeButtons: '.donation-choice',
         purposeInput: '#donation-purpose',
-        forms: 'form[data-feedback]'
+        forms: 'form[data-feedback]',
+        testimonialSlider: '.testimonial-slider'
     };
 
     const initNav = () => {
@@ -225,6 +226,48 @@ const App = (() => {
         });
     };
 
+    const initTestimonialSlider = () => {
+        const slider = document.querySelector(selectors.testimonialSlider);
+        if (!slider) return;
+
+        const slides = Array.from(slider.querySelectorAll('.testimonial-slide'));
+        const dots = Array.from(slider.querySelectorAll('.slider-dot'));
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+        let current = 0;
+
+        const showSlide = (index) => {
+            current = (index + slides.length) % slides.length;
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === current);
+                const dot = dots[idx];
+                if (dot) {
+                    dot.classList.toggle('active', idx === current);
+                    dot.setAttribute('aria-current', idx === current ? 'true' : 'false');
+                }
+            });
+        };
+
+        prev?.addEventListener('click', () => showSlide(current - 1));
+        next?.addEventListener('click', () => showSlide(current + 1));
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => showSlide(idx));
+        });
+
+        // Allow keyboard navigation
+        slider.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                showSlide(current - 1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                showSlide(current + 1);
+            }
+        });
+
+        showSlide(0);
+    };
+
     const setDynamicYear = () => {
         const yearTarget = document.getElementById('year');
         if (yearTarget) {
@@ -239,6 +282,7 @@ const App = (() => {
         initSmoothScroll();
         initDonationForm();
         initForms();
+        initTestimonialSlider();
     };
 
     return { init };
