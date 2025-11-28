@@ -1137,8 +1137,17 @@ textarea:focus-visible {
     margin-bottom: 1.4rem;
 }
 
+.testimonial-subtitle {
+    text-align: center;
+    color: var(--color-secondary);
+    margin: -0.4rem auto 1.4rem;
+    max-width: 720px;
+}
+
 .testimonial-slider {
     position: relative;
+    max-width: 840px;
+    margin: 0 auto;
 }
 
 .testimonial-track {
@@ -1221,6 +1230,7 @@ textarea:focus-visible {
 .slider-dots {
     display: inline-flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
 .slider-dot {
@@ -1228,14 +1238,23 @@ textarea:focus-visible {
     height: 10px;
     border-radius: 50%;
     border: none;
-    background: rgba(10, 26, 59, 0.22);
+    background: rgba(10, 26, 59, 0.14);
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .slider-dot.active {
-    background: var(--color-primary);
+    background: #f0b429;
     transform: scale(1.1);
+}
+
+.more-stories {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.more-stories a {
+    font-weight: 700;
 }
 
 .community {
@@ -1815,6 +1834,48 @@ textarea:focus-visible {
     font-size: 0.9rem;
 }
 
+.story-voices {
+    background: linear-gradient(120deg, rgba(10, 26, 59, 0.04), rgba(246, 212, 107, 0.08));
+    border: 1px solid rgba(10, 26, 59, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    margin-bottom: 1.8rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.voices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.voice-card {
+    background: #fff;
+    border: 1px solid rgba(10, 26, 59, 0.12);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+}
+
+.voice-label {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 0.4rem;
+}
+
+.voice-card blockquote {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.voice-name {
+    margin: 0.5rem 0 0;
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
 .stories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1980,6 +2041,46 @@ textarea:focus-visible {
     color: var(--color-primary);
 }
 
+.program-testimonials {
+    display: grid;
+    gap: 0.8rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.program-quote {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem;
+    align-items: center;
+    background: #f7f9fc;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: var(--radius-md);
+    padding: 0.85rem;
+    margin: 0;
+}
+
+.program-quote img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.program-quote blockquote {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.program-quote figcaption {
+    grid-column: 2;
+    margin-top: 0.2rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
 /* Donation and forms */
 .donate-wrapper,
 .contact-grid {
@@ -2057,6 +2158,60 @@ textarea:focus-visible {
     border-radius: 999px;
     border: 1px solid rgba(15, 23, 42, 0.15);
     overflow: hidden;
+}
+
+.quote-rotator {
+    position: relative;
+}
+
+.quote-slide {
+    display: none;
+}
+
+.quote-slide.active {
+    display: block;
+}
+
+.rotator-dots {
+    display: inline-flex;
+    gap: 0.4rem;
+    margin: 0.6rem 0;
+}
+
+.rotator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(10, 26, 59, 0.28);
+    cursor: pointer;
+}
+
+.rotator-dot.active {
+    background: var(--color-primary);
+}
+
+.donation-proof {
+    background: #f6f8fc;
+    border: 1px solid rgba(10, 26, 59, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-card);
+}
+
+.donation-proof h3 {
+    margin: 0.2rem 0 0.6rem;
+}
+
+.donation-proof blockquote {
+    margin: 0.2rem 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.donation-proof figcaption {
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 .toggle {
@@ -2238,6 +2393,54 @@ textarea {
 .footer-newsletter .btn {
     padding: 0.78rem 1.2rem;
     height: 100%;
+}
+
+.footer-voice-bar {
+    background: rgba(247, 251, 255, 0.04);
+    border: 1px solid rgba(247, 251, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 0.7rem 1rem;
+    display: grid;
+    gap: 0.25rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.footer-voice-bar blockquote {
+    margin: 0.05rem 0;
+    color: #f7fbff;
+}
+
+.footer-voice-bar figcaption {
+    color: rgba(246, 212, 107, 0.9);
+    font-weight: 700;
+}
+
+.footer-voice-bar a {
+    color: #f7fbff;
+    font-weight: 700;
+}
+
+.footer-voice-bar a:hover,
+.footer-voice-bar a:focus {
+    color: #f6d46b;
+}
+
+.footer-voice-bar .rotator-dots {
+    margin: 0.05rem 0 0;
+}
+
+.footer-voice-bar .rotator-dot {
+    background: rgba(247, 251, 255, 0.4);
+}
+
+.footer-voice-bar .rotator-dot.active {
+    background: #f6d46b;
+}
+
+.footer-voice-wrap {
+    max-width: 1100px;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
 }
 
 .footer-social {
