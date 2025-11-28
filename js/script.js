@@ -37,6 +37,8 @@ const App = (() => {
         const next = nextSelector ? root.querySelector(nextSelector) : null;
         let current = 0;
         let timer;
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const prefersReducedMotion = () => motionQuery.matches;
 
         const showSlide = (index) => {
             current = (index + slides.length) % slides.length;
@@ -51,6 +53,7 @@ const App = (() => {
         };
 
         const startAutoplay = () => {
+            if (prefersReducedMotion()) return;
             if (timer || !autoplayMs || slides.length <= 1) return;
             if (autoplayMs && slides.length > 1) {
                 timer = window.setInterval(() => showSlide(current + 1), autoplayMs);
@@ -105,6 +108,11 @@ const App = (() => {
 
         showSlide(0);
         startAutoplay();
+
+        motionQuery.addEventListener('change', () => {
+            stopAutoplay();
+            startAutoplay();
+        });
     };
 
     const initNav = () => {
@@ -264,6 +272,13 @@ const App = (() => {
 
             form.addEventListener('submit', (event) => {
                 const isExternal = form.hasAttribute('data-external');
+                const feedback = form.querySelector('.form-feedback');
+                const setFeedback = (message) => {
+                    if (feedback) {
+                        feedback.textContent = message;
+                    }
+                };
+
                 const invalid = requiredFields.some((field) => {
                     if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
                         if (!field.value.trim()) {
@@ -278,23 +293,20 @@ const App = (() => {
                 });
                 if (invalid) {
                     event.preventDefault();
-                    const feedback = form.querySelector('.form-feedback');
-                    if (feedback) {
-                        feedback.textContent = 'Please complete the required fields.';
-                    }
+                    setFeedback('Please complete the required fields.');
                     return;
                 }
 
                 if (isExternal) {
+                    setFeedback('Submitting…');
                     return;
                 }
 
                 event.preventDefault();
-                const feedback = form.querySelector('.form-feedback');
-                if (feedback) {
-                    const message = form.getAttribute('data-feedback') || 'Thank you!';
-                    feedback.innerHTML = `${message} <br><small>Email us any time at <a href="mailto:info@aashirbadfoundation.org">info@aashirbadfoundation.org</a>.</small>`;
-                }
+                const message = form.getAttribute('data-feedback') || 'Thank you!';
+                setFeedback(
+                    `${message} \nEmail us any time at info@aashirbadfoundation.org.`
+                );
                 form.reset();
                 const amountButtons = form.querySelectorAll('.amount');
                 amountButtons.forEach((btn) => {
