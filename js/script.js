@@ -16,7 +16,8 @@ const App = (() => {
         purposeInput: '#donation-purpose',
         forms: 'form[data-feedback]',
         testimonialSlider: '.testimonial-slider',
-        quoteRotator: '.quote-rotator'
+        quoteRotator: '.quote-rotator',
+        obfuscatedEmails: '[data-email-user][data-email-domain]'
     };
     let autoplayTimers = [];
 
@@ -273,9 +274,13 @@ const App = (() => {
             form.addEventListener('submit', (event) => {
                 const isExternal = form.hasAttribute('data-external');
                 const feedback = form.querySelector('.form-feedback');
-                const setFeedback = (message) => {
+                const setFeedback = (message, type = 'info') => {
                     if (feedback) {
                         feedback.textContent = message;
+                        feedback.classList.remove('success', 'error', 'info', 'visible');
+                        if (message && message.trim()) {
+                            feedback.classList.add('visible', type);
+                        }
                     }
                 };
 
@@ -293,21 +298,47 @@ const App = (() => {
                 });
                 if (invalid) {
                     event.preventDefault();
-                    setFeedback('Please complete the required fields.');
-                    return;
-                }
-
-                if (isExternal) {
-                    setFeedback('Submitting…');
+                    setFeedback('Please complete the required fields.', 'error');
                     return;
                 }
 
                 event.preventDefault();
-                const message = form.getAttribute('data-feedback') || 'Thank you!';
-                setFeedback(
-                    `${message} \nEmail us any time at info@aashirbadfoundation.org.`
-                );
-                form.reset();
+
+                const handleSuccess = () => {
+                    const message = form.getAttribute('data-feedback') || 'Thank you!';
+                    setFeedback(
+                        `${message} \nEmail us any time at info@aashirbadfoundation.org.`
+                    , 'success');
+                    form.reset();
+                };
+
+                if (isExternal) {
+                    setFeedback('Submitting…', 'info');
+                    fetch(form.action, {
+                        method: form.method || 'POST',
+                        body: new FormData(form),
+                        headers: { Accept: 'application/json' }
+                    })
+                        .then((response) => {
+                            if (response.ok) {
+                                handleSuccess();
+                            } else {
+                                setFeedback(
+                                    'There was an issue submitting. Please email us instead.',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(() => {
+                            setFeedback(
+                                'There was an issue submitting. Please email us instead.',
+                                'error'
+                            );
+                        });
+                    return;
+                }
+
+                handleSuccess();
                 const amountButtons = form.querySelectorAll('.amount');
                 amountButtons.forEach((btn) => {
                     btn.classList.remove('active');
@@ -356,6 +387,66 @@ const App = (() => {
         }
     };
 
+    const initObfuscatedEmails = () => {
+        const blocks = document.querySelectorAll(selectors.obfuscatedEmails);
+        if (!blocks.length) return;
+
+        blocks.forEach((block) => {
+            let user = block.getAttribute('data-email-user') || '';
+            let domain = block.getAttribute('data-email-domain') || '';
+            const reversed = block.getAttribute('data-reversed') === 'true';
+            if (reversed) {
+                user = user.split('').reverse().join('');
+                domain = domain.split('').reverse().join('');
+            }
+            if (!user || !domain) return;
+            const email = `${user}@${domain}`;
+
+            const display = block.querySelector('[data-email-display]');
+            const link = block.querySelector('[data-email-link]');
+            const status = block.querySelector('[data-email-status]');
+            const copyBtn = block.querySelector('[data-email-copy]');
+
+            const setStatus = (message) => {
+                if (!status) return;
+                status.textContent = message;
+                status.classList.toggle('visible', Boolean(message));
+            };
+
+            if (link) {
+                link.setAttribute('href', `mailto:${email}`);
+                link.textContent = email;
+            }
+
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(email);
+                        setStatus('Email copied');
+                        copyBtn.textContent = 'Copied';
+                        window.setTimeout(() => {
+                            copyBtn.textContent = 'Copy';
+                            setStatus('');
+                        }, 2000);
+                    } catch {
+                        setStatus('Copy unavailable. Use info@aashirbadfoundation.org');
+                    }
+                });
+            }
+
+            const revealBtn = block.querySelector('[data-email-reveal]');
+            if (revealBtn) {
+                revealBtn.addEventListener('click', () => {
+                    if (display) {
+                        display.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                        display.classList.add('visible');
+                    }
+                    revealBtn.style.display = 'none';
+                });
+            }
+        });
+    };
+
     const init = () => {
         setDynamicYear();
         initNav();
@@ -364,6 +455,7 @@ const App = (() => {
         initDonationForm();
         initForms();
         initTestimonialSlider();
+        initObfuscatedEmails();
     };
 
     return { init };

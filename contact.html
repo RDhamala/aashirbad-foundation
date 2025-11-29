@@ -113,11 +113,7 @@
                             placeholder="How can we collaborate?"
                             required
                         ></textarea>
-                        <input
-                            type="hidden"
-                            name="_redirect"
-                            value="https://www.aashirbadfoundation.org/thank-you.html"
-                        />
+                        
 
                         <div class="form-feedback" role="status" aria-live="polite"></div>
                         <button class="btn btn-primary" type="submit">Send Message</button>
@@ -135,11 +131,20 @@
                             </p>
                             <p>
                                 Email:
-                                <a href="mailto:info@aashirbadfoundation.org"
-                                    >info@aashirbadfoundation.org</a
+                                <span
+                                    class="email-obfuscated"
+                                    data-email-user="ofni"
+                                    data-email-domain="gro.noitadnuofdabrihsaa"
+                                    data-reversed="true"
                                 >
+                                    <button class="copy-email reveal-email" type="button" data-email-reveal>
+                                        Show email
+                                    </button>
+                                    <span class="email-display" data-email-display aria-live="polite"></span>
+                                    <noscript>Please use the contact form.</noscript>
+                                </span>
                             </p>
-                            <p>Phone: <a href="tel:+12065551234">(206) 555-1234</a></p>
+                            <p>Phone: <a href="tel:+13134558561">(313) 455-8561</a></p>
                             <p>Mail: 1501 Grassy View Dr, Fort Worth, TX 76177</p>
                         </div>
                         <figure class="mini-map" aria-labelledby="mini-map-caption">
@@ -258,6 +263,7 @@
                         required
                     />
                     <input type="hidden" name="_subject" value="Newsletter signup" />
+
                     <div class="form-feedback" role="status" aria-live="polite"></div>
                     <button class="btn btn-outline" type="submit">Sign up for news</button>
                 </form>

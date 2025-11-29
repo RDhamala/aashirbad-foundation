@@ -375,12 +375,42 @@ textarea:focus-visible {
     font-size: 2rem;
     font-weight: 700;
     color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .hero-stats dd {
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
+}
+
+.stat-icon {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    background: rgba(10, 26, 59, 0.03);
+    border-radius: 9px;
+    padding: 5px;
+}
+
+.stat-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.stat-icon svg rect,
+.stat-icon svg polygon,
+.stat-icon svg line,
+.stat-icon svg circle {
+    fill: none;
 }
 
 .hero-actions,
@@ -2283,6 +2313,87 @@ textarea {
     min-height: 1.2rem;
     font-weight: 600;
     color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    padding: 0;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+.form-feedback.visible {
+    padding: 0.85rem 1rem;
+    background: #f6f8fc;
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.form-feedback.success {
+    background: #eaf8f0;
+    border-color: #2f855a;
+    color: #0f233f;
+}
+
+.form-feedback.error {
+    background: #fff4f4;
+    border-color: #c53030;
+    color: #8b1f1f;
+}
+
+.form-feedback.info {
+    background: #f6f8fc;
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.form-feedback:empty {
+    display: block;
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+}
+
+.email-obfuscated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-weight: 700;
+}
+
+.copy-email {
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    background: #f6f8fc;
+    border-radius: 999px;
+    padding: 0.2rem 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-primary);
+    line-height: 1.4;
+}
+
+.reveal-email {
+    background: rgba(10, 26, 59, 0.06);
+}
+
+.copy-email:hover,
+.copy-email:focus {
+    background: rgba(10, 26, 59, 0.08);
+}
+
+.email-display {
+    min-width: 0;
+    font-weight: 700;
+}
+
+.email-display.visible {
+    display: inline-block;
+}
+
+.copy-status {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    min-width: 0;
+}
+
+.copy-status.visible {
+    display: inline-block;
 }
 
 .privacy-note {
@@ -2339,6 +2450,12 @@ textarea {
 .mini-map__items h4 {
     margin: 0 0 0.35rem;
     font-size: 1rem;
+    color: #f7fbff;
+}
+
+.mini-map__items p {
+    margin: 0;
+    color: rgba(247, 251, 255, 0.9);
 }
 
 .impact-callout {
@@ -2480,6 +2597,25 @@ textarea {
         gap: 0.2rem;
     }
 }
+
+.site-footer .form-feedback {
+    background: rgba(247, 251, 255, 0.06);
+    border-color: rgba(247, 251, 255, 0.12);
+    color: #f7fbff;
+}
+
+.site-footer .form-feedback.success {
+    background: rgba(48, 198, 135, 0.15);
+    border-color: rgba(48, 198, 135, 0.5);
+    color: #e9fff3;
+}
+
+.site-footer .form-feedback.error {
+    background: rgba(197, 48, 48, 0.15);
+    border-color: rgba(197, 48, 48, 0.5);
+    color: #ffeaea;
+}
+
 
 .footer-social {
     display: flex;
