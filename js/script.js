@@ -258,6 +258,21 @@ const App = (() => {
 
         forms.forEach((form) => {
             const requiredFields = Array.from(form.querySelectorAll('[required]'));
+            // Simple bot traps: hidden honeypot + time-to-submit guard
+            if (!form.dataset.startTime) {
+                form.dataset.startTime = String(Date.now());
+            }
+            if (!form.querySelector('[data-trap="true"]')) {
+                const honeypot = document.createElement('input');
+                honeypot.type = 'text';
+                honeypot.name = 'company';
+                honeypot.tabIndex = -1;
+                honeypot.autocomplete = 'off';
+                honeypot.setAttribute('aria-hidden', 'true');
+                honeypot.dataset.trap = 'true';
+                honeypot.hidden = true;
+                form.appendChild(honeypot);
+            }
             requiredFields.forEach((field) => {
                 field.addEventListener('input', () => {
                     if (
@@ -304,19 +319,39 @@ const App = (() => {
 
                 event.preventDefault();
 
+                const trapField = form.querySelector('[data-trap="true"]');
+                if (trapField instanceof HTMLInputElement && trapField.value.trim()) {
+                    setFeedback('Please verify you are human.', 'error');
+                    return;
+                }
+
+                const startedAt = Number(form.dataset.startTime || Date.now());
+                const elapsedMs = Date.now() - startedAt;
+                const tooFast = elapsedMs < 1200;
+                if (tooFast) {
+                    setFeedback('Please take a moment before submitting.', 'error');
+                    form.dataset.startTime = String(Date.now());
+                    return;
+                }
+
+                const formData = new FormData(form);
+                formData.append('_elapsed_ms', String(elapsedMs));
+                formData.append('_page_path', window.location.pathname);
+
                 const handleSuccess = () => {
                     const message = form.getAttribute('data-feedback') || 'Thank you!';
                     setFeedback(
                         `${message} \nEmail us any time at info@aashirbadfoundation.org.`
                     , 'success');
                     form.reset();
+                    form.dataset.startTime = String(Date.now());
                 };
 
                 if (isExternal) {
                     setFeedback('Submitting…', 'info');
                     fetch(form.action, {
                         method: form.method || 'POST',
-                        body: new FormData(form),
+                        body: formData,
                         headers: { Accept: 'application/json' }
                     })
                         .then((response) => {
