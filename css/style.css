@@ -2789,21 +2789,10 @@ textarea {
     gap: 3rem;
 }
 
-.home-hero .hero-copy,
-.home-hero .hero-visual {
-    position: relative;
-    z-index: 1;
-    opacity: 1;
-}
-
 .home-hero .hero-copy-panel {
     background: rgba(0, 0, 0, 0.5);
     padding: 2.5rem 2.2rem;
     backdrop-filter: blur(8px);
-}
-
-.home-hero .hero-visual {
-    max-width: 100%;
 }
 
 .home-hero .hero-photo {
@@ -2814,9 +2803,6 @@ textarea {
 }
 
 .home-hero .hero-photo img {
-    width: 100%;
-    height: auto;
-    display: block;
     border-radius: 0;
 }
 
