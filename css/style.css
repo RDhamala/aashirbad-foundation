@@ -224,8 +224,8 @@ textarea:focus-visible {
 
 .hero {
     position: relative;
-    padding: 3.5rem 0;
-    min-height: 56vh;
+    padding: 5rem 0 4rem;
+    min-height: 70vh;
     color: #f7fbff;
     text-align: left;
     background: radial-gradient(130% 130% at 15% 20%, #123169 0%, #0a1a3b 55%, #070f26 100%);
@@ -258,7 +258,9 @@ textarea:focus-visible {
 }
 
 .home-hero h1 {
-    line-height: 1.1;
+    line-height: 1.08;
+    font-size: clamp(2.6rem, 3vw + 1.4rem, 4rem);
+    letter-spacing: -0.02em;
 }
 
 .hero-copy h1,
@@ -267,18 +269,18 @@ textarea:focus-visible {
 }
 
 .hero-copy-panel {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 1.4rem 1.6rem;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(2px);
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 
 .hero-visual {
     display: grid;
     gap: 1rem;
     align-items: start;
-    max-width: 620px;
+    max-width: 720px;
     justify-self: end;
 }
 
@@ -298,10 +300,10 @@ textarea:focus-visible {
 
 .hero-photo {
     width: 100%;
-    max-width: 560px;
+    max-width: 680px;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.32);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
 
 .hero-photo img {
@@ -317,6 +319,7 @@ textarea:focus-visible {
     padding: 1.6rem;
     box-shadow: var(--shadow-card);
     border: 1px solid rgba(15, 23, 42, 0.1);
+    border-top: 3px solid var(--color-accent);
 }
 
 .hero-impact-card .hero-stats {
@@ -325,7 +328,8 @@ textarea:focus-visible {
 
 .hero-impact-card .hero-stats dt {
     color: var(--color-primary);
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+    font-weight: 800;
 }
 
 .hero-impact-card .hero-stats dd {
@@ -525,14 +529,17 @@ textarea:focus-visible {
 }
 
 .hero .btn-primary {
-    background: linear-gradient(120deg, #0d2c5a, #0a1a3b);
-    box-shadow: 0 25px 50px rgba(10, 26, 59, 0.4);
+    background: var(--color-accent);
+    color: #0a1a3b;
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
+    font-weight: 700;
 }
 
 .hero .btn-primary:hover,
 .hero .btn-primary:focus {
-    background: linear-gradient(120deg, #0a1a3b, #08132e);
-    color: #fff;
+    background: #e6c76a;
+    color: #0a1a3b;
 }
 
 .btn-primary:active {
