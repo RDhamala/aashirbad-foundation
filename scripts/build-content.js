@@ -125,7 +125,8 @@ const applyPartials = () => {
         'donate.html',
         'contact.html',
         'resources.html',
-        'thank-you.html'
+        'thank-you.html',
+        'privacy.html'
     ];
     const ctaPages = [
         'index.html',
@@ -136,7 +137,8 @@ const applyPartials = () => {
         'transparency.html',
         'donate.html',
         'contact.html',
-        'resources.html'
+        'resources.html',
+        'privacy.html'
     ];
 
     allPages.forEach((page) => {
