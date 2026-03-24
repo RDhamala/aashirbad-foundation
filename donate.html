@@ -70,26 +70,24 @@
         <main id="main-content">
             <section class="page-hero hero-donate hero-overlay">
                 <div class="container narrow fade-in">
-                    <p class="eyebrow">Give the Gift of Opportunity</p>
-                    <h1>Your gift can change a life.</h1>
+                    <p class="eyebrow">Tax-deductible 501(c)(3)</p>
+                    <h1>Your gift keeps a student in school.</h1>
                     <p>
-                        Your tax-deductible donation funds scholarships, technology, and mentorship
-                        for students in rural Nepal. Choose a one-time gift, monthly support, device
-                        sponsorship, or a full scholarship - every option keeps a student in class.
+                        Donate securely via PayPal or Venmo. Every dollar funds scholarships,
+                        devices, and mentorship for students in rural Nepal.
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="#donation-form-title">Donate Now</a>
-                        <a class="btn btn-outline hero-secondary" href="transparency.html"
-                            >Our Promise</a
-                        >
                     </div>
                 </div>
             </section>
 
             <section class="section" aria-labelledby="donation-form-title">
-                <div class="container donate-wrapper">
+                <div class="container narrow">
                     <div class="donate-details fade-in">
                         <h2 id="donation-form-title">Every gift makes a difference</h2>
+                        <p class="lead">Choose how you’d like to help, then donate securely via PayPal or Venmo.</p>
+
                         <div class="donation-choice-grid" role="group" aria-label="Donation options">
                             <button
                                 class="donation-choice active"
@@ -129,205 +127,57 @@
                                 Scholarship sponsorship
                             </button>
                         </div>
-                        <div class="toggle-group" role="group" aria-label="Donation frequency">
-                            <button
-                                class="toggle active"
-                                type="button"
-                                data-frequency="once"
-                                aria-pressed="true"
-                            >
-                                One-time
-                            </button>
-                            <button
-                                class="toggle"
-                                type="button"
-                                data-frequency="monthly"
-                                aria-pressed="false"
-                            >
-                                Monthly
-                            </button>
-                        </div>
-                        <div class="amount-grid">
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="35"
-                                aria-pressed="false"
-                            >
-                                $35
-                            </button>
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="75"
-                                aria-pressed="false"
-                            >
-                                $75
-                            </button>
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="150"
-                                aria-pressed="false"
-                            >
-                                $150
-                            </button>
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="350"
-                                aria-pressed="false"
-                            >
-                                $350
-                            </button>
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="500"
-                                aria-pressed="false"
-                            >
-                                $500
-                            </button>
-                            <button
-                                class="amount"
-                                type="button"
-                                data-amount="1200"
-                                aria-pressed="false"
-                            >
-                                $1,200
-                            </button>
-                        </div>
-                        <p class="small">
-                            We use 100% of donations to support students directly and publish annual reports for transparency.
-                        </p>
+
                         <ul class="checklist">
-                            <li>$35 covers exam and lab fees for a student this term.</li>
-                            <li>
-                                $75 keeps a student online for a month with weekly mentor check-ins.
-                            </li>
-                            <li>
-                                $350 outfits a student with a rugged laptop, case, and onboarding.
-                            </li>
-                            <li>
-                                $1,200 sponsors a year of tuition, housing, exams, and mentoring for
-                                a scholar.
-                            </li>
+                            <li><strong>$35</strong> covers exam and lab fees for a student this term.</li>
+                            <li><strong>$75</strong> keeps a student online for a month with weekly mentor check-ins.</li>
+                            <li><strong>$350</strong> outfits a student with a rugged laptop, case, and onboarding.</li>
+                            <li><strong>$1,200</strong> sponsors a year of tuition, housing, exams, and mentoring.</li>
                         </ul>
+
                         <div class="paypal-container">
                             <div id="paypal-container-3HYY3RQ6M2F3A"></div>
                             <script>
                                 paypal
                                     .HostedButtons({
-                                        hostedButtonId: '3HYY3RQ6M2F3A'
+                                        hostedButtonId: ‘3HYY3RQ6M2F3A’
                                     })
-                                    .render('#paypal-container-3HYY3RQ6M2F3A');
+                                    .render(‘#paypal-container-3HYY3RQ6M2F3A’);
                             </script>
                         </div>
+
+                        <p class="small" style="margin-top: 1.5rem; text-align: center;">
+                            Prefer to give via ACH, donor-advised fund, stock, or employer match?
+                            <a href="mailto:info@aashirbadfoundation.org">Email us</a> and we’ll help you set it up.
+                        </p>
                     </div>
-                    <form
-                        class="donate-form fade-in"
-                        aria-describedby="donate-note"
-                        data-feedback="Thanks for your pledge! We’ll be in touch soon."
-                        data-external="true"
-                        method="POST"
-                        action="https://formspree.io/f/myzlllkn"
-                    >
-                        <label for="donor-name">Full Name</label>
-                        <input id="donor-name" name="name" type="text" required />
-
-                        <label for="donor-email">Email</label>
-                        <input id="donor-email" name="email" type="email" required />
-
-                        <label for="donor-amount">Donation Amount (USD)</label>
-                        <input
-                            id="donor-amount"
-                            name="amount"
-                            type="number"
-                            min="5"
-                            step="5"
-                            placeholder="50"
-                            required
-                        />
-
-                        <input
-                            type="hidden"
-                            id="donation-frequency"
-                            name="frequency"
-                            value="once"
-                        />
-                        <input
-                            type="hidden"
-                            id="donation-purpose"
-                            name="donation_purpose"
-                            value="One-time gift"
-                        />
-
-                        <label for="donor-message">Message (optional)</label>
-                        <textarea
-                            id="donor-message"
-                            name="message"
-                            rows="4"
-                            placeholder="Share a note for our scholars"
-                        ></textarea>
-
-                        
-                        <div class="form-feedback" role="status" aria-live="polite"></div>
-                        <button class="btn btn-primary" type="submit">Pledge Your Support</button>
-                        <p id="donate-note" class="small">
-                            This is a pledge form only. We will follow up with you to arrange for a
-                            secure payment.
-                        </p>
-                        <p class="small privacy-note">
-                            We never share or sell your information, and your details help us
-                            confirm your tax-deductible gift. After you submit, we’ll display next
-                            steps so you can confirm everything with our team.
-                        </p>
-                    </form>
                 </div>
             </section>
 
-            <section class="section muted" id="giving-options" aria-labelledby="giving-impact">
+            <section class="section muted" aria-labelledby="donate-trust-heading">
                 <div class="container split">
-                    <article class="impact-callout fade-in">
-                        <h3 id="giving-impact">What each option covers</h3>
-                        <ul>
-                            <li><strong>$35</strong> Exam and lab fees for a term</li>
-                            <li><strong>$75</strong> Monthly internet and mentor calls</li>
-                            <li><strong>$350</strong> Rugged laptop, setup, and training</li>
-                            <li><strong>$1,200</strong> Full-year scholarship and housing</li>
-                        </ul>
-                        <div class="sponsor-grid">
-                            <article class="mini-card">
-                                <h4>Device sponsorship</h4>
-                                <p>
-                                    Includes a laptop or tablet, protective case, surge protector, offline
-                                    resources, and delivery to a rural school partner.
-                                </p>
-                            </article>
-                            <article class="mini-card">
-                                <h4>Scholarship sponsorship</h4>
-                                <p>
-                                    Covers tuition, hostel, exam and lab fees, and weekly mentor coaching
-                                    with quarterly progress updates.
-                                </p>
-                            </article>
-                        </div>
-                        <p class="small">
-                            Prefer to give via ACH, donor-advised fund, stock, or employer match?
-                            Please <a href="mailto:info@aashirbadfoundation.org">email us</a> for
-                            instructions.
+                    <article class="fade-in">
+                        <p class="eyebrow">Your donation at work</p>
+                        <h2 id="donate-trust-heading">Where your gift goes</h2>
+                        <p>
+                            100% of donations support students directly. We publish annual reports,
+                            send receipts each term, and keep operations volunteer-run so your gift
+                            stays with scholars.
                         </p>
+                        <ul class="checklist">
+                            <li>Receipts and progress updates shared with donors each term.</li>
+                            <li>Funds go to tuition, devices, and mentor time.</li>
+                            <li>All donations are tax-deductible. EIN: 93-4943678.</li>
+                        </ul>
                     </article>
                     <aside class="info-card fade-in">
                         <h3>Our Promise to You</h3>
                         <ul class="pillars">
                             <li>Regular updates on the progress of our students and programs.</li>
                             <li>Access to our annual reports and financial statements.</li>
-                            <li>
-                                Invitations to virtual events where you can meet our students and
-                                see your impact firsthand.
-                            </li>
+                            <li>A direct line to our team for any questions.</li>
                         </ul>
+                        <a class="text-link" href="transparency.html">See our transparency page →</a>
                     </aside>
                 </div>
             </section>
