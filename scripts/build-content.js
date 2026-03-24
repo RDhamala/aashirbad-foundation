@@ -57,7 +57,8 @@ const renderPrograms = () => {
             const bullets = program.bullets
                 .map((item) => `                                <li>${item}</li>`)
                 .join('\n');
-            return `                    <article class="program-card fade-in">
+            const idAttr = program.id ? ` id="${program.id}"` : '';
+            return `                    <article class="program-card fade-in"${idAttr}>
 ${renderProgramImage(program.image)}
                         <div class="program-body">
                             <h3>${program.title}</h3>
@@ -123,7 +124,8 @@ const applyPartials = () => {
         'transparency.html',
         'donate.html',
         'contact.html',
-        'resources.html'
+        'resources.html',
+        'thank-you.html'
     ];
     const ctaPages = [
         'index.html',
