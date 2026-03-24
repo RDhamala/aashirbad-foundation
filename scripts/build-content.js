@@ -129,6 +129,7 @@ const applyPartials = () => {
         'index.html',
         'about.html',
         'impact.html',
+        'transparency.html',
         'donate.html',
         'contact.html',
         'resources.html'
