@@ -1,14 +1,14 @@
 [
     {
-        "title": "STEM Bridge Scholarship",
-        "description": "Full scholarships keep students from public and community schools on track at Tribhuvan, Kathmandu University, and CTEVT campuses by covering tuition balances, hostels, lab fees, and a rugged laptop.",
-        "teaser": "Tuition, hostels, labs, and laptops for students transitioning into Nepali universities.",
+        "title": "Scholarships",
+        "description": "Needs-based awards cover tuition, books, hostel fees, and exams so students don't have to pause school mid-year. Headteachers verify each recipient, and donors receive receipts every term.",
+        "teaser": "Tuition, books, hostel, and exams covered so students stay in school.",
         "bullets": [
-            "Career coaching with alumni at Deerwalk, Fusemachines, Khalti, and Vianet",
-            "Emergency stipends for healthcare, visas, or family crises",
-            "Peer accountability circles facilitated by Teach For Nepal alumni"
+            "Needs-based awards verified by headteachers and ward committees",
+            "Covers tuition, hostel, lab fees, books, and exam costs",
+            "Receipts and progress updates shared with donors each term"
         ],
-        "impact": "Impact: 110 scholars have earned STEM degrees since 2018 with 78% staying in Nepal\u2019s tech sector.",
+        "impact": "Impact: 100+ scholarships funded since 2023 with 95% year-over-year retention.",
         "image": {
             "webp": "images/programs/stem-lab.webp",
             "fallback": "images/programs/stem-lab.JPG",
@@ -18,20 +18,38 @@
         }
     },
     {
-        "title": "Future Coders Fellowship",
-        "description": "Weekend labs in Janakpur, Pokhara, and Surkhet blend Scratch, Python, GIS, and climate data so students can solve hyperlocal problems with mentors from Karkhana Samuha and Girls in Tech Nepal.",
-        "teaser": "Community labs with Nepali mentors, refurbished tablets, and Nepali-language curriculum.",
+        "title": "Mentorship",
+        "description": "Weekly calls and career prep with Nepali mentors who understand the journey. Mentors check in on attendance, grades, and goals so first-generation students stay on track.",
+        "teaser": "Weekly calls and career coaching from Nepali mentors who understand the journey.",
         "bullets": [
-            "Monthly hack days co-hosted with public schools and municipal ICT clubs",
-            "Hardware library with tablets, routers, and solar chargers",
-            "Travel meals and SIM top-ups for students commuting from villages"
+            "Weekly check-ins on attendance, grades, and personal goals",
+            "Career sessions with Nepali tech professionals",
+            "Peer study groups and accountability circles"
         ],
-        "impact": "Impact: 75% of fellows publish their first apps or dashboards before SEE exams.",
+        "impact": "Impact: 40+ mentors volunteering weekly to coach students across Dhading.",
         "image": {
-            "fallback": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80&fm=webp",
-            "alt": "Teacher guiding students",
-            "width": 900,
-            "height": 600
+            "fallback": "images/campaigns/hero-students.JPG",
+            "alt": "A mentor sitting with Nepali students during a study session",
+            "width": 960,
+            "height": 540
+        }
+    },
+    {
+        "title": "Device Support",
+        "description": "Laptops and tablets placed in rural classrooms with on-site setup, maintenance guidance, and solar backups where needed so students can study and code.",
+        "teaser": "Laptops and tablets with setup so rural classrooms can study and code.",
+        "bullets": [
+            "On-site setup, maintenance guidance, and solar backups where needed",
+            "Shared labs with usage checklists for responsible care",
+            "Offline learning resources pre-loaded for areas without reliable internet"
+        ],
+        "impact": "Impact: 10+ devices placed in rural classrooms since 2023.",
+        "image": {
+            "webp": "images/programs/lab-library.webp",
+            "fallback": "images/programs/lab-library.JPG",
+            "alt": "Girls sharing laptops and tablets in a rural school lab",
+            "width": 2048,
+            "height": 1536
         }
     }
 ]

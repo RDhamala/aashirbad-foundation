@@ -1,63 +1,66 @@
 [
     {
-        "tag": "Bagmati · Scholar",
-        "title": "Sita brings laptops to Dolakha.",
-        "summary": "After finishing her BSc.CSIT at Tribhuvan University, Sita returned to her public school in Dolakha to run weekend laptop clubs powered by solar-charged batteries.",
-        "quote": "Teach For Nepal showed us that community teachers can lead the change. When the landslide cut power, our solar trunk kept everyone's coursework alive.",
+        "tag": "Dhading · Scholar",
+        "title": "Sita stayed in school because fees were covered.",
+        "summary": "When Sita's family couldn't afford hostel fees mid-term, a scholarship kept her enrolled. Weekly mentor calls helped her stay focused through exams.",
+        "quote": "When my hostel fee was covered, I could focus on finals instead of finding work. My mentor's weekly calls kept me on track.",
         "metrics": [
-            "First woman coder from her ward",
-            "18 girls enrolled in the Dolakha laptop club"
+            "First in her family to finish secondary school",
+            "Now mentors younger students in her ward"
         ],
         "image": {
-            "src": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=80&fm=webp",
-            "alt": "Student smiling outside classroom",
-            "width": 800,
-            "height": 533
+            "src": "images/campaigns/hero-students.JPG",
+            "alt": "Students in Nepal working together on laptops",
+            "width": 960,
+            "height": 540
         }
     },
     {
-        "tag": "Province 2 · Fellowship",
-        "title": "Bikash codes in Janakpur.",
-        "summary": "Bikash uses refurbished tablets and free fiber from Nepal Telecom to host Scratch and Python sessions for students whose families migrate seasonally for work.",
-        "quote": "Karkhana Samuha helped me design tinkering lessons in Maithili. Now parents stay in the classroom because they see their kids building apps for cooperatives.",
-        "metrics": ["6 municipal schools sharing one hub", "32 project demos published on GitHub"],
+        "tag": "Dhading · Mentorship",
+        "title": "Bikash found direction through weekly calls.",
+        "summary": "Bikash was close to dropping out when a volunteer mentor began weekly check-ins. Career sessions helped him see a path forward in technology.",
+        "quote": "I didn't know anyone who worked in tech. My mentor showed me it was possible for someone from my village.",
+        "metrics": [
+            "Attended every weekly mentor session for a full year",
+            "Now studying computer science at a Kathmandu campus"
+        ],
         "image": {
-            "src": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80&fm=webp",
-            "alt": "Mentor guiding a student",
-            "width": 800,
-            "height": 533
+            "src": "images/programs/stem-lab.webp",
+            "alt": "Students learning together in a computer lab",
+            "width": 2048,
+            "height": 1536
         }
     },
     {
-        "tag": "Gandaki · Women in Tech",
-        "title": "Manju powers a solar classroom.",
-        "summary": "Inspired by organisations like Women Leaders in Technology, Manju built a Nepali-language curriculum and a solar microgrid so girls in Bharatpur can code even during load-shedding.",
-        "quote": "Room to Read helped our library years ago; this grant let us add laptops and LED lights so the lab never shuts down.",
+        "tag": "Dhading · Device Support",
+        "title": "Manju's school got its first laptops.",
+        "summary": "Manju's rural school had no computers until Aashirbad placed laptops with on-site setup. Students now share devices during study periods and weekend labs.",
+        "quote": "We used to only read about computers in textbooks. Now we can actually use them.",
         "metrics": [
-            "30 leadership labs launched since 2021",
-            "Hybrid design challenges with Siddhartha Bank mentors"
+            "School's first shared laptop lab",
+            "Weekend coding sessions started for interested students"
         ],
         "image": {
-            "src": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80&fm=webp",
-            "alt": "Young woman using laptop",
-            "width": 800,
-            "height": 533
+            "src": "images/programs/lab-library.webp",
+            "alt": "Students sharing laptops in a rural school lab",
+            "width": 2048,
+            "height": 1536
         }
     },
     {
-        "tag": "Chitwan · Partner school",
-        "title": "Principal Rai scales leadership labs.",
-        "summary": "Principal Rai worked with the Education Cluster, Teach For Nepal alumni, and our team to weave digital leadership labs into the Grade 9 science period.",
-        "quote": "Retention is up 30 percent because students see pathways like Deerwalk, Fusemachines, and Khalti hiring Nepali talent.",
+        "tag": "Dhading · Partner School",
+        "title": "Principal Rai saw attendance improve.",
+        "summary": "After partnering with Aashirbad, Principal Rai's school saw fewer students dropping out mid-year. Scholarships and devices gave families a reason to keep children enrolled.",
+        "quote": "Parents used to pull children out for farm work. Now they see the laptops and the mentors, and they want their children to stay.",
         "metrics": [
-            "5 districts piloting the model",
-            "Quarterly open classrooms for nearby schools"
+            "Fewer mid-year dropouts since the partnership began",
+            "Open classroom days invite nearby schools to visit"
         ],
         "image": {
-            "src": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80&fm=webp",
-            "alt": "Teacher encouraging students",
-            "width": 800,
-            "height": 533
+            "src": "images/campaigns/founder-visit.JPG",
+            "alt": "Foundation team visiting a partner school",
+            "width": 960,
+            "height": 540
         }
     }
 ]

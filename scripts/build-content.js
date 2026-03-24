@@ -128,7 +128,9 @@ const applyPartials = () => {
     const ctaPages = [
         'index.html',
         'about.html',
+        'programs.html',
         'impact.html',
+        'stories.html',
         'transparency.html',
         'donate.html',
         'contact.html',
@@ -149,7 +151,6 @@ try {
     applyPartials();
     replaceBlock('stories.html', 'STORIES', renderStories(), '                ');
     replaceBlock('programs.html', 'PROGRAMS', renderPrograms(), '                ');
-    replaceBlock('index.html', 'PROGRAMS-PREVIEW', renderProgramPreview(), '                    ');
     console.log('Content sections updated from data files and partials.');
 } catch (error) {
     console.error(error.message);
