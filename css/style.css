@@ -441,6 +441,30 @@ textarea:focus-visible {
     min-width: 160px;
 }
 
+.text-link {
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.text-link:hover,
+.text-link:focus {
+    color: var(--color-accent);
+}
+
+.cta .text-link,
+.site-footer .text-link {
+    color: rgba(247, 251, 255, 0.9);
+}
+
+.cta .text-link:hover,
+.cta .text-link:focus,
+.site-footer .text-link:hover,
+.site-footer .text-link:focus {
+    color: var(--color-accent);
+}
+
 .cta-actions .text-link {
     font-weight: 700;
     display: inline-flex;
