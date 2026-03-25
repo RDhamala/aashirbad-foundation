@@ -120,11 +120,9 @@ const applyPartials = () => {
         'about.html',
         'programs.html',
         'impact.html',
-        'stories.html',
         'transparency.html',
         'donate.html',
         'contact.html',
-        'resources.html',
         'thank-you.html',
         'privacy.html'
     ];
@@ -133,11 +131,9 @@ const applyPartials = () => {
         'about.html',
         'programs.html',
         'impact.html',
-        'stories.html',
         'transparency.html',
         'donate.html',
         'contact.html',
-        'resources.html',
         'privacy.html'
     ];
 
@@ -153,7 +149,7 @@ const applyPartials = () => {
 
 try {
     applyPartials();
-    replaceBlock('stories.html', 'STORIES', renderStories(), '                ');
+    replaceBlock('impact.html', 'STORIES', renderStories(), '                ');
     replaceBlock('programs.html', 'PROGRAMS', renderPrograms(), '                ');
     console.log('Content sections updated from data files and partials.');
 } catch (error) {
