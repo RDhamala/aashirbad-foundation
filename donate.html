@@ -216,11 +216,13 @@
                         <div class="paypal-container">
                             <div id="paypal-container-3HYY3RQ6M2F3A"></div>
                             <script>
-                                paypal
-                                    .HostedButtons({
-                                        hostedButtonId: '3HYY3RQ6M2F3A'
-                                    })
-                                    .render('#paypal-container-3HYY3RQ6M2F3A');
+                                if (typeof paypal !== 'undefined') {
+                                    paypal
+                                        .HostedButtons({
+                                            hostedButtonId: '3HYY3RQ6M2F3A'
+                                        })
+                                        .render('#paypal-container-3HYY3RQ6M2F3A');
+                                }
                             </script>
                         </div>
                     </div>
