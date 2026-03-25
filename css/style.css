@@ -731,7 +731,8 @@ textarea:focus-visible {
     background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 90%);
 }
 
-.impact-cards {
+.impact-cards,
+.impact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.25rem;
@@ -1031,6 +1032,13 @@ textarea:focus-visible {
     color: #fff;
     text-align: center;
     padding: 3.15rem 0;
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .cta h2,
@@ -1358,6 +1366,36 @@ textarea:focus-visible {
     font-style: italic;
 }
 
+.story-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: rgba(5, 12, 28, 0.85);
+    color: #fff;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.story-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.story-meta li {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    padding: 0.25rem 0.6rem;
+    background: rgba(10, 26, 59, 0.06);
+    border-radius: 999px;
+}
+
 /* Mission & trust cards */
 .mission-card,
 .trust-card {
@@ -1401,6 +1439,14 @@ textarea:focus-visible {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+}
+
+.paypal-container {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: #f9fbff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: var(--radius-md);
 }
 
 .amount-grid {
