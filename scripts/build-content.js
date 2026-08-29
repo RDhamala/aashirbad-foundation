@@ -120,9 +120,7 @@ const applyPartials = () => {
         'about.html',
         'programs.html',
         'impact.html',
-        'transparency.html',
         'donate.html',
-        'contact.html',
         'thank-you.html',
         'privacy.html'
     ];
@@ -131,9 +129,8 @@ const applyPartials = () => {
         'about.html',
         'programs.html',
         'impact.html',
-        'transparency.html',
         'donate.html',
-        'contact.html',
+        'thank-you.html',
         'privacy.html'
     ];
 

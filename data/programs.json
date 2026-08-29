@@ -1,56 +1,55 @@
 [
     {
-        "id": "scholarships",
-        "title": "Scholarships",
-        "description": "Needs-based awards cover tuition, books, hostel fees, and exams so students don't have to pause school mid-year. Headteachers verify each recipient, and donors receive receipts every term.",
-        "teaser": "Tuition, books, hostel, and exams covered so students stay in school.",
+        "id": "education-access",
+        "title": "Education Access",
+        "description": "We help students overcome financial barriers that can interrupt their education — school fees, exam fees, books, and other verified needs. Headteachers verify each recipient, and donors receive updates every term.",
+        "teaser": "Covering school fees, exam fees, and books so a financial gap doesn't end a student's year.",
         "bullets": [
-            "Needs-based awards verified by headteachers and ward committees",
+            "Needs-based support verified by headteachers and ward committees",
             "Covers tuition, hostel, lab fees, books, and exam costs",
-            "Receipts and progress updates shared with donors each term"
+            "Progress updates shared with donors each term"
         ],
-        "impact": "Impact: 100+ scholarships funded since 2023 with 95% year-over-year retention.",
+        "impact": "Impact: 100+ students supported since 2023 with 95% year-over-year retention.",
         "image": {
-            "webp": "images/programs/stem-lab.webp",
-            "fallback": "images/programs/stem-lab.JPG",
-            "alt": "Students learning in a computer lab supported by Aashirbad Foundation",
+            "fallback": "images/campaigns/founder-visit.JPG",
+            "alt": "A school community gathering at a partner school in Dhading, Nepal",
             "width": 2048,
             "height": 1536
         }
     },
     {
-        "id": "mentorship",
-        "title": "Mentorship",
-        "description": "Weekly calls and career prep with Nepali mentors who understand the journey. Mentors check in on attendance, grades, and goals so first-generation students stay on track.",
-        "teaser": "Weekly calls and career coaching from Nepali mentors who understand the journey.",
+        "id": "mentorship-opportunity",
+        "title": "Mentorship & Opportunity",
+        "description": "Weekly calls and career conversations with Nepali mentors who understand the journey. Mentors help students see paths and possibilities beyond their immediate surroundings, and check in on attendance, grades, and goals.",
+        "teaser": "Weekly calls and career conversations that connect students to guidance and possibilities beyond their village.",
         "bullets": [
             "Weekly check-ins on attendance, grades, and personal goals",
-            "Career sessions with Nepali tech professionals",
+            "Career conversations with Nepali professionals, including in tech",
             "Peer study groups and accountability circles"
         ],
         "impact": "Impact: 40+ mentors volunteering weekly to coach students across Dhading.",
         "image": {
             "fallback": "images/campaigns/hero-students.JPG",
-            "alt": "A mentor sitting with Nepali students during a study session",
+            "alt": "Students and mentors gathered together in Dhading, Nepal",
             "width": 960,
             "height": 540
         }
     },
     {
-        "id": "devices",
-        "title": "Device Support",
-        "description": "Laptops and tablets placed in rural classrooms with on-site setup and maintenance guidance so students can access lessons, complete assignments, and stay on track.",
-        "teaser": "Laptops and tablets placed in classrooms so students can access lessons and stay on track.",
+        "id": "digital-access",
+        "title": "Digital Access",
+        "description": "Many students in rural communities have little exposure to computers or modern learning tools. We work with partner schools to provide shared computer access, guided digital learning, and basic digital literacy — so students gain real exposure to technology and the paths it can open.",
+        "teaser": "Shared computer access and guided digital learning so students gain real exposure to technology.",
         "bullets": [
-            "On-site setup, maintenance guidance, and solar backups where needed",
-            "Shared labs with usage checklists for responsible care",
-            "Offline learning resources pre-loaded for areas without reliable internet"
+            "Shared computer labs at partner schools, with setup and maintenance support",
+            "Guided digital literacy sessions alongside regular coursework",
+            "Early exposure to technology careers and digital tools"
         ],
-        "impact": "Impact: 10+ devices placed in rural classrooms since 2023.",
+        "impact": "Impact: Shared computer access supported at 10+ partner classrooms since 2023.",
         "image": {
-            "webp": "images/programs/lab-library.webp",
-            "fallback": "images/programs/lab-library.JPG",
-            "alt": "Girls sharing laptops and tablets in a rural school lab",
+            "webp": "images/programs/stem-lab.webp",
+            "fallback": "images/programs/stem-lab.JPG",
+            "alt": "Students using shared computers in a classroom supported by Aashirbad Foundation",
             "width": 2048,
             "height": 1536
         }
