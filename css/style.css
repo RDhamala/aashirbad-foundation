@@ -31,6 +31,10 @@
     /* The one dark-surface gradient. Only the light origin varies per section,
        so the heroes and the two home page bands read as the same material. */
     --gradient-dark: #123169 0%, #0a1a3b 55%, #070f26 100%;
+    /* Diagonal scrim laid over every dark surface. It was on the two heroes
+       only (and at two different alphas, 0.60 and 0.55), which left the home
+       page bands visibly lighter than everything else. */
+    --scrim-dark: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(7, 17, 40, 0.55));
 }
 
 * {
@@ -184,7 +188,7 @@ textarea:focus-visible {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(7, 17, 40, 0.55));
+    background: var(--scrim-dark);
     pointer-events: none;
 }
 
@@ -238,7 +242,7 @@ textarea:focus-visible {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(7, 17, 40, 0.6));
+    background: var(--scrim-dark);
     pointer-events: none;
 }
 
@@ -790,6 +794,14 @@ textarea:focus-visible {
         radial-gradient(130% 130% at 88% 18%, var(--gradient-dark));
 }
 
+
+.origin-story::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--scrim-dark);
+    pointer-events: none;
+}
 
 .origin-wrapper {
     position: relative;
