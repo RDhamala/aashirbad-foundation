@@ -201,7 +201,10 @@ const App = (() => {
                     }
                 };
 
-                const invalid = requiredFields.some((field) => {
+                // filter, not some: some() short-circuits on the first empty
+                // field, so only that one got marked and the rest of the
+                // missing fields stayed unstyled.
+                const missing = requiredFields.filter((field) => {
                     if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
                         if (!field.value.trim()) {
                             field.classList.add('invalid');
@@ -213,9 +216,10 @@ const App = (() => {
                     }
                     return false;
                 });
-                if (invalid) {
+                if (missing.length) {
                     event.preventDefault();
                     setFeedback('Please complete the required fields.', 'error');
+                    missing[0].focus();
                     return;
                 }
 
