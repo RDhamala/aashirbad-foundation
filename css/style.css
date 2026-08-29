@@ -163,22 +163,47 @@ textarea:focus-visible {
     justify-content: flex-start;
 }
 
+/* Page heroes are full-bleed, so a 1440px viewport at 2x DPR asks for roughly
+   2880px of image. hero-students.webp is 960px wide and was being upscaled 3x
+   here, which is what made these heroes look soft. The -wide variants are
+   2048px, the most the source photographs hold, and are loaded only above
+   900px so phones keep the lighter 1400px files. */
 .hero-about {
     background-image:
         linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/hero-students.webp');
+        url('../images/campaigns/shankha-devi-school.webp');
 }
 
 .hero-programs {
     background-image:
         linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/founder-visit.JPG');
+        url('../images/programs/materials-handover.webp');
 }
 
 .hero-impact {
     background-image:
         linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/hero-students.webp');
+        url('../images/campaigns/community-meeting.webp');
+}
+
+@media (min-width: 900px) {
+    .hero-about {
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+            url('../images/campaigns/shankha-devi-school-wide.webp');
+    }
+
+    .hero-programs {
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+            url('../images/programs/materials-handover-wide.webp');
+    }
+
+    .hero-impact {
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
+            url('../images/campaigns/community-meeting-wide.webp');
+    }
 }
 
 .hero-stories {

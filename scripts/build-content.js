@@ -81,19 +81,6 @@ ${cards}
                 </div>`;
 };
 
-const renderProgramPreview = () => {
-    return programs
-        .slice(0, 3)
-        .map(
-            (program) => `                    <article class="info-card fade-in">
-                        <h3>${program.title}</h3>
-                        <p>${program.teaser}</p>
-                        <a class="text-link" href="programs.html">View details</a>
-                    </article>`
-        )
-        .join('\n');
-};
-
 const replaceBlock = (fileName, marker, content, indent = '') => {
     const filePath = path.join(root, fileName);
     const start = `<!-- ${marker}:START -->`;
