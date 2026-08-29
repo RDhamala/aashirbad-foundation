@@ -4,7 +4,7 @@ A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonpr
 
 ## Tech Stack
 
-- **HTML5** for semantic content structure across Home, About, Programs, Impact, Stories, Transparency, Donate, and Contact pages.
+- **HTML5** for semantic content structure across Home, About, Programs, Impact, and Get Involved pages.
 - **CSS3** (custom design system) for responsive layouts, accessibility helpers, gradient sections, and component styling.
 - **Vanilla JavaScript** for lightweight interactivity: mobile navigation, scroll animations, donation amount selectors, and form feedback.
 
@@ -33,6 +33,24 @@ Two things to know:
 
 Re-running the build with no changes is a no-op, and stale hashed files from earlier builds are deleted automatically.
 
+To verify without writing anything (useful in CI or before a commit), run `npm run check`. It exits non-zero if a hashed artifact is missing or any page still references a stale asset.
+
+## Page Structure
+
+The site was consolidated from ten pages down to five content pages plus two supporting ones:
+
+| Page | Contents |
+| --- | --- |
+| `index.html` | Home |
+| `about.html` | Mission, history, team |
+| `programs.html` | Program detail cards (generated from `data/programs.json`) |
+| `impact.html` | Impact metrics, student stories (from `data/stories.json`), and financial transparency |
+| `donate.html` | Donation flow and the contact form |
+| `privacy.html` | Privacy policy |
+| `thank-you.html` | Post-donation confirmation |
+
+`contact.html`, `transparency.html`, and `stories.html` no longer exist as standalone pages. The first two remain as `noindex` redirect stubs pointing at `donate.html#contact` and `impact.html#financials-heading` so old inbound links keep working; leave them in place.
+
 ## Project Structure
 
 ```
@@ -40,27 +58,34 @@ Aashirbad Foundation/
 ├── data/
 │   ├── programs.json
 │   └── stories.json
+├── partials/
+│   ├── header.html
+│   ├── cta.html
+│   └── footer.html
 ├── scripts/
 │   └── build-content.js
 ├── css/
-│   └── style.css
+│   └── style.css          (plus the generated style.<hash>.css)
 ├── js/
-│   └── script.js
+│   └── script.js          (plus the generated script.<hash>.js)
 ├── images/
 │   ├── campaigns/
-│   │   └── hero-students.(JPG|webp)
+│   │   ├── hero-students.(JPG|webp)
+│   │   └── founder-visit.JPG
 │   ├── programs/
 │   │   └── stem-lab.(JPG|webp)
 │   ├── stories/ (drop future story photos here)
-│   └── logo.svg, favicon.svg
+│   └── logo.png           (also used as the favicon)
 ├── index.html
 ├── about.html
 ├── programs.html
 ├── impact.html
-├── stories.html
-├── transparency.html
 ├── donate.html
-├── contact.html
+├── privacy.html
+├── thank-you.html
+├── contact.html           (redirect stub → donate.html#contact)
+├── transparency.html      (redirect stub → impact.html#financials-heading)
+├── _headers
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -75,6 +100,8 @@ Aashirbad Foundation/
     or open `index.html` directly in your browser for a quick preview.
 3. Update HTML/CSS/JS files as needed. When changing stories/programs, edit `/data/*.json` and rerun `node scripts/build-content.js`.
 
+Shared markup lives in `/partials` (`header.html`, `cta.html`, `footer.html`). Edit the partial, never the copies inlined into each page, then rerun the build to propagate the change.
+
 ## Deployment
 
 Because the site is static, it can be deployed easily via GitHub Pages, Cloudflare Pages, Netlify, or any static hosting provider.
@@ -82,11 +109,11 @@ Because the site is static, it can be deployed easily via GitHub Pages, Cloudfla
 - **GitHub Pages**: Point the Pages configuration to the `main` branch and `/` root; the existing `sitemap.xml` and `robots.txt` files will help search engines index content.
 - **Cloudflare Pages**: Set the build command to `npm run build` (leave blank) and build output directory to `/` (root). Since there is no build step, deployment is immediate.
 
-Remember to update DNS to map `aashirbafoundation.com` to your hosting provider and enforce HTTPS.
+The site is live at **https://www.aashirbadfoundation.org**. Remember to keep DNS pointed at your hosting provider and to enforce HTTPS.
 
 ## Content & Asset Workflow
 
-- **Stories & Programs:** Edit `data/stories.json` or `data/programs.json` to add/remove entries, then run `node scripts/build-content.js`. The script updates `stories.html`, `programs.html`, and the program preview cards on the home page.
+- **Stories & Programs:** Edit `data/stories.json` or `data/programs.json` to add/remove entries, then run `node scripts/build-content.js`. The script updates the stories grid in `impact.html`, the program cards in `programs.html`, and the program preview cards on the home page.
 - **Images:** Store new assets inside the relevant folder (`images/stories`, `images/programs`, `images/campaigns`). Include both `.webp` and `.jpg/.png` variants when possible for performance. Use descriptive filenames like `stories-sita-mentor.webp`.
 - Maintain semantic headings and aria attributes to preserve the site’s WCAG-friendly structure.
 - Keep mission statements and trust content consistent across pages (footer, about, story sections).
