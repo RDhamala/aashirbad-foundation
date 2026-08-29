@@ -6,8 +6,8 @@
         "image": {
             "src": "images/campaigns/shankha-devi-school.webp",
             "alt": "Students and teachers gathered outside Shankha Devi Secondary School holding learning materials",
-            "width": 1400,
-            "height": 1050
+            "width": 800,
+            "height": 600
         }
     },
     {
@@ -18,7 +18,7 @@
             "src": "images/stories/students-hillside.webp",
             "alt": "Primary school students raising their hands outdoors, with mountains visible behind them",
             "width": 720,
-            "height": 960
+            "height": 405
         }
     },
     {
@@ -28,8 +28,8 @@
         "image": {
             "src": "images/programs/stem-lab.webp",
             "alt": "Students using shared computers in a classroom supported by Aashirbad Foundation",
-            "width": 2048,
-            "height": 1536
+            "width": 800,
+            "height": 600
         }
     }
 ]

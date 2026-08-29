@@ -12,10 +12,9 @@
         "impact": "Impact: 100+ students supported since 2023 with 95% year-over-year retention.",
         "image": {
             "webp": "images/programs/materials-handover.webp",
-            "fallback": "images/programs/materials-handover.JPG",
             "alt": "Students and teachers with newly distributed learning materials at a partner school",
-            "width": 1400,
-            "height": 1050
+            "width": 800,
+            "height": 600
         }
     },
     {
@@ -31,10 +30,9 @@
         "impact": "Impact: 40+ mentors volunteering weekly to coach students across Dhading.",
         "image": {
             "webp": "images/campaigns/community-meeting.webp",
-            "fallback": "images/campaigns/community-meeting.JPG",
             "alt": "Students, parents, and teachers seated together in a classroom for a school community meeting",
-            "width": 1400,
-            "height": 1050
+            "width": 800,
+            "height": 600
         }
     },
     {
@@ -50,10 +48,9 @@
         "impact": "Impact: Structured digital access supported at 10+ partner classrooms since 2023.",
         "image": {
             "webp": "images/programs/stem-lab.webp",
-            "fallback": "images/programs/stem-lab.JPG",
             "alt": "Students using shared computers in a classroom supported by Aashirbad Foundation",
-            "width": 2048,
-            "height": 1536
+            "width": 800,
+            "height": 600
         }
     }
 ]

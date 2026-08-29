@@ -144,88 +144,52 @@ textarea:focus-visible {
     text-align: center;
 }
 
-.page-hero.hero-overlay {
+/* Page heroes are full-bleed: a 1440px viewport at 2x DPR asks for roughly
+   2880px of image. The available photographs top out at 2048px, so every
+   photographic hero was upscaled and looked soft no matter how it was encoded.
+   These heroes now use the brand gradient instead, which is resolution
+   independent and matches the home page. Photographs are kept where they are
+   genuinely sharp: the card grids and the home hero image.
+
+   To restore photographic heroes, add a background-image to .hero-brand (or a
+   per-page class) with a source at least 2880px on the long edge. */
+.page-hero.hero-brand {
     color: #fff;
     text-align: left;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background:
+        radial-gradient(130% 130% at 15% 20%, #123169 0%, #0a1a3b 55%, #070f26 100%);
 }
 
-.page-hero.hero-overlay .eyebrow,
-.page-hero.hero-overlay p,
-.page-hero.hero-overlay h1 {
+.page-hero.hero-brand::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(7, 17, 40, 0.55));
+    pointer-events: none;
+}
+
+.page-hero.hero-brand {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero.hero-brand > * {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero.hero-brand .eyebrow,
+.page-hero.hero-brand p,
+.page-hero.hero-brand h1 {
     color: rgba(255, 255, 255, 0.95);
 }
 
-.page-hero.hero-overlay .eyebrow {
+.page-hero.hero-brand .eyebrow {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.page-hero.hero-overlay .narrow {
-    background: rgba(4, 9, 24, 0.45);
-    padding: 2rem 2.2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 30px 60px rgba(2, 6, 23, 0.5);
-}
-
-.page-hero.hero-overlay .hero-actions {
+.page-hero.hero-brand .hero-actions {
     justify-content: flex-start;
-}
-
-/* Page heroes are full-bleed, so a 1440px viewport at 2x DPR asks for roughly
-   2880px of image. hero-students.webp is 960px wide and was being upscaled 3x
-   here, which is what made these heroes look soft. The -wide variants are
-   2048px, the most the source photographs hold, and are loaded only above
-   900px so phones keep the lighter 1400px files. */
-.hero-about {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/shankha-devi-school.webp');
-}
-
-.hero-programs {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/programs/materials-handover.webp');
-}
-
-.hero-impact {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/community-meeting.webp');
-}
-
-@media (min-width: 900px) {
-    .hero-about {
-        background-image:
-            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-            url('../images/campaigns/shankha-devi-school-wide.webp');
-    }
-
-    .hero-programs {
-        background-image:
-            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-            url('../images/programs/materials-handover-wide.webp');
-    }
-
-    .hero-impact {
-        background-image:
-            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.55) 100%),
-            url('../images/campaigns/community-meeting-wide.webp');
-    }
-}
-
-.hero-stories {
-    background-image:
-        linear-gradient(120deg, rgba(8, 11, 23, 0.85), rgba(57, 86, 148, 0.6)),
-        url('../images/campaigns/school-assembly.webp');
-}
-
-.hero-donate {
-    background-image:
-        linear-gradient(120deg, rgba(7, 11, 26, 0.85), rgba(175, 84, 46, 0.55)),
-        url('../images/campaigns/founder-visit.JPG');
 }
 
 .narrow {
@@ -517,7 +481,8 @@ textarea:focus-visible {
     color: #fff;
 }
 
-.hero .btn-primary {
+.hero .btn-primary,
+.page-hero.hero-brand .btn-primary {
     background: var(--color-accent);
     color: #0a1a3b;
     border-color: var(--color-accent);
@@ -526,7 +491,9 @@ textarea:focus-visible {
 }
 
 .hero .btn-primary:hover,
-.hero .btn-primary:focus {
+.hero .btn-primary:focus,
+.page-hero.hero-brand .btn-primary:hover,
+.page-hero.hero-brand .btn-primary:focus {
     background: #e6c76a;
     color: #0a1a3b;
 }
