@@ -780,12 +780,6 @@ textarea:focus-visible {
         radial-gradient(120% 140% at 88% 20%, #123a63 0%, #0b2140 55%, #060f22 100%);
 }
 
-.origin-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(4, 8, 20, 0.6);
-    mix-blend-mode: multiply;
-}
 
 .origin-wrapper {
     position: relative;
