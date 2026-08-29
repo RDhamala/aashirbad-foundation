@@ -16,9 +16,16 @@ const programs = readJson('programs.json');
 const renderStories = () => {
     const cards = stories
         .map((story) => {
-            const metrics = story.metrics
-                .map((item) => `                                <li>${item}</li>`)
-                .join('\n');
+            // quote and metrics are optional: only render a blockquote for a real,
+            // attributable quote, and only render the meta list when facts exist.
+            const quoteBlock = story.quote
+                ? `\n                            <blockquote class="story-quote">“${story.quote}”</blockquote>`
+                : '';
+            const metricsBlock = story.metrics && story.metrics.length
+                ? `\n                            <ul class="story-meta">\n${story.metrics
+                      .map((item) => `                                <li>${item}</li>`)
+                      .join('\n')}\n                            </ul>`
+                : '';
             return `                    <article class="story-card fade-in">
                         <div class="story-media">
                             <img src="${story.image.src}" alt="${story.image.alt}" loading="lazy" width="${story.image.width}" height="${story.image.height}">
@@ -26,11 +33,7 @@ const renderStories = () => {
                         </div>
                         <div class="story-content">
                             <h3>${story.title}</h3>
-                            <p>${story.summary}</p>
-                            <blockquote class="story-quote">“${story.quote}”</blockquote>
-                            <ul class="story-meta">
-${metrics}
-                            </ul>
+                            <p>${story.summary}</p>${quoteBlock}${metricsBlock}
                         </div>
                     </article>`;
         })
