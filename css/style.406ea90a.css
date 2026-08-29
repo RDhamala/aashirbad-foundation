@@ -2318,14 +2318,25 @@ img {
         gap: 2rem;
     }
 
-    /* Two link columns inside one footer block: keeps the link
-       list useful without adding a fourth stacked block on mobile.
-       .footer-links sets display:grid, which disables CSS columns,
-       so use an explicit two-column grid instead. */
+    /* Two link columns inside one footer block: keeps the link list useful
+       without adding a fourth stacked block on mobile.
+
+       This was a two-column grid, which lays items out row by row and makes
+       both cells in a row share the tallest height. "Impact & Transparency"
+       wraps onto two lines, so the single-line "About" next to it was
+       stretched to 51px and left a visible hole in the column. CSS columns
+       flow each column independently, so nothing shares a row height. It also
+       reads better: the main pages end up in the first column and the deeper
+       links in the second. */
     .footer-links-split {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: block;
+        columns: 2;
         column-gap: 1.5rem;
-        row-gap: 0.4rem;
+    }
+
+    .footer-links-split li {
+        break-inside: avoid;
+        margin-bottom: 0.4rem;
     }
 }
 
