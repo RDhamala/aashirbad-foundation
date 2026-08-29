@@ -30,7 +30,7 @@
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="css/style.ef4b427e.css" />
+        <link rel="stylesheet" href="css/style.c40fce36.css" />
     </head>
     <body>
         <!-- HEADER:START -->
@@ -85,10 +85,10 @@
                 </div>
             </section>
 
-            <section class="section" aria-labelledby="mission-heading">
-                <div class="container narrow">
-                    <p class="eyebrow">Mission</p>
-                    <h2 id="mission-heading">
+            <section class="section section-compact" aria-labelledby="mission-heading">
+                <div class="container mission-grid">
+                    <p class="eyebrow mission-label">Mission</p>
+                    <h2 id="mission-heading" class="mission-statement">
                         To expand access to education, mentorship, and technology for young
                         people in underserved communities in Nepal.
                     </h2>
@@ -131,30 +131,43 @@
             </section>
 
             <section class="section" aria-labelledby="process-heading">
-                <div class="container split">
-                    <article class="fade-in">
+                <div class="container">
+                    <div class="reading">
                         <p class="eyebrow">Operating Model</p>
                         <h2 id="process-heading">Community-led, donor-verified.</h2>
                         <p>
-                            We don’t decide who gets support from a desk in Texas. Headteachers
-                            and ward committees in Dhading identify students who need support;
-                            our Nepal-based team verifies each case, and our U.S. board oversees
-                            governance and financial controls. Donors receive updates each term.
+                            We don’t decide who gets support from a desk in Texas. The people
+                            closest to each student start the process, and every step is checked
+                            before funds move.
                         </p>
-                        <ul class="checklist">
-                            <li>Headteachers and local leaders identify students who need support.</li>
-                            <li>Our Nepal team meets with each student and their family to verify need.</li>
-                            <li>Our U.S. board reviews and approves disbursements.</li>
-                            <li>Donors receive a term-end update showing where funds went.</li>
-                        </ul>
-                        <p class="small">
-                            Registered U.S. 501(c)(3) (EIN: 93-4943678) with a volunteer board of
-                            four. We are a young organization, founded in 2023, and we're building
-                            a community-led model. We don't claim more scale or history than we
-                            have.
-                            <a class="text-link" href="impact.html#financials-heading">Our financials →</a>
-                        </p>
-                    </article>
+                    </div>
+                    <ol class="process-steps">
+                        <li class="process-step">
+                            <span class="process-num" aria-hidden="true">01</span>
+                            <h3>Identify</h3>
+                            <p>Schools and local leaders identify students who may need support.</p>
+                        </li>
+                        <li class="process-step">
+                            <span class="process-num" aria-hidden="true">02</span>
+                            <h3>Verify</h3>
+                            <p>Our Nepal team meets with students and families to confirm the need.</p>
+                        </li>
+                        <li class="process-step">
+                            <span class="process-num" aria-hidden="true">03</span>
+                            <h3>Review</h3>
+                            <p>The U.S. board reviews and approves program support.</p>
+                        </li>
+                        <li class="process-step">
+                            <span class="process-num" aria-hidden="true">04</span>
+                            <h3>Follow up</h3>
+                            <p>Schools and our local team help track enrollment and progress.</p>
+                        </li>
+                    </ol>
+                    <p class="small reading process-note">
+                        Donors receive a term-end update showing where funds went. Registered U.S.
+                        501(c)(3) (EIN: 93-4943678) with a volunteer board of four, founded in 2023.
+                        <a class="text-link" href="impact.html#financials-heading">Our financials →</a>
+                    </p>
                 </div>
             </section>
 
@@ -166,38 +179,44 @@
                     </header>
                     <div class="card-grid team">
                         <article class="team-card">
-                            <div class="avatar" aria-hidden="true">RD</div>
-                            <h3>Roshan Dhamala</h3>
-                            <p>
-                                Founder · Senior Data Engineer at Veeva Systems. Born in Jyamrung,
-                                Dhading. BS in Computer Science, MS in Software Engineering from
-                                Texas Tech University. Founded Aashirbad in 2023 to give rural
-                                students earlier access to guidance and technology than he had.
+                            <div class="team-portrait" aria-hidden="true"><span>RD</span></div>
+                            <h3 class="team-name">Roshan Dhamala</h3>
+                            <p class="team-role">Founder</p>
+                            <p class="team-bio">
+                                Born in Jyamrung, Dhading. Senior Data Engineer at Veeva Systems,
+                                with a BS in Computer Science and an MS in Software Engineering
+                                from Texas Tech University. Founded Aashirbad in 2023 to give
+                                rural students earlier access to guidance and technology.
                             </p>
                         </article>
                         <article class="team-card">
-                            <div class="avatar" aria-hidden="true">BS</div>
-                            <h3>Bimala Shrestha</h3>
-                            <p>
-                                Board Chair · Oversees governance and strategic direction.
-                                Advocate for women’s education and access.
+                            <div class="team-portrait" aria-hidden="true"><span>BS</span></div>
+                            <h3 class="team-name">Bimala Shrestha</h3>
+                            <p class="team-role">Board Chair</p>
+                            <p class="team-bio">
+                                Oversees governance and strategic direction for the foundation.
+                                An advocate for women's education and access to schooling in
+                                rural communities.
                             </p>
                         </article>
                         <article class="team-card">
-                            <div class="avatar" aria-hidden="true">RD</div>
-                            <h3>Rajan Dhamala</h3>
-                            <p>
-                                Treasurer · Reviews all disbursements and maintains financial
-                                records. Ensures every dollar is accounted for.
+                            <div class="team-portrait" aria-hidden="true"><span>RD</span></div>
+                            <h3 class="team-name">Rajan Dhamala</h3>
+                            <p class="team-role">Treasurer</p>
+                            <p class="team-bio">
+                                Reviews every disbursement and maintains the foundation's
+                                financial records. Responsible for making sure each dollar is
+                                accounted for and reported.
                             </p>
                         </article>
                         <article class="team-card">
-                            <div class="avatar" aria-hidden="true">GD</div>
-                            <h3>Goma Devi Dhamala</h3>
-                            <p>
-                                Program Lead (Nepal) · Coordinates with headteachers in Dhading,
-                                verifies student enrollment, and coordinates verified support and
-                                digital-opportunity programs with partner schools.
+                            <div class="team-portrait" aria-hidden="true"><span>GD</span></div>
+                            <h3 class="team-name">Goma Devi Dhamala</h3>
+                            <p class="team-role">Program Lead, Nepal</p>
+                            <p class="team-bio">
+                                Coordinates day to day with headteachers in Dhading and verifies
+                                student enrollment. Runs verified support and digital-opportunity
+                                programs with partner schools.
                             </p>
                         </article>
                     </div>
@@ -211,14 +230,12 @@
             <div>
                 <h2 id="cta-title">Help expand opportunity.</h2>
                 <p>
-                    Donate, partner with us as a mentor or school, or sign up for term-end updates from Dhading.
+                    Support a student's year, or partner with us as a mentor or school.
                 </p>
             </div>
             <div class="hero-actions cta-actions" aria-label="Ways to get involved">
-                <a class="btn btn-primary" href="donate.html">Donate today</a>
+                <a class="btn btn-primary" href="donate.html">Donate</a>
                 <a class="btn btn-outline" href="donate.html#contact">Partner With Us</a>
-                <a class="btn btn-outline" href="#footer-email">Get updates</a>
-                <a class="text-link" href="impact.html#stories">Share a story →</a>
             </div>
         </div>
     </section>
@@ -233,23 +250,22 @@
                     A U.S. 501(c)(3) expanding educational and digital opportunity for students
                     in underserved communities in Nepal. EIN: 93-4943678.
                 </p>
-                <div class="footer-cta">
-                    <a class="btn btn-primary" href="donate.html">Donate Now</a>
-                    <a class="btn btn-outline" href="donate.html#contact">Contact us</a>
-                </div>
             </div>
             <div>
                 <p class="eyebrow">Explore</p>
-                <ul class="footer-links">
+                <ul class="footer-links footer-links-split">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="programs.html">Our Work</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="impact.html">Impact &amp; Transparency</a></li>
                     <li><a href="donate.html">Get Involved</a></li>
+                    <li><a href="impact.html#stories">Student stories</a></li>
+                    <li><a href="impact.html#documents">Reports &amp; documents</a></li>
+                    <li><a href="donate.html#contact">Contact us</a></li>
                 </ul>
             </div>
             <div>
-                <p class="eyebrow">Stay in touch</p>
+                <p class="eyebrow">Get updates</p>
                 <form
                     class="footer-newsletter"
                     method="POST"
