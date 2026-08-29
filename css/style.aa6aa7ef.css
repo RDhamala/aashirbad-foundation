@@ -7,6 +7,12 @@
     --color-primary-dark: #050f28;
     --color-secondary: #0f233f;
     --color-accent: #d4af37;
+    /* The brand gold is only 2.1:1 on white, so it fails WCAG AA (4.5:1) as
+       text. Use --color-accent on dark backgrounds and for fills, borders, and
+       other decoration; use --color-accent-text for gold text or focus rings
+       on a light background, where it measures 5.05:1 on #fff and 4.7:1 on
+       the muted #f4f7fb. */
+    --color-accent-text: #836d22;
     --color-error: #b3261e;
     --color-bg: #f4f7fb;
     --color-text: #0f172a;
@@ -110,8 +116,12 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid var(--color-accent);
+    /* The bright gold is 2.1:1 on white, under the 3:1 WCAG 1.4.11 wants for a
+       focus indicator. The dark gold carries the light backgrounds and the white
+       halo keeps the ring visible on the dark heroes and footer. */
+    outline: 3px solid var(--color-accent-text);
     outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.85);
 }
 
 .section {
@@ -433,7 +443,7 @@ textarea:focus-visible {
 
 .text-link:hover,
 .text-link:focus {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 .cta .text-link,
@@ -576,7 +586,7 @@ textarea:focus-visible {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 0.82rem;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     margin-bottom: 0.5rem;
 }
 
@@ -699,7 +709,7 @@ textarea:focus-visible {
     content: '•';
     position: absolute;
     left: 0;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     font-weight: 700;
 }
 
@@ -2052,7 +2062,7 @@ img {
 }
 
 .journey-steps .journey-arrow {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     font-weight: 700;
 }
 
@@ -2124,7 +2134,7 @@ img {
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     margin-bottom: 0.35rem;
 }
 
@@ -2209,7 +2219,7 @@ img {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 .team-bio {

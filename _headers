@@ -1,6 +1,28 @@
 # Cloudflare Pages header rules.
 # The repo root is the deploy output directory, so this file ships as-is.
 
+# Baseline security headers for every response.
+#
+# Deliberately NOT set here: Content-Security-Policy. The donate page loads the
+# PayPal SDK, which pulls in further PayPal origins and injects inline script
+# and frames, so a policy written without testing against a real donation would
+# risk silently breaking the checkout. Worth adding, but it needs to be trialled
+# in Report-Only mode against a live payment first.
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  # payment= is intentionally left unrestricted: the PayPal SDK may use the
+  # Payment Request API, and blocking it here could break donations.
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+
+# Photographs are not content-hashed, so they cannot be cached permanently the
+# way the CSS and JS are. A day is long enough to help repeat visitors and
+# short enough that replacing a photo shows up quickly.
+/images/*
+  Cache-Control: public, max-age=86400
+
 # Content-hashed assets. The filename changes whenever the bytes change,
 # so these can be cached permanently and never revalidated. This is what
 # makes a deploy take effect instantly instead of waiting out a TTL.
