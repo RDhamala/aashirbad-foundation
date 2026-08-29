@@ -15,105 +15,7 @@ const App = (() => {
         purposeButtons: '.donation-choice',
         purposeInput: '#donation-purpose',
         forms: 'form[data-feedback]',
-        testimonialSlider: '.testimonial-slider',
-        quoteRotator: '.quote-rotator',
         obfuscatedEmails: '[data-email-user][data-email-domain]'
-    };
-    let autoplayTimers = [];
-
-    const setupSlider = (root, options) => {
-        const {
-            slideSelector,
-            dotSelector,
-            prevSelector,
-            nextSelector,
-            autoplayMs = 6500
-        } = options;
-
-        const slides = Array.from(root.querySelectorAll(slideSelector));
-        if (!slides.length) return;
-
-        const dots = dotSelector ? Array.from(root.querySelectorAll(dotSelector)) : [];
-        const prev = prevSelector ? root.querySelector(prevSelector) : null;
-        const next = nextSelector ? root.querySelector(nextSelector) : null;
-        let current = 0;
-        let timer;
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const prefersReducedMotion = () => motionQuery.matches;
-
-        const showSlide = (index) => {
-            current = (index + slides.length) % slides.length;
-            slides.forEach((slide, idx) => {
-                slide.classList.toggle('active', idx === current);
-                const dot = dots[idx];
-                if (dot) {
-                    dot.classList.toggle('active', idx === current);
-                    dot.setAttribute('aria-current', idx === current ? 'true' : 'false');
-                }
-            });
-        };
-
-        const startAutoplay = () => {
-            if (prefersReducedMotion()) return;
-            if (timer || !autoplayMs || slides.length <= 1) return;
-            if (autoplayMs && slides.length > 1) {
-                timer = window.setInterval(() => showSlide(current + 1), autoplayMs);
-                autoplayTimers.push(timer);
-            }
-        };
-
-        const stopAutoplay = () => {
-            if (timer) {
-                window.clearInterval(timer);
-                autoplayTimers = autoplayTimers.filter((id) => id !== timer);
-                timer = undefined;
-            }
-        };
-
-        prev?.addEventListener('click', () => {
-            stopAutoplay();
-            showSlide(current - 1);
-            startAutoplay();
-        });
-        next?.addEventListener('click', () => {
-            stopAutoplay();
-            showSlide(current + 1);
-            startAutoplay();
-        });
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => {
-                stopAutoplay();
-                showSlide(idx);
-                startAutoplay();
-            });
-        });
-
-        root.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowLeft') {
-                event.preventDefault();
-                stopAutoplay();
-                showSlide(current - 1);
-                startAutoplay();
-            } else if (event.key === 'ArrowRight') {
-                event.preventDefault();
-                stopAutoplay();
-                showSlide(current + 1);
-                startAutoplay();
-            }
-        });
-
-        root.addEventListener('mouseenter', stopAutoplay);
-        root.addEventListener('focusin', stopAutoplay);
-        root.addEventListener('mouseleave', startAutoplay);
-        root.addEventListener('focusout', startAutoplay);
-
-        showSlide(0);
-        startAutoplay();
-
-        motionQuery.addEventListener('change', () => {
-            stopAutoplay();
-            startAutoplay();
-        });
     };
 
     const initNav = () => {
@@ -393,28 +295,6 @@ const App = (() => {
         });
     };
 
-    const initTestimonialSlider = () => {
-        const slider = document.querySelector(selectors.testimonialSlider);
-        if (slider) {
-            setupSlider(slider, {
-                slideSelector: '.testimonial-slide',
-                dotSelector: '.slider-dot',
-                prevSelector: '.prev',
-                nextSelector: '.next',
-                autoplayMs: 6500
-            });
-        }
-
-        const rotators = document.querySelectorAll(selectors.quoteRotator);
-        rotators.forEach((rotator) =>
-            setupSlider(rotator, {
-                slideSelector: '.quote-slide',
-                dotSelector: '.rotator-dot',
-                autoplayMs: 7000
-            })
-        );
-    };
-
     const setDynamicYear = () => {
         const yearTarget = document.getElementById('year');
         if (yearTarget) {
@@ -489,7 +369,6 @@ const App = (() => {
         initSmoothScroll();
         initDonationForm();
         initForms();
-        initTestimonialSlider();
         initObfuscatedEmails();
     };
 

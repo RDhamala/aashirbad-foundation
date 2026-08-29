@@ -96,7 +96,13 @@
                             school, connect with a mentor, or gain access to technology. Pick a
                             gift type below, or choose a program to support.
                         </p>
-                        <div class="donation-choice-grid" role="group" aria-label="Donation options">
+                        <fieldset class="donate-group">
+                        <legend class="donate-group-label">Step 1. Choose a gift type</legend>
+                        <p class="donate-group-hint">
+                            General gifts go where the need is greatest. You can also direct your
+                            gift to a specific program.
+                        </p>
+                        <div class="donation-choice-grid" role="group" aria-label="Gift type">
                             <button
                                 class="donation-choice active"
                                 type="button"
@@ -135,6 +141,9 @@
                                 Scholarship sponsorship
                             </button>
                         </div>
+                        </fieldset>
+                        <fieldset class="donate-group">
+                        <legend class="donate-group-label">Step 2. How often?</legend>
                         <div class="toggle-group" role="group" aria-label="Donation frequency">
                             <button
                                 class="toggle active"
@@ -153,7 +162,10 @@
                                 Monthly
                             </button>
                         </div>
-                        <div class="amount-grid">
+                        </fieldset>
+                        <fieldset class="donate-group">
+                        <legend class="donate-group-label">Step 3. Choose an amount</legend>
+                        <div class="amount-grid" role="group" aria-label="Donation amount">
                             <button
                                 class="amount"
                                 type="button"
@@ -203,8 +215,12 @@
                                 $1,200
                             </button>
                         </div>
+                        </fieldset>
                         <p class="small">
-                            We have no paid staff and keep admin costs minimal so your gift goes toward student support. We publish annual reports for transparency.
+                            Aashirbad Foundation is a registered U.S. 501(c)(3) public charity
+                            (EIN: 93-4943678). Donations are tax-deductible. We have no paid staff
+                            and keep admin costs minimal so your gift goes toward student support.
+                            We publish annual reports for transparency.
                         </p>
                         <ul class="checklist">
                             <li>$35 covers exam and lab fees for a student this term.</li>
@@ -242,10 +258,10 @@
                         action="https://formspree.io/f/myzlllkn"
                     >
                         <label for="donor-name">Full Name</label>
-                        <input id="donor-name" name="name" type="text" required />
+                        <input id="donor-name" name="name" type="text" autocomplete="name" required />
 
                         <label for="donor-email">Email</label>
-                        <input id="donor-email" name="email" type="email" required />
+                        <input id="donor-email" name="email" type="email" autocomplete="email" required />
 
                         <label for="donor-amount">Donation Amount (USD)</label>
                         <input
@@ -254,6 +270,8 @@
                             type="number"
                             min="5"
                             step="5"
+                            inputmode="decimal"
+                            autocomplete="transaction-amount"
                             placeholder="50"
                             required
                         />
@@ -351,10 +369,10 @@
                         <h2 id="contact-form-title">Partner with us</h2>
                         <input type="hidden" name="_subject" value="Contact form message" />
                         <label for="contact-name">Full Name</label>
-                        <input id="contact-name" name="name" type="text" required />
+                        <input id="contact-name" name="name" type="text" autocomplete="name" required />
 
                         <label for="contact-email">Email</label>
-                        <input id="contact-email" name="email" type="email" required />
+                        <input id="contact-email" name="email" type="email" autocomplete="email" required />
 
                         <label for="contact-message">Message</label>
                         <textarea
@@ -493,6 +511,7 @@
                         id="footer-email"
                         name="email"
                         type="email"
+                        autocomplete="email"
                         placeholder="you@example.com"
                         required
                     />
