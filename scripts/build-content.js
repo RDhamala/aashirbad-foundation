@@ -67,7 +67,7 @@ ${renderProgramImage(program.image)}
                         <div class="program-body">
                             <h3>${program.title}</h3>
                             <p>${program.description}</p>
-                            <ul>
+                            <ul class="program-bullets">
 ${bullets}
                             </ul>
                             <p class="impact">${program.impact}</p>
