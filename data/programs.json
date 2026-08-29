@@ -2,7 +2,7 @@
     {
         "id": "education-support",
         "title": "Education Support",
-        "description": "We help students overcome verified financial barriers that can interrupt their education — school fees, exam fees, books, and other verified needs. Headteachers verify each recipient, and donors receive updates every term.",
+        "description": "We help students overcome financial barriers that can interrupt their education, such as school fees, exam fees, and books. Headteachers verify each recipient, and donors receive updates every term.",
         "teaser": "Covering school fees, exam fees, and books so a financial gap doesn't end a student's year.",
         "bullets": [
             "Needs-based support verified by headteachers and ward committees",
@@ -38,7 +38,7 @@
     {
         "id": "digital-opportunity",
         "title": "Digital Opportunity",
-        "description": "Many students in rural communities encounter computers much later than their peers elsewhere. We work with partner schools to provide shared computer access and guided digital learning — so students gain real exposure to technology and the paths it can open, well before they leave school.",
+        "description": "Many students in rural communities encounter computers much later than their peers elsewhere. We work with partner schools to provide shared computer access and guided digital learning, so students gain real exposure to technology and the paths it can open, well before they leave school.",
         "teaser": "Shared computer access and guided digital learning so students gain real exposure to technology.",
         "bullets": [
             "Shared computer labs at partner schools, with setup and maintenance support",
