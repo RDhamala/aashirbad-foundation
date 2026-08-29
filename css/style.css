@@ -153,6 +153,17 @@ textarea:focus-visible {
 
    To restore photographic heroes, add a background-image to .hero-brand (or a
    per-page class) with a source at least 2880px on the long edge. */
+/* Photographic variant of the brand hero. The source is 2048px against the
+   ~2880px a full-bleed hero wants at 1440/2x, so it sits at about 1.41x on a
+   retina display. That is well short of the 3.0x the old heroes ran at, and the
+   dark gradient over it hides most of what remains, but it is not as crisp as
+   the plain gradient. Remove hero-photo-bg from the section to fall back. */
+.page-hero.hero-brand.hero-photo-bg {
+    background:
+        linear-gradient(180deg, rgba(6, 12, 30, 0.62) 0%, rgba(6, 12, 30, 0.72) 55%, rgba(6, 12, 30, 0.82) 100%),
+        url('../images/campaigns/classroom-study-hero.webp') center/cover no-repeat;
+}
+
 .page-hero.hero-brand {
     color: #fff;
     text-align: left;
