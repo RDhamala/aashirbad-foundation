@@ -493,7 +493,8 @@ textarea:focus-visible {
 }
 
 .hero .btn-primary,
-.page-hero.hero-brand .btn-primary {
+.page-hero.hero-brand .btn-primary,
+.origin-story .btn-primary {
     background: var(--color-accent);
     color: #0a1a3b;
     border-color: var(--color-accent);
@@ -504,7 +505,9 @@ textarea:focus-visible {
 .hero .btn-primary:hover,
 .hero .btn-primary:focus,
 .page-hero.hero-brand .btn-primary:hover,
-.page-hero.hero-brand .btn-primary:focus {
+.page-hero.hero-brand .btn-primary:focus,
+.origin-story .btn-primary:hover,
+.origin-story .btn-primary:focus {
     background: #e6c76a;
     color: #0a1a3b;
 }
@@ -762,10 +765,19 @@ textarea:focus-visible {
     position: relative;
     color: #f7fbff;
     background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.55) 100%),
-        url('../images/campaigns/hero-students.webp') center/cover no-repeat;
+        radial-gradient(120% 140% at 12% 15%, #14356f 0%, #0a1a3b 55%, #060d22 100%);
     overflow: hidden;
     padding: 8rem 0 7rem;
+}
+
+/* These two bands are full-bleed, so at 1440px they wanted ~2880px of image on a
+   2x display. They were running on hero-students.webp at 960px: 1.5x upscale even
+   at 1x and 3.0x at 2x, which is why they looked soft. Same reasoning as the page
+   heroes, so they use the brand gradient. To put a photograph back, add a
+   background-image here with a source at least 2880px on the long edge. */
+.origin-story.origin-story-alt {
+    background:
+        radial-gradient(120% 140% at 88% 20%, #123a63 0%, #0b2140 55%, #060f22 100%);
 }
 
 .origin-overlay {
