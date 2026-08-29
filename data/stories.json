@@ -1,66 +1,35 @@
 [
     {
-        "tag": "Dhading · Scholar",
-        "title": "Sita stayed in school because fees were covered.",
-        "summary": "When Sita's family couldn't afford hostel fees mid-term, a scholarship kept her enrolled. Weekly mentor calls helped her stay focused through exams.",
-        "quote": "When my hostel fee was covered, I could focus on finals instead of finding work. My mentor's weekly calls kept me on track.",
-        "metrics": [
-            "First in her family to finish secondary school",
-            "Now mentors younger students in her ward"
-        ],
+        "tag": "Dhading · Education Support",
+        "title": "Staying in school",
+        "summary": "A secondary-school student in Dhading was at risk of interrupting her studies because of education-related costs. After the need was verified through her school, Aashirbad helped cover essential expenses so she could continue the academic year. Her headteacher confirmed her enrollment the following term.",
         "image": {
-            "src": "images/campaigns/hero-students.JPG",
-            "alt": "Students at a partner school in Dhading, Nepal, holding hand-written welcome signs",
-            "width": 960,
-            "height": 540
+            "src": "images/campaigns/founder-visit.JPG",
+            "alt": "A school community gathering at a partner school in Dhading, Nepal",
+            "width": 2048,
+            "height": 1536
         }
     },
     {
         "tag": "Dhading · Mentorship & Exposure",
-        "title": "Bikash found direction through weekly calls.",
-        "summary": "Bikash was close to dropping out when a volunteer mentor began weekly check-ins. Career sessions helped him see a path forward in technology.",
-        "quote": "I didn't know anyone who worked in tech. My mentor showed me it was possible for someone from my village.",
-        "metrics": [
-            "Attended every weekly mentor session for a full year",
-            "Now studying computer science at a Kathmandu campus"
-        ],
+        "title": "Seeing more options",
+        "summary": "For many students, the challenge is not only paying for school. It is also knowing what can come next. Through regular mentor conversations, students ask practical questions about higher education, different fields of work, and the steps needed to get there. Mentors check in weekly and help students set goals they can act on.",
         "image": {
-            "src": "images/programs/stem-lab.webp",
-            "alt": "Students learning together in a computer lab",
-            "width": 2048,
-            "height": 1536
+            "src": "images/campaigns/hero-students.JPG",
+            "alt": "Students and mentors gathered together at a school in Dhading, Nepal",
+            "width": 960,
+            "height": 540
         }
     },
     {
         "tag": "Dhading · Digital Opportunity",
-        "title": "Manju's school gained its first shared computer lab.",
-        "summary": "Manju's rural school had no computers until Aashirbad helped set up a shared lab. Students now get guided digital learning time during study periods and weekend labs.",
-        "quote": "We used to only read about computers in textbooks. Now we can actually use them.",
-        "metrics": [
-            "School's first shared computer lab",
-            "Weekend coding sessions started for interested students"
-        ],
+        "title": "First time using a computer",
+        "summary": "At a partner school in Dhading, some students had very limited opportunities to use a computer outside the classroom. Shared devices and guided sessions gave them a chance to practice basic digital skills, explore educational content, and become more comfortable using technology. The goal is earlier exposure, not a device for each student.",
         "image": {
-            "src": "images/programs/lab-library.webp",
-            "alt": "Students sharing computers in a rural school lab",
+            "src": "images/programs/stem-lab.webp",
+            "alt": "Students using shared computers in a classroom supported by Aashirbad Foundation",
             "width": 2048,
             "height": 1536
-        }
-    },
-    {
-        "tag": "Dhading · Partner School",
-        "title": "Principal Rai saw attendance improve.",
-        "summary": "After partnering with Aashirbad, Principal Rai's school saw fewer students dropping out mid-year. Scholarships, mentors, and shared digital access gave families a reason to keep children enrolled.",
-        "quote": "Parents used to pull children out for farm work. Now they see the laptops and the mentors, and they want their children to stay.",
-        "metrics": [
-            "Fewer mid-year dropouts since the partnership began",
-            "Open classroom days invite nearby schools to visit"
-        ],
-        "image": {
-            "src": "images/campaigns/founder-visit.JPG",
-            "alt": "Foundation team visiting a partner school",
-            "width": 960,
-            "height": 540
         }
     }
 ]
