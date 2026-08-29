@@ -10,7 +10,7 @@
         ],
         "image": {
             "src": "images/campaigns/hero-students.JPG",
-            "alt": "Students in Nepal working together on laptops",
+            "alt": "Students at a partner school in Dhading, Nepal, holding hand-written welcome signs",
             "width": 960,
             "height": 540
         }
@@ -32,17 +32,17 @@
         }
     },
     {
-        "tag": "Dhading · Device Support",
-        "title": "Manju's school got its first laptops.",
-        "summary": "Manju's rural school had no computers until Aashirbad placed laptops with on-site setup. Students now share devices during study periods and weekend labs.",
+        "tag": "Dhading · Digital Access",
+        "title": "Manju's school gained its first shared computer lab.",
+        "summary": "Manju's rural school had no computers until Aashirbad helped set up a shared lab. Students now get guided digital learning time during study periods and weekend labs.",
         "quote": "We used to only read about computers in textbooks. Now we can actually use them.",
         "metrics": [
-            "School's first shared laptop lab",
+            "School's first shared computer lab",
             "Weekend coding sessions started for interested students"
         ],
         "image": {
             "src": "images/programs/lab-library.webp",
-            "alt": "Students sharing laptops in a rural school lab",
+            "alt": "Students sharing computers in a rural school lab",
             "width": 2048,
             "height": 1536
         }
@@ -50,7 +50,7 @@
     {
         "tag": "Dhading · Partner School",
         "title": "Principal Rai saw attendance improve.",
-        "summary": "After partnering with Aashirbad, Principal Rai's school saw fewer students dropping out mid-year. Scholarships and devices gave families a reason to keep children enrolled.",
+        "summary": "After partnering with Aashirbad, Principal Rai's school saw fewer students dropping out mid-year. Scholarships, mentors, and shared digital access gave families a reason to keep children enrolled.",
         "quote": "Parents used to pull children out for farm work. Now they see the laptops and the mentors, and they want their children to stay.",
         "metrics": [
             "Fewer mid-year dropouts since the partnership began",
