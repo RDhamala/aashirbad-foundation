@@ -1,0 +1,20 @@
+# Cloudflare Pages header rules.
+# The repo root is the deploy output directory, so this file ships as-is.
+
+# Content-hashed assets. The filename changes whenever the bytes change,
+# so these can be cached permanently and never revalidated. This is what
+# makes a deploy take effect instantly instead of waiting out a TTL.
+/css/style.*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/script.*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# The unhashed sources stay in the repo as the editable originals and are
+# not referenced by any page. Keep them short-lived in case anything
+# reaches them directly.
+/css/style.css
+  Cache-Control: public, max-age=300
+
+/js/script.js
+  Cache-Control: public, max-age=300
