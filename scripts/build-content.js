@@ -46,13 +46,16 @@ ${cards}
 };
 
 const renderProgramImage = (image) => {
-    if (image.webp) {
+    // A <picture> is only worth emitting when there is a real fallback to fall
+    // back to. Without this guard, a webp-only entry rendered src="undefined".
+    if (image.webp && image.fallback) {
         return `                        <picture>
                             <source srcset="${image.webp}" type="image/webp">
                             <img src="${image.fallback}" alt="${image.alt}" loading="lazy" width="${image.width}" height="${image.height}">
                         </picture>`;
     }
-    return `                        <img src="${image.fallback}" alt="${image.alt}" loading="lazy" width="${image.width}" height="${image.height}">`;
+    const src = image.webp || image.fallback;
+    return `                        <img src="${src}" alt="${image.alt}" loading="lazy" width="${image.width}" height="${image.height}">`;
 };
 
 const renderPrograms = () => {
