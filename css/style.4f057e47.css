@@ -184,7 +184,7 @@ textarea:focus-visible {
 .hero-stories {
     background-image:
         linear-gradient(120deg, rgba(8, 11, 23, 0.85), rgba(57, 86, 148, 0.6)),
-        url('../images/stories/hero-placeholder.JPG');
+        url('../images/campaigns/school-assembly.webp');
 }
 
 .hero-donate {
