@@ -7,6 +7,7 @@
     --color-primary-dark: #050f28;
     --color-secondary: #0f233f;
     --color-accent: #d4af37;
+    --color-error: #b3261e;
     --color-bg: #f4f7fb;
     --color-text: #0f172a;
     --color-muted: #4b5567;
@@ -1339,11 +1340,22 @@ textarea:focus-visible {
 .contact-form {
     display: grid;
     gap: 1rem;
+    /* Pack rows at the natural height. Without this, a form that is stretched
+       by its parent grid distributes the surplus height across every row, which
+       inflates each label and input instead of leaving space at the bottom. */
+    align-content: start;
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: var(--radius-lg);
     padding: 2rem;
     box-shadow: var(--shadow-card);
     background: #fff;
+}
+
+/* The donate form sits next to a much longer column, so let it keep its own
+   height rather than stretching into several hundred pixels of empty card.
+   The contact grid is two comparable cards, so those still stretch to match. */
+.donate-wrapper .donate-form {
+    align-self: start;
 }
 
 label {
@@ -1359,9 +1371,12 @@ textarea {
     font: inherit;
 }
 
+/* Weight comes from an inset shadow rather than a thicker border, so flagging a
+   field does not nudge the rest of the form down by a pixel or two. */
 input.invalid,
 textarea.invalid {
-    border-color: var(--color-accent);
+    border-color: var(--color-error);
+    box-shadow: inset 0 0 0 1px var(--color-error);
 }
 
 textarea {
@@ -1896,9 +1911,13 @@ textarea {
     display: none;
 }
 
-input:invalid:not(:placeholder-shown),
-textarea:invalid:not(:placeholder-shown) {
-    border-color: #b3261e;
+/* :user-invalid only matches after the visitor has actually edited or blurred
+   the field. The previous :invalid:not(:placeholder-shown) guard relied on the
+   field having a placeholder, so every required input without one (Full Name,
+   Email) rendered with a red error border on page load, before anyone typed. */
+input:user-invalid,
+textarea:user-invalid {
+    border-color: var(--color-error);
 }
 
 .required-hint {
