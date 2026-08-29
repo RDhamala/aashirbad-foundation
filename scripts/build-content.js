@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const root = path.resolve(__dirname, '..');
 const dataDir = path.join(root, 'data');
@@ -147,11 +148,118 @@ const applyPartials = () => {
     });
 };
 
+/* ---------------------------------------------------------
+   Content-hashed assets
+   ---------------------------------------------------------
+   style.css -> style.<hash>.css, script.js -> script.<hash>.js,
+   with every HTML reference rewritten to match. The hash changes
+   only when the file's bytes change, so a deploy invalidates
+   caches instantly and unchanged assets stay cached.
+
+   css/style.css and js/script.js remain the editable sources.
+   The hashed copies are build output and are committed, because
+   the host serves this repo directly with no build step.
+   --------------------------------------------------------- */
+
+const HASHED_ASSETS = [
+    { dir: 'css', base: 'style', ext: 'css' },
+    { dir: 'js', base: 'script', ext: 'js' }
+];
+
+const hashContent = (buf) =>
+    crypto.createHash('sha256').update(buf).digest('hex').slice(0, 8);
+
+const buildHashedAssets = ({ checkOnly = false } = {}) => {
+    const pages = fs
+        .readdirSync(root)
+        .filter((f) => f.endsWith('.html'));
+
+    const rewrites = [];
+
+    HASHED_ASSETS.forEach(({ dir, base, ext }) => {
+        const sourcePath = path.join(root, dir, `${base}.${ext}`);
+        const source = fs.readFileSync(sourcePath);
+        const hash = hashContent(source);
+        const hashedName = `${base}.${hash}.${ext}`;
+
+        if (!checkOnly) {
+            // Drop hashed builds from previous runs so stale copies do not pile up.
+            fs.readdirSync(path.join(root, dir))
+                .filter((f) => {
+                    const stale = new RegExp(`^${base}\\.[0-9a-f]{8}\\.${ext}$`);
+                    return stale.test(f) && f !== hashedName;
+                })
+                .forEach((f) => fs.unlinkSync(path.join(root, dir, f)));
+
+            fs.writeFileSync(path.join(root, dir, hashedName), source);
+        }
+
+        // Matches the plain reference and any previously hashed one, so
+        // rebuilds are idempotent.
+        rewrites.push({
+            pattern: new RegExp(`${dir}/${base}(\\.[0-9a-f]{8})?\\.${ext}`, 'g'),
+            replacement: `${dir}/${hashedName}`,
+            label: `${dir}/${hashedName}`
+        });
+    });
+
+    let touched = 0;
+    const stalePages = [];
+    pages.forEach((page) => {
+        const filePath = path.join(root, page);
+        const before = fs.readFileSync(filePath, 'utf8');
+        let after = before;
+        rewrites.forEach(({ pattern, replacement }) => {
+            after = after.replace(pattern, replacement);
+        });
+        if (after !== before) {
+            if (checkOnly) {
+                stalePages.push(page);
+            } else {
+                fs.writeFileSync(filePath, after);
+                touched += 1;
+            }
+        }
+    });
+
+    // In check mode also confirm the hashed artifact actually exists on disk.
+    const missing = checkOnly
+        ? HASHED_ASSETS.map(({ dir, base, ext }) => {
+              const source = fs.readFileSync(path.join(root, dir, `${base}.${ext}`));
+              const name = `${base}.${hashContent(source)}.${ext}`;
+              return fs.existsSync(path.join(root, dir, name)) ? null : `${dir}/${name}`;
+          }).filter(Boolean)
+        : [];
+
+    return { assets: rewrites.map((r) => r.label), touched, stalePages, missing };
+};
+
+const checkOnly = process.argv.includes('--check');
+
 try {
-    applyPartials();
-    replaceBlock('impact.html', 'STORIES', renderStories(), '                ');
-    replaceBlock('programs.html', 'PROGRAMS', renderPrograms(), '                ');
-    console.log('Content sections updated from data files and partials.');
+    if (checkOnly) {
+        // Read-only guard: fails if css/js were edited without rebuilding,
+        // which would silently ship the previous asset.
+        const { stalePages, missing } = buildHashedAssets({ checkOnly: true });
+        if (stalePages.length || missing.length) {
+            if (missing.length) {
+                console.error(`Missing hashed asset(s): ${missing.join(', ')}`);
+            }
+            if (stalePages.length) {
+                console.error(`Stale asset references in: ${stalePages.join(', ')}`);
+            }
+            console.error('Run `node scripts/build-content.js` and commit the result.');
+            process.exit(1);
+        }
+        console.log('Asset hashes are up to date.');
+    } else {
+        applyPartials();
+        replaceBlock('impact.html', 'STORIES', renderStories(), '                ');
+        replaceBlock('programs.html', 'PROGRAMS', renderPrograms(), '                ');
+        console.log('Content sections updated from data files and partials.');
+        const { assets, touched } = buildHashedAssets();
+        console.log(`Hashed assets: ${assets.join(', ')} (${touched} page(s) updated).`);
+    }
 } catch (error) {
     console.error(error.message);
     process.exit(1);

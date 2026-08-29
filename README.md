@@ -8,13 +8,30 @@ A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonpr
 - **CSS3** (custom design system) for responsive layouts, accessibility helpers, gradient sections, and component styling.
 - **Vanilla JavaScript** for lightweight interactivity: mobile navigation, scroll animations, donation amount selectors, and form feedback.
 
-No build tools are required. The project can be served as pure static files. When you update repeatable content (stories/programs), edit the JSON files in `/data` and run:
+No build tools are required. The project can be served as pure static files. After editing content in `/data`, the shared partials in `/partials`, **or `css/style.css` / `js/script.js`**, run:
 
 ```bash
 node scripts/build-content.js
 ```
 
-The script regenerates the HTML snippets automatically, keeping the site ready for static hosting.
+The script regenerates the HTML snippets and refreshes the content-hashed asset filenames, keeping the site ready for static hosting.
+
+### Content-hashed assets
+
+`css/style.css` and `js/script.js` are the files you edit. The build step copies each one to a content-hashed name (for example `css/style.ef4b427e.css`) and rewrites every HTML reference to point at it.
+
+The hash is derived from the file's bytes, so:
+
+- Changing a file changes its hash, which changes its URL, so browsers fetch the new version **immediately** instead of waiting out a cache TTL.
+- Leaving a file alone keeps its hash, so returning visitors keep using their cached copy.
+- `_headers` serves the hashed files with `max-age=31536000, immutable`, which is only safe *because* the names are content-addressed.
+
+Two things to know:
+
+- **The hashed files are committed.** The host serves this repo directly with no build step, so the generated artifacts have to be in version control.
+- **Run the build before committing** any CSS or JS change. If you skip it, the hashed copy and the HTML references will still point at the previous version and your change will not go live.
+
+Re-running the build with no changes is a no-op, and stale hashed files from earlier builds are deleted automatically.
 
 ## Project Structure
 
