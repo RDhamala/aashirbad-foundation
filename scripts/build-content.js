@@ -109,6 +109,9 @@ const applyPartials = () => {
     const header = indentLines(readPartial('partials/header.html'), '    ');
     const cta = indentLines(readPartial('partials/cta.html'), '    ');
     const footer = indentLines(readPartial('partials/footer.html'), '    ');
+    // Temporary campaign banner. To retire the campaign, delete the
+    // CAMPAIGN markers from the pages below and this block.
+    const campaign = indentLines(readPartial('partials/campaign-banner.html'), '        ');
     const allPages = [
         'index.html',
         'about.html',
@@ -137,6 +140,13 @@ const applyPartials = () => {
     ctaPages.forEach((page) => {
         replaceBlock(page, 'CTA', cta, '    ');
     });
+
+    // Every page except the campaign page itself.
+    allPages
+        .filter((page) => page !== 'flood-education-recovery.html')
+        .forEach((page) => {
+            replaceBlock(page, 'CAMPAIGN', campaign, '        ');
+        });
 };
 
 /* ---------------------------------------------------------
