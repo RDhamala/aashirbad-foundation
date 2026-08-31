@@ -42,10 +42,19 @@ const App = (() => {
     const setActiveNav = () => {
         const navLinks = document.querySelectorAll('#primary-navigation a');
         if (!navLinks.length) return;
-        const current = window.location.pathname.split('/').pop() || 'index.html';
+        // Nav hrefs are clean paths ("/", "/about"). Compare normalised paths so
+        // this keeps working whether the URL arrives as /about, /about.html, or
+        // with a trailing slash.
+        const normalise = (value) =>
+            '/' + (value || '')
+                .replace(/^.*?:\/\/[^/]+/, '')
+                .replace(/[?#].*$/, '')
+                .replace(/\.html$/, '')
+                .replace(/^\/+|\/+$/g, '');
+        const current = normalise(window.location.pathname);
         navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            const isHome = href === 'index.html' && (current === '' || current === 'index.html');
+            const href = normalise(link.getAttribute('href'));
+            const isHome = href === '/' && (current === '/' || current === '/index');
             if (href === current || isHome) {
                 link.classList.add('active');
                 link.setAttribute('aria-current', 'page');
