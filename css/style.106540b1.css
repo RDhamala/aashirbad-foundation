@@ -1967,6 +1967,94 @@ textarea:user-invalid {
     margin-bottom: var(--space-sm);
 }
 
+/* Six cards in the default auto-fit grid land 4 + 2 at desktop width, which
+   reads as an unfinished row. Cap at three so they balance 3 + 3. */
+.card-grid--thirds {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 960px;
+    margin-inline: auto;
+}
+
+/* Temporary campaign banner. Deliberately a light band rather than another
+   navy slab: it sits directly above a dark hero on both pages it appears on,
+   so it needs to read as a notice rather than compete with the hero. Remove
+   the markup from index.html and donate.html when the campaign closes. */
+.campaign-banner {
+    background: var(--color-bg);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    border-top: 3px solid var(--color-accent);
+    padding: 1rem 0;
+}
+
+.campaign-banner__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.campaign-banner__label {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.campaign-banner__copy {
+    margin: 0.15rem 0 0;
+    color: var(--color-muted);
+}
+
+@media (max-width: 640px) {
+    .campaign-banner__inner {
+        align-items: flex-start;
+    }
+
+    .campaign-banner .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- Campaign pages -------------------------------------- */
+
+/* A quiet caveat under a section, for the things we are deliberately not
+   claiming. Reads as a footnote rather than body copy. */
+.small-note {
+    margin-top: var(--space-md, 1.5rem);
+    font-size: 0.92rem;
+    color: var(--color-muted);
+    max-width: var(--w-reading);
+}
+
+/* Dated campaign updates, newest first. Built to have entries added above the
+   existing ones without touching the styling. */
+.update-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.update-entry {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.1rem;
+}
+
+.update-entry p:last-child {
+    margin-bottom: 0;
+}
+
+.update-date {
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-text);
+}
+
 /* --- Image stability ------------------------------------ */
 
 img {
