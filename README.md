@@ -93,11 +93,15 @@ Aashirbad Foundation/
 ## Local Development
 
 1. Clone the repo and open the folder locally.
-2. Serve the site with any static file server (recommended for proper relative paths):
+2. Serve the site with a static server that supports clean URLs:
     ```bash
     npx serve .
     ```
-    or open `index.html` directly in your browser for a quick preview.
+    Internal links are absolute clean paths (`/about`, not `about.html`), which is
+    what the host serves. Two consequences for local work: opening `index.html`
+    straight off disk no longer works, because `file://` cannot resolve `/about`,
+    and a plain `python3 -m http.server` returns 404 for every clean URL because
+    it will not map `/about` to `about.html`. `npx serve` handles both.
 3. Update HTML/CSS/JS files as needed. When changing stories/programs, edit `/data/*.json` and rerun `node scripts/build-content.js`.
 
 Shared markup lives in `/partials` (`header.html`, `cta.html`, `footer.html`). Edit the partial, never the copies inlined into each page, then rerun the build to propagate the change.
