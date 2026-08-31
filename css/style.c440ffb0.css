@@ -1980,8 +1980,14 @@ textarea:user-invalid {
    so it needs to read as a notice rather than compete with the hero. Remove
    the markup from index.html and donate.html when the campaign closes. */
 .campaign-banner {
-    background: var(--color-bg);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    /* A warm tint rather than --color-bg. The cool grey is what every muted
+       section on the site already uses, so the banner read as page furniture
+       and got skipped. This is still the brand palette, just the warm side of
+       it, and it separates the banner from the white header above and the navy
+       hero below. The button stays navy on purpose: gold here would put two
+       gold pills in a vertical stack with Get Involved in the header. */
+    background: #fdf6e6;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
     border-top: 3px solid var(--color-accent);
     padding: 1rem 0;
 }
@@ -1997,6 +2003,7 @@ textarea:user-invalid {
 .campaign-banner__label {
     margin: 0;
     font-weight: 700;
+    font-size: 1.05rem;
     color: var(--color-secondary);
 }
 
