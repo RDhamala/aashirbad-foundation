@@ -1127,8 +1127,13 @@ textarea:focus-visible {
 .document-card,
 .impact-card,
 .trust-card,
-.mission-card,
-
+.mission-card {
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 1.8rem;
+    background: #fff;
+    box-shadow: var(--shadow-card);
+}
 
 .program-media img {
     width: 100%;
