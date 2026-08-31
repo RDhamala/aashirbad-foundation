@@ -17,11 +17,14 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=(), usb=()
   Strict-Transport-Security: max-age=31536000
 
-# Photographs are not content-hashed, so they cannot be cached permanently the
-# way the CSS and JS are. A day is long enough to help repeat visitors and
-# short enough that replacing a photo shows up quickly.
+# Images are content-hashed by the build, exactly like the CSS and JS, so every
+# referenced image URL changes when its bytes change and can be cached
+# permanently. This replaced a one-day max-age on stable filenames, which meant
+# a replaced photo was served stale from some Cloudflare edge nodes and fresh
+# from others, so the same visitor could see either. The unhashed originals stay
+# in the repo as the editable sources and are not referenced by any page.
 /images/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=31536000, immutable
 
 # Content-hashed assets. The filename changes whenever the bytes change,
 # so these can be cached permanently and never revalidated. This is what

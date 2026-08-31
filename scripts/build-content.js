@@ -167,8 +167,52 @@ const HASHED_ASSETS = [
     { dir: 'js', base: 'script', ext: 'js' }
 ];
 
+// Photographs are content-hashed for the same reason the CSS and JS are.
+// Replacing an image's bytes under a stable filename leaves the old copy in
+// browser and CDN caches for the length of its max-age, and Cloudflare will
+// serve the stale object from some edge nodes and the new one from others,
+// so the same visitor can see either. Hashing the filename makes every
+// replacement a new URL, which no cache can answer with the old bytes.
+const IMAGE_DIRS = ['images', 'images/campaigns', 'images/programs', 'images/stories', 'images/share'];
+const IMAGE_EXTS = /\.(webp|jpe?g|png)$/i;
+const HASHED_RE = /\.[0-9a-f]{8}\.(webp|jpe?g|png)$/i;
+
+const collectImages = () =>
+    IMAGE_DIRS.flatMap((dir) => {
+        const abs = path.join(root, dir);
+        if (!fs.existsSync(abs)) return [];
+        return fs
+            .readdirSync(abs)
+            .filter((f) => IMAGE_EXTS.test(f) && !HASHED_RE.test(f))
+            .map((f) => {
+                const ext = f.slice(f.lastIndexOf('.') + 1);
+                return { dir, base: f.slice(0, f.lastIndexOf('.')), ext };
+            });
+    });
+
 const hashContent = (buf) =>
     crypto.createHash('sha256').update(buf).digest('hex').slice(0, 8);
+
+// Hash one or more assets, write the hashed copies, drop stale ones, and
+// return the rewrite rules for their references.
+const hashAssets = (assets, { write = true } = {}) =>
+    assets.map(({ dir, base, ext }) => {
+        const source = fs.readFileSync(path.join(root, dir, `${base}.${ext}`));
+        const hash = hashContent(source);
+        const hashedName = `${base}.${hash}.${ext}`;
+        const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        if (write) {
+            fs.readdirSync(path.join(root, dir))
+                .filter((f) => new RegExp(`^${escaped}\\.[0-9a-f]{8}\\.${ext}$`).test(f) && f !== hashedName)
+                .forEach((f) => fs.unlinkSync(path.join(root, dir, f)));
+            fs.writeFileSync(path.join(root, dir, hashedName), source);
+        }
+        return {
+            pattern: new RegExp(`${dir}/${escaped}(\\.[0-9a-f]{8})?\\.${ext}`, 'g'),
+            replacement: `${dir}/${hashedName}`,
+            label: `${dir}/${hashedName}`
+        };
+    });
 
 const buildHashedAssets = ({ checkOnly = false } = {}) => {
     const pages = fs
@@ -176,6 +220,23 @@ const buildHashedAssets = ({ checkOnly = false } = {}) => {
         .filter((f) => f.endsWith('.html'));
 
     const rewrites = [];
+
+    // Images first: the stylesheet references them, so its own hash has to be
+    // computed after those references have been rewritten.
+    const images = collectImages();
+    if (checkOnly) {
+        rewrites.push(...hashAssets(images, { write: false }));
+    } else {
+        const imageRewrites = hashAssets(images);
+        const cssPath = path.join(root, 'css', 'style.css');
+        const before = fs.readFileSync(cssPath, 'utf8');
+        let after = before;
+        imageRewrites.forEach(({ pattern, replacement }) => {
+            after = after.replace(pattern, replacement);
+        });
+        if (after !== before) fs.writeFileSync(cssPath, after);
+        rewrites.push(...imageRewrites);
+    }
 
     HASHED_ASSETS.forEach(({ dir, base, ext }) => {
         const sourcePath = path.join(root, dir, `${base}.${ext}`);
