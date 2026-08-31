@@ -116,7 +116,8 @@ const applyPartials = () => {
         'impact.html',
         'donate.html',
         'thank-you.html',
-        'privacy.html'
+        'privacy.html',
+        'flood-education-recovery.html'
     ];
     const ctaPages = [
         'index.html',
