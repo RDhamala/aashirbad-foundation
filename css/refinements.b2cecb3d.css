@@ -1,0 +1,269 @@
+/* =========================================================
+   Aashirbad Foundation - Refinements (October 2026 audit)
+   Loaded after style.css on every page and content-hashed by
+   the build exactly like style.css. Kept as its own file so
+   this pass is easy to review; it can be folded onto the end
+   of style.css at any time without changing behavior.
+   ========================================================= */
+
+/* --- Motion --------------------------------------------- */
+
+/* style.css sets smooth scrolling on body, but its reduced-motion rule only
+   reset html, so smooth scrolling stayed on for people who asked for less
+   motion. */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        scroll-behavior: auto;
+    }
+}
+
+/* .scroll-indicator referenced a "bounce" animation that was never defined,
+   so the arrow sat still. The keyframes keep the translateX(-50%) centering
+   the element already relies on. */
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 6px);
+    }
+}
+
+/* --- Anchors and the sticky header ---------------------- */
+
+/* The header is sticky and 100-136px tall, so in-page links (#contact,
+   #stories, #documents, #donation-form-title) landed with their heading
+   hidden underneath it. */
+[id] {
+    scroll-margin-top: 8.5rem;
+}
+
+@media (max-width: 960px) {
+    [id] {
+        scroll-margin-top: 7rem;
+    }
+}
+
+/* --- Focus ----------------------------------------------- */
+
+/* The home program cards used the bright gold for their focus ring, which is
+   2.1:1 on white. Match the accessible ring used everywhere else. */
+.program-card:focus-visible {
+    outline-color: var(--color-accent-text);
+}
+
+/* --- Mobile navigation ----------------------------------- */
+
+@media (max-width: 960px) {
+    /* The menu opened at a fixed 70px, which overlapped the bottom of the
+       ~100px header. Anchor it to the header's bottom edge instead. */
+    .nav-links {
+        top: calc(100% + 0.5rem);
+    }
+
+    /* Turn the hamburger into a close icon while the menu is open, so the
+       control shows its state and how to undo it. Bars are 2px tall with a
+       4px gap, so each outer bar moves 6px to meet the middle. */
+    .nav-toggle span {
+        transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
+    }
+
+    .nav-toggle[aria-expanded='true'] span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded='true'] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded='true'] span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}
+
+/* --- Forms ----------------------------------------------- */
+
+/* Success messages put the contact email on its own line with "\n", which
+   collapsed into a space. */
+.form-feedback {
+    white-space: pre-line;
+}
+
+/* The headings inside the pledge and contact cards were full section-size
+   h2s (up to 2.6rem), which overpowered the fields under them. */
+.donate-form h2,
+.contact-form h2 {
+    font-size: clamp(1.5rem, 1vw + 1.1rem, 1.9rem);
+    margin-bottom: 0.25rem;
+}
+
+/* Breathing room above "What your gift can do" under the PayPal block. */
+.donate-details h3 {
+    margin-top: 1.75rem;
+}
+
+/* The frequency toggle sat flush against the amount field. */
+.donate-form .donate-group {
+    margin: 0.25rem 0 0;
+}
+
+/* --- Home hero impact card ------------------------------- */
+
+/* The "Figures as of 2026 · How we measure" line added a paragraph's worth of
+   bottom margin inside the card. */
+.hero-impact-card .small {
+    margin: 0;
+}
+
+/* --- Utilities (replace inline style attributes) --------- */
+
+.section-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.muted-note {
+    margin-top: 1rem;
+    color: var(--color-muted);
+}
+
+/* =========================================================
+   Responsive pass (checked at 390px phone and 768px tablet)
+   ========================================================= */
+
+/* Phone header was ~100px tall (68px logo), about an eighth of the screen,
+   and it stays pinned while scrolling. */
+@media (max-width: 640px) {
+    .logo img {
+        height: 52px;
+    }
+
+    .nav-wrapper {
+        padding: 0.6rem 0;
+    }
+}
+
+/* Phone campaign banner took ~120px with a full-width button. Keep it to
+   one row: label on the left, button on the right. */
+@media (max-width: 520px) {
+    .campaign-banner {
+        padding: 0.7rem 0;
+    }
+
+    .campaign-banner__inner {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .campaign-banner__copy {
+        display: none;
+    }
+
+    .campaign-banner__label {
+        font-size: 0.95rem;
+    }
+
+    .campaign-banner .btn {
+        width: auto;
+        flex: 0 0 auto;
+        padding: 0.55rem 1rem;
+    }
+}
+
+/* Tablet home hero: the two narrow columns squeezed the headline to four
+   lines and wrapped the badge. Stack the copy, then put the photo and the
+   impact card side by side underneath. */
+@media (min-width: 521px) and (max-width: 900px) {
+    .home-hero .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        justify-self: stretch;
+        max-width: none;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .hero-badge {
+        grid-column: 1 / -1;
+    }
+}
+
+/* The three impact stats wrapped 2 + 1 on phone and tablet. Keep them on
+   one row and drop the decorative icons to make room. */
+@media (max-width: 900px) {
+    .hero-impact-card .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-impact-card .stat-icon {
+        display: none;
+    }
+
+    .hero-impact-card .hero-stats dt {
+        font-size: 1.5rem;
+    }
+
+    .hero-impact-card .hero-stats dd {
+        font-size: 0.8rem;
+        line-height: 1.35;
+    }
+}
+
+/* Home program cards wrapped 2 + 1 on tablet, leaving a hole beside the
+   third card. Three short cards fit on one row from 700px. */
+@media (min-width: 700px) {
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet: the impact metrics wrapped 3 + 1, and the story and program
+   cards wrapped 2 + 1. Use a 2 x 2 grid for the metrics, and full-width
+   cards with the photo on the left for stories and programs. */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stories-grid,
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card,
+    .program-grid .program-card {
+        flex-direction: row;
+    }
+
+    .story-card .story-media {
+        flex: 0 0 40%;
+    }
+
+    .story-card .story-media img {
+        height: 100%;
+        aspect-ratio: auto;
+        border-radius: 0;
+    }
+
+    .program-grid .program-card > img {
+        flex: 0 0 40%;
+        width: 40%;
+        height: auto;
+        align-self: stretch;
+        object-fit: cover;
+        border-radius: 0;
+    }
+}
+
+/* Donate: "Directing your gift" and "What you get back" were squeezed side
+   by side on tablet, with the short card floating mid-height. Stack them. */
+@media (max-width: 900px) {
+    #giving-options .split {
+        grid-template-columns: 1fr;
+    }
+}
