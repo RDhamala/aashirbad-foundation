@@ -129,3 +129,141 @@
     margin-top: 1rem;
     color: var(--color-muted);
 }
+
+/* =========================================================
+   Responsive pass (checked at 390px phone and 768px tablet)
+   ========================================================= */
+
+/* Phone header was ~100px tall (68px logo), about an eighth of the screen,
+   and it stays pinned while scrolling. */
+@media (max-width: 640px) {
+    .logo img {
+        height: 52px;
+    }
+
+    .nav-wrapper {
+        padding: 0.6rem 0;
+    }
+}
+
+/* Phone campaign banner took ~120px with a full-width button. Keep it to
+   one row: label on the left, button on the right. */
+@media (max-width: 520px) {
+    .campaign-banner {
+        padding: 0.7rem 0;
+    }
+
+    .campaign-banner__inner {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .campaign-banner__copy {
+        display: none;
+    }
+
+    .campaign-banner__label {
+        font-size: 0.95rem;
+    }
+
+    .campaign-banner .btn {
+        width: auto;
+        flex: 0 0 auto;
+        padding: 0.55rem 1rem;
+    }
+}
+
+/* Tablet home hero: the two narrow columns squeezed the headline to four
+   lines and wrapped the badge. Stack the copy, then put the photo and the
+   impact card side by side underneath. */
+@media (min-width: 521px) and (max-width: 900px) {
+    .home-hero .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        justify-self: stretch;
+        max-width: none;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .hero-badge {
+        grid-column: 1 / -1;
+    }
+}
+
+/* The three impact stats wrapped 2 + 1 on phone and tablet. Keep them on
+   one row and drop the decorative icons to make room. */
+@media (max-width: 900px) {
+    .hero-impact-card .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-impact-card .stat-icon {
+        display: none;
+    }
+
+    .hero-impact-card .hero-stats dt {
+        font-size: 1.5rem;
+    }
+
+    .hero-impact-card .hero-stats dd {
+        font-size: 0.8rem;
+        line-height: 1.35;
+    }
+}
+
+/* Home program cards wrapped 2 + 1 on tablet, leaving a hole beside the
+   third card. Three short cards fit on one row from 700px. */
+@media (min-width: 700px) {
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet: the impact metrics wrapped 3 + 1, and the story and program
+   cards wrapped 2 + 1. Use a 2 x 2 grid for the metrics, and full-width
+   cards with the photo on the left for stories and programs. */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stories-grid,
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card,
+    .program-grid .program-card {
+        flex-direction: row;
+    }
+
+    .story-card .story-media {
+        flex: 0 0 40%;
+    }
+
+    .story-card .story-media img {
+        height: 100%;
+        aspect-ratio: auto;
+        border-radius: 0;
+    }
+
+    .program-grid .program-card > img {
+        flex: 0 0 40%;
+        width: 40%;
+        height: auto;
+        align-self: stretch;
+        object-fit: cover;
+        border-radius: 0;
+    }
+}
+
+/* Donate: "Directing your gift" and "What you get back" were squeezed side
+   by side on tablet, with the short card floating mid-height. Stack them. */
+@media (max-width: 900px) {
+    #giving-options .split {
+        grid-template-columns: 1fr;
+    }
+}
