@@ -166,6 +166,7 @@ const applyPartials = () => {
 
 const HASHED_ASSETS = [
     { dir: 'css', base: 'style', ext: 'css' },
+    { dir: 'css', base: 'refinements', ext: 'css' },
     { dir: 'js', base: 'script', ext: 'js' }
 ];
 
