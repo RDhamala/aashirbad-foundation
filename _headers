@@ -32,6 +32,9 @@
 /css/style.*.css
   Cache-Control: public, max-age=31536000, immutable
 
+/css/refinements.*.css
+  Cache-Control: public, max-age=31536000, immutable
+
 /js/script.*.js
   Cache-Control: public, max-age=31536000, immutable
 
@@ -39,6 +42,9 @@
 # not referenced by any page. Keep them short-lived in case anything
 # reaches them directly.
 /css/style.css
+  Cache-Control: public, max-age=300
+
+/css/refinements.css
   Cache-Control: public, max-age=300
 
 /js/script.js
