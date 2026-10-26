@@ -18,21 +18,48 @@ const App = (() => {
         obfuscatedEmails: '[data-email-user][data-email-domain]'
     };
 
+    const prefersReducedMotion = () =>
+        typeof window.matchMedia === 'function' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const initNav = () => {
         const toggle = document.querySelector(selectors.navToggle);
         const navLinks = document.querySelector(selectors.navLinks);
         if (!toggle || !navLinks) return;
 
+        const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+        // Keep the visible state, aria-expanded, and the accessible name in
+        // step. The label used to stay "Open navigation" while the menu was open.
+        const setOpen = (open) => {
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+            navLinks.classList.toggle('open', open);
+        };
+
         toggle.addEventListener('click', () => {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', (!expanded).toString());
-            navLinks.classList.toggle('open');
+            setOpen(!isOpen());
         });
 
         navLinks.addEventListener('click', (event) => {
             if (event.target instanceof HTMLAnchorElement) {
-                navLinks.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
+                setOpen(false);
+            }
+        });
+
+        // Escape closes the menu and returns focus to the toggle.
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && isOpen()) {
+                setOpen(false);
+                toggle.focus();
+            }
+        });
+
+        // A click anywhere outside the open menu closes it.
+        document.addEventListener('click', (event) => {
+            if (!isOpen()) return;
+            const target = event.target;
+            if (target instanceof Node && !navLinks.contains(target) && !toggle.contains(target)) {
+                setOpen(false);
             }
         });
 
@@ -68,6 +95,11 @@ const App = (() => {
     const initFadeIn = () => {
         const fadeEls = document.querySelectorAll(selectors.fadeElements);
         if (!fadeEls.length) return;
+        // Without IntersectionObserver the elements would stay at opacity 0.
+        if (!('IntersectionObserver' in window)) {
+            fadeEls.forEach((el) => el.classList.add('visible'));
+            return;
+        }
         const observer = new IntersectionObserver(
             (entries, obs) => {
                 entries.forEach((entry) => {
@@ -85,13 +117,44 @@ const App = (() => {
     const initSmoothScroll = () => {
         document.querySelectorAll(selectors.smoothScrollLinks).forEach((anchor) => {
             anchor.addEventListener('click', (event) => {
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) {
-                    event.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
+                let target = null;
+                try {
+                    target = document.querySelector(href);
+                } catch {
+                    return;
+                }
+                if (!target) return;
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+                    block: 'start'
+                });
+                // Move focus with the scroll so keyboard and screen reader users
+                // land where sighted users do. This is what makes the skip link
+                // actually skip.
+                const focusable = /^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(target.tagName);
+                if (!focusable && !target.hasAttribute('tabindex')) {
+                    target.setAttribute('tabindex', '-1');
+                }
+                target.focus({ preventScroll: true });
+                if (window.history && typeof window.history.pushState === 'function') {
+                    window.history.pushState(null, '', href);
                 }
             });
         });
+    };
+
+    const resetFrequency = (frequencyButtons, frequencyInput) => {
+        frequencyButtons.forEach((btn, index) => {
+            const isActive = index === 0;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        if (frequencyInput && frequencyButtons.length) {
+            frequencyInput.value = frequencyButtons[0].getAttribute('data-frequency') || 'once';
+        }
     };
 
     const initDonationForm = () => {
@@ -260,6 +323,18 @@ const App = (() => {
                     , 'success');
                     form.reset();
                     form.dataset.startTime = String(Date.now());
+                    // form.reset() puts the hidden frequency input back to "once"
+                    // but leaves the toggle buttons showing the old choice.
+                    // Reset both so the form and what it displays agree.
+                    const amountButtons = form.querySelectorAll('.amount');
+                    amountButtons.forEach((btn) => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-pressed', 'false');
+                    });
+                    resetFrequency(
+                        form.querySelectorAll('.toggle'),
+                        form.querySelector('#donation-frequency')
+                    );
                 };
 
                 if (isExternal) {
@@ -289,21 +364,6 @@ const App = (() => {
                 }
 
                 handleSuccess();
-                const amountButtons = form.querySelectorAll('.amount');
-                amountButtons.forEach((btn) => {
-                    btn.classList.remove('active');
-                    btn.setAttribute('aria-pressed', 'false');
-                });
-                const toggles = form.querySelectorAll('.toggle');
-                toggles.forEach((btn, index) => {
-                    const isActive = index === 0;
-                    btn.classList.toggle('active', isActive);
-                    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                });
-                const freqInput = form.querySelector('#donation-frequency');
-                if (freqInput && toggles.length) {
-                    freqInput.value = toggles[0].getAttribute('data-frequency') || 'once';
-                }
             });
         });
     };
