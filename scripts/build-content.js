@@ -120,7 +120,8 @@ const applyPartials = () => {
         'donate.html',
         'thank-you.html',
         'privacy.html',
-        'flood-education-recovery.html'
+        'flood-education-recovery.html',
+        '404.html'
     ];
     const ctaPages = [
         'index.html',
@@ -129,7 +130,8 @@ const applyPartials = () => {
         'impact.html',
         'donate.html',
         'thank-you.html',
-        'privacy.html'
+        'privacy.html',
+        '404.html'
     ];
 
     allPages.forEach((page) => {
