@@ -1,6 +1,6 @@
 # Aashirbad Foundation Website
 
-A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonprofit providing technology scholarships for students in Nepal. The site highlights mission, programs, stories, impact data, and transparency resources with an accessible, mobile-first design.
+A modern, multi-page static site for the Aashirbad Foundation, a 501(c)(3) nonprofit helping students in Dhading, Nepal stay in school through education support, mentorship, and digital opportunity. The site highlights mission, programs, stories, impact data, and transparency resources with an accessible, mobile-first design.
 
 ## Tech Stack
 

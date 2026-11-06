@@ -267,3 +267,13 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Hero copy is the first thing people see (and the page's largest text), so
+   it should not wait for script.js and an 0.85s fade before it is readable.
+   Below-the-fold sections keep the fade. */
+.hero .fade-in,
+.page-hero .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
